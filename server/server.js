@@ -1,9 +1,14 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 
 const movies = require('./routes/api/movies');
 
 const app = express();
+
+// BodyParser middleware
+app.use(bodyParser.urlencoded({expanded: false}));
+app.use(bodyParser.json());
 
 // DB config
 const db = require('./config/keys').mongoURI;

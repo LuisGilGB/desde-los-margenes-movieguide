@@ -1,26 +1,30 @@
 // server/models/Movie.js
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-let MovieSchema = new mongoose.Schema(
+let MovieSchema = new Schema(
     {
-        title: String,
+        title: {
+            type: String,
+            required: true
+        },
         originalTitle: String,
         description: String,
         year: Number,
         minutesLength: Number,
         director: {
-            type: mongoose.Schema.Types.ObjectId,
+            type: Schema.Types.ObjectId,
             ref: 'Person'
         },
         actors: [
             {
-                type: mongoose.Schema.Types.ObjectId,
+                type: Schema.Types.ObjectId,
                 ref: 'Person'
             }
         ],
         countries: [
             {
-                type: mongoose.Schema.Types.ObjectId,
+                type: Schema.Types.ObjectId,
                 ref: 'Country'
             }
         ]

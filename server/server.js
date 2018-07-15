@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 
-const movies = require('routes/api/movies');
+const movies = require('./routes/api/movies');
 
 const app = express();
 

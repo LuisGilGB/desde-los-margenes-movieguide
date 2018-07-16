@@ -8,13 +8,26 @@ let MovieSchema = new Schema(
             type: String,
             required: true
         },
-        originalTitle: String,
-        description: String,
-        year: Number,
-        minutesLength: Number,
+        originalTitle: {
+            type: String,
+            required: true
+        },
+        description: {
+            type: String,
+            required: true
+        },
+        year: {
+            type: Number,
+            required: true
+        },
+        minutesLength: {
+            type: Number,
+            required: true
+        },
         director: {
             type: Schema.Types.ObjectId,
-            ref: 'Person'
+            ref: 'Person',
+            required: true
         },
         actors: [
             {

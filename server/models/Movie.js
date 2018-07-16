@@ -26,8 +26,7 @@ let MovieSchema = new Schema(
         },
         director: {
             type: Schema.Types.ObjectId,
-            ref: 'Person',
-            required: true
+            ref: 'Person'
         },
         actors: [
             {

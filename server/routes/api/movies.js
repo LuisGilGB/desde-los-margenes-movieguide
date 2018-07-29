@@ -17,7 +17,7 @@ router.get('/test', (req, res) => res.json({msg: 'Movies works'}));
 router.post('/register', (req, res) => {
     const { body = {} } = req;
     Movie.findOne({ title: body.title })
-            .then((movie) => {
+            .then(movie => {
                 if (movie) {
                     return res.status(400).json({ title: 'A movie with this title already exists'});
                 } else {

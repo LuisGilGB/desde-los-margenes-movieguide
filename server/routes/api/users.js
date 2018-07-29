@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+const keys = require('../../config/keys');
 
 // Import models
 const modelsDir = '../../models/';
@@ -63,7 +65,22 @@ router.post('/login', (req, res) => {
             bcrypt.compare(password, user.password)
                 .then(isMatch => {
                     if (isMatch) {
-                        res.json({ msg: 'Success' });
+                        const payload = {
+                            id: user.id,
+                            name: user.name
+                        }
+
+                        jwt.sign(
+                            payload,
+                            keys.secretOrKey,
+                            { expiresIn: 3600 },
+                            () => {
+                                res.json({
+                                    success: true,
+                                    token: `Bearer ${token}`
+                                });
+                            }
+                        );
                     } else {
                         return res.status(400).json({ password: 'Wrong password' });
                     }

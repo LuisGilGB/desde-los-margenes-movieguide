@@ -32,8 +32,8 @@ router.post('/register', (req, res) => {
     User.findOne({ email: body.email })
         .then(user => {
             if (user) {
-                errors.email = 'An user with this email already exists';
-                return res.status(400).json({ errors });
+                errors.email = 'A user with this email already exists';
+                return res.status(400).json(errors);
             } else {
                 const newUser = new User({
                     name: body.name,
@@ -70,7 +70,7 @@ router.post('/login', (req, res) => {
     const { errors, isValid } = validateLoginInput(body);
 
     if (!isValid) {
-        return res.status(400).json({ errors });
+        return res.status(400).json(errors);
     }
 
     User.findOne({ email })

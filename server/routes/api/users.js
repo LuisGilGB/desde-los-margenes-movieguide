@@ -9,6 +9,9 @@ const passport = require('passport');
 const modelsDir = '../../models/';
 const User = require(`${modelsDir}User`);
 
+// Load input Validation
+const validateRegisterInput = require('../../validation/user/register');
+
 // @route   GET api/users/test
 // @desc    Tests users route
 // @access  Public
@@ -19,10 +22,17 @@ router.get('/test', (req, res) => res.json({ msg: 'User works'}));
 // @access  Public
 router.post('/register', (req, res) => {
     const { body = {} } = req;
+    const { errors, isValid } = validateRegisterInput(body);
+
+    if (!isValid) {
+        return res.status(400).json({ errors });
+    }
+
     User.findOne({ email: body.email })
         .then(user => {
             if (user) {
-                return res.status(400).json({ email: 'An user with this email already exists' });
+                errors.email = 'An user with this email already exists';
+                return res.status(400).json({ errors });
             } else {
                 const newUser = new User({
                     name: body.name,

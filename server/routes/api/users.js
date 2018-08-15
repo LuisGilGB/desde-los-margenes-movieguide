@@ -11,6 +11,7 @@ const User = require(`${modelsDir}User`);
 
 // Load input Validation
 const validateRegisterInput = require('../../validation/user/register');
+const validateLoginInput = require('../../validation/user/login');
 
 // @route   GET api/users/test
 // @desc    Tests users route
@@ -66,10 +67,17 @@ router.post('/register', (req, res) => {
 router.post('/login', (req, res) => {
     const { body = {} } = req;
     const { email, password } = body;
+    const { errors, isValid } = validateLoginInput(body);
+
+    if (!isValid) {
+        return res.status(400).json({ errors });
+    }
+
     User.findOne({ email })
         .then(user => {
             if (!user) {
-                return res.status(404).json({ email: 'User not found'});
+                errors.email = 'User not found';
+                return res.status(404).json(errors);
             }
 
             // Check password
@@ -93,7 +101,8 @@ router.post('/login', (req, res) => {
                             }
                         );
                     } else {
-                        return res.status(400).json({ password: 'Wrong password' });
+                        errors.password = 'Wrong password'
+                        return res.status(400).json(errors);
                     }
                 })
                 .catch(err => console.log(err));

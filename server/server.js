@@ -8,8 +8,7 @@ const usersRoutes = require('./routes/api/users');
 
 const app = express();
 
-// BodyParser middleware
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // DB config

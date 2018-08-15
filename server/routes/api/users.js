@@ -23,10 +23,10 @@ router.get('/test', (req, res) => res.json({ msg: 'User works'}));
 // @access  Public
 router.post('/register', (req, res) => {
     const { body = {} } = req;
+    console.log(body);
     const { errors, isValid } = validateRegisterInput(body);
 
     if (!isValid) {
-        console.log('Body is not valid');
         return res.status(400).json({ errors });
     }
 

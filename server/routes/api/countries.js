@@ -57,7 +57,8 @@ const registerCountry = (country = {}) => {
 router.post('/', (req, res) => {
     const { body = {} } = req;
     let errors = {}
-    if (typeof body === 'array') {
+    
+    if (Array.isArray(body)) {
         const badCountry = body.find(country => {
             const { isValid, errors: validatorErrors } = validateCountryInput(country);
             if (!isValid) {

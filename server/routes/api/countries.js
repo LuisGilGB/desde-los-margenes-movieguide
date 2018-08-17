@@ -7,13 +7,15 @@ const passport = require('passport');
 const modelsDir = '../../models/';
 const Country = require(`${modelsDir}Country`);
 
+const validateCountryInput = require('../../validation/country/country');
+
 // @route   GET api/countries/test
 // @desc    Tests countries route
 // @access  Public
 router.get('/test', (req, res) => res.json({ msg: 'Countries works'}));
 
-// @route   GET api/countries/test
-// @desc    Tests countries route
+// @route   GET api/countries
+// @desc    Get all countries into the database
 // @access  Public
 router.get('/', (req, res) => {
     Country.find()

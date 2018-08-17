@@ -4,10 +4,11 @@ const isEmpty = require('../is-empty');
 module.exports = function validateCountryInput (countryData) {
     const errors = {}
 
+    countryData = !isEmpty(countryData) ? countryData : {};
     countryData.countryId = !isEmpty(countryData.countryId) ? countryData.countryId : '';
-    countryData.name = !isEmpty(countryData.name) ? countryData.name : '';
     countryData.shortName = !isEmpty(countryData.shortName) ? countryData.shortName : '';
-    countryData.flag = !isEmpty(countryData.flag) ? countryData.flag : '';
+    countryData.name      = !isEmpty(countryData.name)      ? countryData.name      : '';
+    countryData.flag      = !isEmpty(countryData.flag)      ? countryData.flag      : '';
 
     if (Validator.isEmpty(countryData.countryId)) {
         errors.countryId = 'Country ID is required';

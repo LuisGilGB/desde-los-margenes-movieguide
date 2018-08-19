@@ -13,8 +13,14 @@ const CountrySchema = new mongoose.Schema(
             required: true
         },
         name: {
-            type: String,
-            required: true
+            en: {
+                type: String,
+                required: true
+            },
+            es: {
+                type: String,
+                required: true
+            }
         },
         flag: {
             type: String

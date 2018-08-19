@@ -1,5 +1,6 @@
 const Validator = require('validator');
 const isEmpty = require('../is-empty');
+const languageCodes = require('../../config/languageCodes');
 
 module.exports = function validateCountryInput (countryData) {
     const errors = {}
@@ -7,7 +8,7 @@ module.exports = function validateCountryInput (countryData) {
     countryData = !isEmpty(countryData) ? countryData : {};
     countryData.countryId = !isEmpty(countryData.countryId) ? countryData.countryId : '';
     countryData.shortName = !isEmpty(countryData.shortName) ? countryData.shortName : '';
-    countryData.name      = !isEmpty(countryData.name)      ? countryData.name      : '';
+    countryData.name      = !isEmpty(countryData.name)      ? countryData.name      : {};
     countryData.flag      = !isEmpty(countryData.flag)      ? countryData.flag      : '';
 
     if (Validator.isEmpty(countryData.countryId)) {
@@ -22,8 +23,10 @@ module.exports = function validateCountryInput (countryData) {
         errors.shortName = 'A short name must have 3 characters';
     }
 
-    if (Validator.isEmpty(countryData.name)) {
+    if (isEmpty(countryData.name)) {
         errors.name = 'Name is required';
+    } else if (!languageCodes.some(code => !isEmpty(countryData.name[code]))) {
+        errors.name = 'There are no names for any valid language';
     }
 
     if (!Validator.isEmpty(countryData.flag) && !Validator.isURL(countryData.flag)) {

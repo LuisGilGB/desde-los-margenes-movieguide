@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const passport = require('passport');
+const languageCodes = require('../../config/languageCodes');
 
 // Import models
 const modelsDir = '../../models/';
@@ -15,6 +16,7 @@ const validateCountryInput = require('../../validation/country/country');
 router.get('/test', (req, res) => res.json({ msg: 'Countries works'}));
 
 // @route   GET api/countries
+// @query   lang Get all countries with its name in the given language.
 // @desc    Get all countries into the database
 // @access  Public
 router.get('/', (req, res) => {
@@ -25,7 +27,12 @@ router.get('/', (req, res) => {
                 errors.countries = 'There are no countries';
                 return res.status(404).json(errors);
             }
-            res.json(countries);
+            const { lang } = req.query;
+            if (lang && languageCodes.indexOf(lang) !== -1) {
+                res.json(countries.map(c => ({countryId: c.countryId, shortName: c.shortName, name: c.name[lang]})));
+            } else {
+                res.json(countries.map(c => ({countryId: c.countryId, shortName: c.shortName, name: c.name})));
+            }
         })
         .catch(err => res.status(500).json(err));
 });
@@ -57,7 +64,7 @@ const registerCountry = (country = {}) => {
 router.post('/', (req, res) => {
     const { body = {} } = req;
     let errors = {}
-    
+
     if (Array.isArray(body)) {
         const badCountry = body.find(country => {
             const { isValid, errors: validatorErrors } = validateCountryInput(country);

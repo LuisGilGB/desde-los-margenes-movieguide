@@ -25,6 +25,8 @@ module.exports = function validateCountryInput (countryData) {
 
     if (isEmpty(countryData.name)) {
         errors.name = 'Name is required';
+    } else if (typeof countryData.name !== 'object') {
+        errors.name = 'Name must be an object';
     } else if (!languageCodes.some(code => !isEmpty(countryData.name[code]))) {
         errors.name = 'There are no names for any valid language';
     }

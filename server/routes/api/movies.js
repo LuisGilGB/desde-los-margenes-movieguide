@@ -12,14 +12,19 @@ const Person = require(`${modelsDir}Person`)
 router.get('/test', (req, res) => res.json({msg: 'Movies works'}));
 
 // @route   GET api/movies/test
-// @desc    Test movies route
-// @acces   Public
-router.post('/register', (req, res) => {
-    const { body = {} } = req;
+// @desc    Register a new movie
+// @query   forceCreation Create a new record even if there already is a movie with the same title.
+// @acces   Private
+router.post('/register', passport.authenticate('jwt', { session: false }), (req, res) => {
+    const { body = {}, query } = req;
+    const { forceCreation = false } = query;
+
     Movie.findOne({ title: body.title })
         .then(movie => {
-            if (movie) {
-                return res.status(400).json({ title: 'A movie with this title already exists'});
+            if (!forceCreation && people && people.length) {
+                errors.title = 'One or more movies with this title already exists';
+                errors.matchedMovies = people;
+                return res.status(400).json(errors);
             } else {
                 const newMovie = new Movie({
                     title           : body.title,

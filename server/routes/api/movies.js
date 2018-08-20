@@ -39,7 +39,7 @@ router.get('/', (req, res) => {
 router.post('/register', passport.authenticate('jwt', { session: false }), (req, res) => {
     const { body = {}, query } = req;
     const { forceCreation = false } = query;
-    const { errors, isValid } = validateMovieToRegister;
+    const { errors, isValid } = validateMovieToRegister(body);
 
     if (!isValid) {
         return res.status(400).json(errors);

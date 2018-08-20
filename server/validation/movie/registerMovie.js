@@ -27,11 +27,11 @@ module.exports = function validateMovieRegisterInput (movieData) {
         errors.description = 'Description must be a string';
     }
 
-    if (typeof movieData.year !== 'string') {
+    if (typeof movieData.year !== 'number') {
         errors.title = "Year must be a number";
     }
 
-    if (typeof movieData.minutesLength !== 'string') {
+    if (typeof movieData.minutesLength !== 'number') {
         errors.title = "Minutes length must be a number";
     }
     

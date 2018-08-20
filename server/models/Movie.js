@@ -24,10 +24,12 @@ let MovieSchema = new Schema(
             type: Number,
             required: true
         },
-        director: {
-            type: Schema.Types.ObjectId,
-            ref: 'Person'
-        },
+        directors: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'Person'
+            }
+        ],
         actors: [
             {
                 type: Schema.Types.ObjectId,

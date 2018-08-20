@@ -16,8 +16,8 @@ const validateCountryInput = require('../../validation/country/country');
 router.get('/test', (req, res) => res.json({ msg: 'Countries path works'}));
 
 // @route   GET api/countries
-// @query   lang Get all countries with its name in the given language.
 // @desc    Get all countries into the database
+// @query   lang Get all countries with its name in the given language.
 // @access  Public
 router.get('/', (req, res) => {
     const errors = {}

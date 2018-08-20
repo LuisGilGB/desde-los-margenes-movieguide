@@ -31,7 +31,7 @@ module.exports = function validateCountryInput (countryData) {
         errors.name = 'There are no names for any valid language';
     }
 
-    if (!Validator.isEmpty(countryData.flag) && !Validator.isURL(countryData.flag)) {
+    if (countryData.flag && !Validator.isURL(countryData.flag)) {
         errors.flag = 'The flag must be a valid URL';
     }
 

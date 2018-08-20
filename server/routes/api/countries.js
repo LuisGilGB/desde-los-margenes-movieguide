@@ -13,7 +13,7 @@ const validateCountryInput = require('../../validation/country/country');
 // @route   GET api/countries/test
 // @desc    Tests countries route
 // @access  Public
-router.get('/test', (req, res) => res.json({ msg: 'Countries works'}));
+router.get('/test', (req, res) => res.json({ msg: 'Countries path works'}));
 
 // @route   GET api/countries
 // @query   lang Get all countries with its name in the given language.

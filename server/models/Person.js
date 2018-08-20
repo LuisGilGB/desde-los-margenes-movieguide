@@ -11,6 +11,12 @@ const PersonSchema = new Schema(
         description: {
             type: String
         },
+        movies: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'Movie'
+            }
+        ],
         countries: [
             {
                 type: Schema.Types.ObjectId,

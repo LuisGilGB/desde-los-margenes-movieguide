@@ -29,7 +29,7 @@ router.get('/', (req, res) => {
         .catch(err => res.status(500).json(err));
 });
 
-// @route   GET api/movies/test
+// @route   POST api/movies/register
 // @desc    Register a new movie
 // @query   forceCreation Create a new record even if there already is a movie with the same title.
 // @acces   Private

@@ -7,6 +7,7 @@ const passport = require('passport');
 const modelsDir = '../../models/';
 const Person = require(`${modelsDir}Person`);
 
+// Import validators
 const validatePersonToAdd = require('../../validation/person/addPerson.js');
 
 // @route   GET api/people/test
@@ -40,7 +41,7 @@ router.post('/add', passport.authenticate('jwt', { session: false }), (req, res)
     const { errors, isValid } = validatePersonToAdd(body);
 
     if (!isValid) {
-        return res.status(400).json({ errors });
+        return res.status(400).json(errors);
     }
 
     Person.find({ name: body.name })

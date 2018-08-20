@@ -6,7 +6,10 @@ const passport = require('passport');
 // Import models
 const modelsDir = '../../models/';
 const Movie = require(`${modelsDir}Movie`);
-const Person = require(`${modelsDir}Person`)
+const Person = require(`${modelsDir}Person`);
+
+// Import validators
+const validateMovieToRegister = require('../../validation/movie/registerMovie');
 
 // @route   GET api/movies/test
 // @desc    Test movies route
@@ -36,9 +39,14 @@ router.get('/', (req, res) => {
 router.post('/register', passport.authenticate('jwt', { session: false }), (req, res) => {
     const { body = {}, query } = req;
     const { forceCreation = false } = query;
+    const { errors, isValid } = validateMovieToRegister;
+
+    if (!isValid) {
+        return res.status(400).json(errors);
+    }
 
     Movie.findOne({ title: body.title })
-        .then(movie => {
+        .then(movies => {
             if (!forceCreation && movies && movies.length) {
                 errors.title = 'One or more movies with this title already exists';
                 errors.matchedMovies = movies;

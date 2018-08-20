@@ -13,16 +13,14 @@ let MovieSchema = new Schema(
             required: true
         },
         description: {
-            type: String,
-            required: true
+            type: String
         },
         year: {
             type: Number,
             required: true
         },
         minutesLength: {
-            type: Number,
-            required: true
+            type: Number
         },
         directors: [
             {

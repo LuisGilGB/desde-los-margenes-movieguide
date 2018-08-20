@@ -6,7 +6,7 @@ module.exports = function validateMovieRegisterInput (movieData) {
 
     movieData = !isEmpty(movieData) ? movieData : {};
     movieData.title = !isEmpty(movieData.title) ? movieData.title : '';
-    movieData.originalTitle = !isEmpty(movieData.originalTitle) ? movieData.originalTitle : '';
+    movieData.originalTitle = !isEmpty(movieData.originalTitle) ? movieData.originalTitle : movieData.title;
     movieData.description = !isEmpty(movieData.description) ? movieData.description : '';
     movieData.year = !isEmpty(movieData.year) ? movieData.year : (new Date).getFullYear();
     movieData.minutesLength = !isEmpty(movieData.minutesLength) ? movieData.minutesLength : 0;
@@ -17,7 +17,9 @@ module.exports = function validateMovieRegisterInput (movieData) {
         errors.title = 'Title must be a string';
     }
 
-    if (typeof movieData.originalTitle !== 'string') {
+    if (Validator.isEmpty(movieData.originalTitle)) {
+        errors.originalTitle = "The movie must have an original title";
+    } else if (typeof movieData.originalTitle !== 'string') {
         errors.originalTitle = 'Original title must be a string';
     }
 
@@ -29,7 +31,7 @@ module.exports = function validateMovieRegisterInput (movieData) {
         errors.title = "Year must be a number";
     }
 
-    if (typeof movieData.minutesLength !== 'string')) {
+    if (typeof movieData.minutesLength !== 'string') {
         errors.title = "Minutes length must be a number";
     }
     

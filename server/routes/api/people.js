@@ -7,7 +7,7 @@ const passport = require('passport');
 const modelsDir = '../../models/';
 const Person = require(`${modelsDir}Person`);
 
-const validatePersonInput = require('../../validation/person/person');
+const validatePersonToAdd = require('../../validation/person/addPerson.js');
 
 // @route   GET api/people/test
 // @desc    Tests people route
@@ -37,7 +37,7 @@ router.get('/', (req, res) => {
 router.post('/add', passport.authenticate('jwt', { session: false }), (req, res) => {
     const { body = {}, query } = req;
     const { forceCreation = false } = query;
-    const { errors, isValid } = validatePersonInput(body);
+    const { errors, isValid } = validatePersonToAdd(body);
 
     if (!isValid) {
         return res.status(400).json({ errors });

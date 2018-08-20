@@ -8,7 +8,7 @@ const languageCodes = require('../../config/languageCodes');
 const modelsDir = '../../models/';
 const Country = require(`${modelsDir}Country`);
 
-const validateCountryInput = require('../../validation/country/country');
+const validateCountryInput = require('../../validation/country/postCountry');
 
 // @route   GET api/countries/test
 // @desc    Tests countries route

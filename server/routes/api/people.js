@@ -14,6 +14,22 @@ const validatePersonInput = require('../../validation/person/person');
 // @access  Public
 router.get('/test', (req, res) => res.json({ msg: 'People path works'}));
 
+// @route   GET api/people
+// @desc    Get all people into the database
+// @access  Public
+router.get('/', (req, res) => {
+    const errors = {}
+    Person.find()
+        .then(people => {
+            if (!people) {
+                errors.people = 'There are no people';
+                return res.status(404).json(errors);
+            }
+            res.json(people);
+        })
+        .catch(err => res.status(500).json(err));
+});
+
 // @route   POST api/people/add
 // @desc    Add a new person
 // @query   forceCreation Create a new record even if there already is a person with the same name.

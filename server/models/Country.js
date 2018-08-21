@@ -1,12 +1,31 @@
 // server/models/Country.js
 const mongoose = require('mongoose');
 
-let CountrySchema = new mongoose.Schema(
+const CountrySchema = new mongoose.Schema(
     {
-        id: String,
-        name: String,
-        shortName: String,
-        flag: String
+        countryId: {
+            type: String,
+            required: true,
+            unique: true
+        },
+        shortName: {
+            type: String,
+            required: true
+        },
+        name: {
+            en: {
+                type: String,
+                required: true
+            },
+            es: {
+                type: String,
+                required: true
+            }
+        },
+        flag: {
+            type: String
+        }
     }
 );
+
 module.exports = mongoose.model('Country', CountrySchema);

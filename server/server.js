@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const passport = require('passport');
 
+const countriesRoutes = require('./routes/api/countries');
+const peopleRoutes = require('./routes/api/people');
 const moviesRoutes = require('./routes/api/movies');
 const usersRoutes = require('./routes/api/users');
 
@@ -27,6 +29,8 @@ app.use(passport.initialize());
 require('./config/passport')(passport);
 
 // Use Routes
+app.use('/api/countries', countriesRoutes);
+app.use('/api/people', peopleRoutes);
 app.use('/api/movies', moviesRoutes);
 app.use('/api/users', usersRoutes);
 

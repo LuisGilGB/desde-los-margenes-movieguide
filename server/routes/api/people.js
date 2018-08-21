@@ -28,7 +28,7 @@ router.get('/', (req, res) => {
             }
             res.json(people);
         })
-        .catch(err => res.status(500).json(err));
+        .catch(err => console.log(err));
 });
 
 // @route   POST api/people/add

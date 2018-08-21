@@ -34,7 +34,7 @@ router.get('/', (req, res) => {
                 res.json(countries.map(c => ({countryId: c.countryId, shortName: c.shortName, name: c.name})));
             }
         })
-        .catch(err => res.status(500).json(err));
+        .catch(err => console.log(err));
 });
 
 const registerCountry = (country = {}) => {

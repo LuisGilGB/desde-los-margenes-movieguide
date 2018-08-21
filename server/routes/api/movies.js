@@ -29,7 +29,29 @@ router.get('/', (req, res) => {
             }
             res.json(movies);
         })
-        .catch(err => res.status(500).json(err));
+        .catch(err => console.log(err));
+});
+
+// @route   GET api/movies/randommovie
+// @desc    Get a random movie from the database
+// @access  Public
+router.get('/randommovie', (req, res) => {
+    const errors = {}
+    Movie.countDocuments()
+        .then(count => {
+            const random = Math.floor(Math.random() * count);
+            Movie.findOne()
+                .skip(random)
+                .then(movie => {
+                    if (!movie) {
+                        errors.movie = 'There are no movies';
+                        return res.status(404).json(errors);
+                    }
+                    res.json(movie);
+                })
+                .catch(err => console.log(err));
+        })
+        .catch(err => console.log(err));
 });
 
 // @route   POST api/movies/register
@@ -45,7 +67,7 @@ router.post('/register', passport.authenticate('jwt', { session: false }), (req,
         return res.status(400).json(errors);
     }
 
-    Movie.findOne({ title: body.title })
+    Movie.find({ title: body.title })
         .then(movies => {
             if (!forceCreation && movies && movies.length) {
                 errors.title = 'One or more movies with this title already exists';

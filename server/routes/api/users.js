@@ -16,7 +16,7 @@ const validateLoginInput = require('../../validation/user/login');
 // @route   GET api/users/test
 // @desc    Tests users route
 // @access  Public
-router.get('/test', (req, res) => res.json({ msg: 'User works'}));
+router.get('/test', (req, res) => res.json({ msg: 'Users path works'}));
 
 // @route   POST api/users/register
 // @desc    Register user
@@ -26,7 +26,7 @@ router.post('/register', (req, res) => {
     const { errors, isValid } = validateRegisterInput(body);
 
     if (!isValid) {
-        return res.status(400).json({ errors });
+        return res.status(400).json(errors);
     }
 
     User.findOne({ email: body.email })

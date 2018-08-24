@@ -1,12 +1,27 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { Link } from 'react-router-dom';
 
 class AppHeader extends Component {
     render () {
         return (
-            <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-                <h1 className="App-title">Welcome to React</h1>
+            <header className="app-header">
+                <div className="app-logo left-item">
+                    <Link to='/'>
+                        <div className="header-navlink-btn">App</div>
+                    </Link>
+                </div>
+                <div className="app-header-tools">
+                    <div className="register-btn">
+                        <Link to='/register'>
+                            <div className="header-navlink-btn">Register</div>
+                        </Link>
+                    </div>
+                    <div className="login-btn">
+                        <Link to='/login'>
+                            <div className="header-navlink-btn">Login</div>
+                        </Link>
+                    </div>
+                </div>
             </header>
         );
     }

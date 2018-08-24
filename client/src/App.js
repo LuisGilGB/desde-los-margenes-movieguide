@@ -11,7 +11,7 @@ class App extends Component {
                 <Router>
                     <div className="App">
                         <AppHeader />
-                        <Route path='' render={() => (
+                        <Route path='/' exact render={() => (
                             <p className="App-intro">
                                 To get started, edit <code>src/App.js</code> and save to reload.
                             </p>

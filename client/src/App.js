@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {BrowserRouter as Router} from 'react-router-dom';
 import {Provider} from 'react-redux';
 import {Container} from './common';
-import AppHeader from './AppHeader';
+import AppHeader from './appHeader/AppHeader';
 import AppBody from './appBody/AppBody';
 import './App.css';
 

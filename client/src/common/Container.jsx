@@ -11,7 +11,7 @@ class Container extends Component {
             <div
                 className={setClassNames(deafultContainerClassNames, this.props)}
             >
-                {...this.props.children}
+                {this.props.children}
             </div>
         );
     }

@@ -1,5 +1,5 @@
 import Container from './Container';
 
-export default {
+export {
     Container
 }

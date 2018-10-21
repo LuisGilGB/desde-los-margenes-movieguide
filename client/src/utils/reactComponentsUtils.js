@@ -1,0 +1,1 @@
+export const setClassNames = (defaultClassNames, props) => defaultClassNames.join(' ') + (props.className ? ` ${props.className}` : '');

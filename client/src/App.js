@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import {BrowserRouter as Router} from 'react-router-dom';
 import {Provider} from 'react-redux';
 import {Container} from './common';
 import AppHeader from './AppHeader';
+import AppBody from './appBody/AppBody';
 import './App.css';
 
 class App extends Component {
@@ -12,11 +13,7 @@ class App extends Component {
                 <Router>
                     <Container className="app">
                         <AppHeader />
-                        <Route path='/' exact render={() => (
-                            <p className="app-intro">
-                                To get started, edit <code>src/App.js</code> and save to reload.
-                            </p>
-                        )} />
+                        <AppBody />
                     </Container>
                 </Router>
             </Provider>

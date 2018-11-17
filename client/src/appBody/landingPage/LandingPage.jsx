@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
-import {Container} from '../../common';
+import {Container, LinkButton} from '../../common';
 
 class LandingPage extends Component {
     render () {
@@ -8,16 +7,18 @@ class LandingPage extends Component {
             <Container
                 className="landing-page"
             >
-                <div className="movies-btn">
-                    <Link to='/movies'>
-                        <div className="header-navlink-btn">Consult movies catalog</div>
-                    </Link>
-                </div>
-                <div className="random-movie-btn">
-                    <Link to='/movies/{:movieId}'>
-                        <div className="header-navlink-btn">Get a random movie</div>
-                    </Link>
-                </div>
+                <LinkButton
+                    to="/movies"
+                    className="movies-btn"
+                >
+                    Consult movies catalog
+                </LinkButton>
+                <LinkButton
+                    to="/movies/{:movieId}"
+                    className="random-movie-btn"
+                >
+                    Get a random movie
+                </LinkButton>
             </Container>
         );
     }

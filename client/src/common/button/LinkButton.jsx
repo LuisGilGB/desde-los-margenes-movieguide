@@ -13,6 +13,9 @@ const DEFAULT_BTN_CLASS_NAMES = [
 const LinkButton = props => {
     const {
         history,
+        location,
+        match,
+        staticContext,
         children,
         className = '',
         btnClassName = '',

@@ -12,18 +12,20 @@ const DEFAULT_BTN_CLASS_NAMES = [
 
 const LinkButton = props => {
     const {
+        children,
         history,
         location,
         match,
         staticContext,
-        children,
         className = '',
         btnClassName = '',
         to = '/',
+        onClick,
         ...rest
     } = props;
 
-    const navigate = event => {
+    const buttonHandler = event => {
+        onClick && onClick(event);
         history.push(to);
     }
 
@@ -31,7 +33,7 @@ const LinkButton = props => {
         <div className={setClassNames(DEFAULT_CLASS_NAMES, className)} {...rest}>
             <button
                 className={setClassNames(DEFAULT_BTN_CLASS_NAMES, btnClassName)}
-                onClick={navigate}
+                onClick={buttonHandler}
             >
                 {children}
             </button>

@@ -51,7 +51,7 @@ a:-webkit-any-link:active {
     background-color: #5F5F5F;
 }
 
-.dlmmg-linkbtn button {
+.dlmmg-btn .dlmmg-btn-btn-el {
     background-color: #222;
     cursor: pointer;
     color: #F5F5F5;
@@ -61,6 +61,6 @@ a:-webkit-any-link:active {
     border-image: none;
 }
 
-.dlmmg-linkbtn button:hover {
+.dlmmg-btn .dlmmg-btn-btn-el:hover {
     background-color: #5F5F5F;
 }

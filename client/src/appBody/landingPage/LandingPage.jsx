@@ -1,5 +1,16 @@
 import React, {Component} from 'react';
-import {Container, LinkButton} from '../../common';
+import {connect} from 'react-redux';
+import {withRouter} from 'react-router-dom';
+import {ROUTES} from '../../routes';
+import {actionCreators as navLogicActionCreators} from '../../navigationLogic/navigationLogicActions';
+import {Container, Button} from '../../common';
+
+const mapStateToProps = () => ({});
+
+const mapDispatchToProps = (dispatch, ownProps) => ({
+    goToMoviesCatalog: () => dispatch(navLogicActionCreators.navigateWithPush(ownProps.history, ROUTES.MOVIES.CATALOG)),
+    goToMovieDetail: () => dispatch(navLogicActionCreators.navigateWithPush(ownProps.history, ROUTES.MOVIES.DETAIL, { movieId: 'random-movie'}))
+});
 
 class LandingPage extends Component {
     render () {
@@ -7,21 +18,21 @@ class LandingPage extends Component {
             <Container
                 className="landing-page"
             >
-                <LinkButton
-                    to="/movies"
+                <Button
+                    onClick={this.props.goToMoviesCatalog}
                     className="movies-btn"
                 >
                     Consult movies catalog
-                </LinkButton>
-                <LinkButton
-                    to="/movies/{:movieId}"
+                </Button>
+                <Button
+                    onClick={this.props.goToMovieDetail}
                     className="random-movie-btn"
                 >
                     Get a random movie
-                </LinkButton>
+                </Button>
             </Container>
         );
     }
 }
 
-export default LandingPage;
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(LandingPage));

@@ -1,6 +1,7 @@
 import React from 'react';
 import {withRouter} from 'react-router-dom';
 import {setClassNames} from '../../utils';
+import Button from './Button';
 
 const DEFAULT_CLASS_NAMES = [
     'dlmmg-linkbtn'
@@ -30,14 +31,14 @@ const LinkButton = props => {
     }
 
     return (
-        <div className={setClassNames(DEFAULT_CLASS_NAMES, className)} {...rest}>
-            <button
-                className={setClassNames(DEFAULT_BTN_CLASS_NAMES, btnClassName)}
-                onClick={buttonHandler}
-            >
-                {children}
-            </button>
-        </div>
+        <Button
+            className={setClassNames(DEFAULT_CLASS_NAMES, className)}
+            btnClassName={setClassNames(DEFAULT_BTN_CLASS_NAMES, btnClassName)}
+            onClick={buttonHandler}
+            {...rest}
+        >
+            {children}
+        </Button>
     );
 }
 

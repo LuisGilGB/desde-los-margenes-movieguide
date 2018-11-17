@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Switch, Route} from 'react-router-dom';
+import {ROUTES} from '../routes';
 import {Container} from '../common';
 import LandingPage from './landingPage/LandingPage';
 
@@ -10,22 +11,22 @@ class AppBody extends Component {
                 className="app-body"
             >
                 <Switch>
-                    <Route path='/movies' render={() => (
+                    <Route path={ROUTES.MOVIES.CATALOG} render={() => (
                         <p className="app-register">
                             Movies catalog.
                         </p>
                     )} />
-                    <Route path='/register' exact render={() => (
+                    <Route path={ROUTES.REGISTER} exact render={() => (
                         <p className="app-register">
                             This would be the place to register.
                         </p>
                     )} />
-                    <Route path='/login' exact render={() => (
+                    <Route path={ROUTES.LOGIN} exact render={() => (
                         <p className="app-login">
                             This would be the place to log in.
                         </p>
                     )} />
-                    <Route path='/' component={LandingPage} />
+                    <Route path={ROUTES.ROOT} component={LandingPage} />
                 </Switch>
             </Container>
         );

@@ -2,18 +2,18 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Switch, Route} from 'react-router-dom';
 import {Container} from '../../common';
-import MoviesCatalog from './catalog/MoviesCatalog';
-import MovieDetail from './detail/MovieDetail';
+import MoviesCatalogContainer from './catalog/MoviesCatalogContainer';
+import MovieDetailContainer from './detail/MovieDetailContainer';
 import {ROUTES} from '../../routes';
 
 const MoviesViewport = props => (
     <Container>
         <Switch>
             <Route path={ROUTES.MOVIES.DETAIL} render={() => (
-                <MovieDetail />
+                <MovieDetailContainer />
             )} />
             <Route path={ROUTES.MOVIES.CATALOG} render={() => (
-                <MoviesCatalog />
+                <MoviesCatalogContainer />
             )} />
         </Switch>
     </Container>

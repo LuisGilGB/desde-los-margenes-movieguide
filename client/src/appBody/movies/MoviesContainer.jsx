@@ -1,4 +1,5 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import {Switch, Route} from 'react-router-dom';
 import {Container} from '../../common';
 import MoviesCatalog from './catalog/MoviesCatalog';
@@ -18,4 +19,8 @@ const MoviesViewport = props => (
     </Container>
 );
 
-export default MoviesViewport;
+const mapStateToProps = (state, props) => ({});
+
+const mapDispatchToProps = (dispatch, props) => ({});
+
+export default connect(mapStateToProps, mapDispatchToProps)(MoviesViewport);

@@ -32,6 +32,22 @@ router.get('/', (req, res) => {
         .catch(err => console.log(err));
 });
 
+// @route   GET api/movies/:movieid
+// @desc    Get a movie from a given movieId
+// @access  Public
+router.get('/movie/:movieId', (req, res) => {
+    const errors = {}
+    Movie.findById(req.params.movieId)
+        .then(movie => {
+            if (!movie) {
+                errors.movie = 'There are no movies';
+                return res.status(404).json(errors);
+            }
+            res.json(movie);
+        })
+        .catch(err => console.log(err));
+});
+
 // @route   GET api/movies/randommovie
 // @desc    Get a random movie from the database
 // @access  Public
@@ -47,7 +63,7 @@ router.get('/randommovie', (req, res) => {
                         errors.movie = 'There are no movies';
                         return res.status(404).json(errors);
                     }
-                    res.json(movie);
+                    res.json({movieId: movie._id});
                 })
                 .catch(err => console.log(err));
         })

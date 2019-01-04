@@ -1,1 +1,1 @@
-export const setClassNames = (defaultClassNames, props) => defaultClassNames.join(' ') + (props.className ? ` ${props.className}` : '');
+export const setClassNames = (defaultClassNames, customClassNameProp) => defaultClassNames.join(' ') + (customClassNameProp ? ` ${customClassNameProp}` : '');

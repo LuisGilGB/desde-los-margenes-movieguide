@@ -50,3 +50,17 @@ a:-webkit-any-link:active {
 .app-header .header-navlink-btn:hover {
     background-color: #5F5F5F;
 }
+
+.dlmmg-btn .dlmmg-btn-btn-el {
+    background-color: #222;
+    cursor: pointer;
+    color: #F5F5F5;
+    border-width: 0px;
+    border-style: none;
+    border-color: none;
+    border-image: none;
+}
+
+.dlmmg-btn .dlmmg-btn-btn-el:hover {
+    background-color: #5F5F5F;
+}

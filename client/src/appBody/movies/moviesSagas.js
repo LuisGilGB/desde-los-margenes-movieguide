@@ -5,7 +5,7 @@ import {actions, actionCreators} from './moviesActions';
 import {ROUTES} from '../../routes';
 
 const doLoadMovies = () => axios.get('/api/movies');
-const doLoadMovieDetail = movieId => axios.get(`/api/movies/${movieId}`);
+const doLoadMovieDetail = movieId => axios.get(`/api/movies/movie/${movieId}`);
 const doRequestRandomMovie = () => axios.get('/api/movies/randommovie');
 
 function* loadMovies (opts) {
@@ -38,7 +38,7 @@ function* requestRandomMovie (opts) {
     try {
         const { data } = yield call(doRequestRandomMovie);
 
-        yield put(navLogicActionCreators.navigateWithPush(history, ROUTES.MOVIES.DETAIL, {movieId: data._id}));
+        yield put(navLogicActionCreators.navigateWithPush(history, ROUTES.MOVIES.DETAIL, data));
     }
     catch (err) {
         console.log(err);

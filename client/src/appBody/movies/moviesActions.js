@@ -2,11 +2,14 @@ export const actions = {
     LOAD_MOVIES: 'LOAD_MOVIES',
     LOAD_MOVIES_DONE: 'LOAD_MOVIES_DONE',
     LOAD_MOVIES_FAILED: 'LOAD_MOVIES_FAILED',
+    LOAD_MOVIE_DETAIL: 'LOAD_MOVIE_DETAIL',
+    LOAD_MOVIE_DETAIL_DONE: 'LOAD_MOVIE_DETAIL_DONE',
+    LOAD_MOVIE_DETAIL_FAILED: 'LOAD_MOVIE_DETAIL_FAILED',
     REQUEST_RANDOM_MOVIE: 'REQUEST_RANDOM_MOVIE'
 }
 
 export const actionCreators = {
-    loadMovies: history => ({
+    loadMovies: () => ({
         type: actions.LOAD_MOVIES,
         payload: {}
     }),
@@ -16,6 +19,18 @@ export const actionCreators = {
     }),
     loadMoviesFailed: () => ({
         type: actions.LOAD_MOVIES_FAILED,
+        payload: {}
+    }),
+    loadMovieDetail: movieId => ({
+        type: actions.LOAD_MOVIE_DETAIL,
+        payload: { movieId }
+    }),
+    loadMovieDetailDone: movieData => ({
+        type: actions.LOAD_MOVIE_DETAIL_DONE,
+        payload: { movieData }
+    }),
+    loadMovieDetailFailed: () => ({
+        type: actions.LOAD_MOVIE_DETAIL_FAILED,
         payload: {}
     }),
     requestRandomMovie: history => ({

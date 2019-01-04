@@ -5,6 +5,7 @@ import {actions, actionCreators} from './moviesActions';
 import {ROUTES} from '../../routes';
 
 const doLoadMovies = () => axios.get('/api/movies');
+const doLoadMovieDetail = movieId => axios.get(`/api/movies/${movieId}`);
 const doRequestRandomMovie = () => axios.get('/api/movies/randommovie');
 
 function* loadMovies (opts) {
@@ -16,6 +17,19 @@ function* loadMovies (opts) {
     catch (err) {
         console.log(err);
         yield put(actionCreators.loadMoviesFailed());
+    }
+}
+
+function* loadMovieDetail (opts) {
+    const { payload: { movieId } } = opts;
+    try {
+        const { data } = yield call(doLoadMovieDetail, movieId);
+
+        yield put(actionCreators.loadMovieDetailDone(data));
+    }
+    catch (err) {
+        console.log(err);
+        yield put(actionCreators.loadMovieDetailFailed());
     }
 }
 
@@ -33,6 +47,7 @@ function* requestRandomMovie (opts) {
 
 const moviesSagas = [
     takeLatest(actions.LOAD_MOVIES, loadMovies),
+    takeLatest(actions.LOAD_MOVIE_DETAIL, loadMovieDetail),
     takeLatest(actions.REQUEST_RANDOM_MOVIE, requestRandomMovie)
 ];
 

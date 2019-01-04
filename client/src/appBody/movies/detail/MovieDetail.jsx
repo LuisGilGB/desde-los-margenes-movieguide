@@ -1,10 +1,18 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {Container} from '../../../common';
 
-const MovieDetail = props => (
-    <Container>
-        This is the movie detail
-    </Container>
-);
+class MovieDetail extends Component {
+    componentDidMount () {
+        this.props.loadMovieDetail(this.props.movieId);
+    }
+
+    render () {
+        return (
+            <Container>
+                This is the movie {this.props.movieId} detail
+            </Container>
+        );
+    }
+}
 
 export default MovieDetail;

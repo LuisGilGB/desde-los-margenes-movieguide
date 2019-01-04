@@ -10,11 +10,14 @@ import {ROUTES} from '../../routes';
 const MoviesViewport = props => (
     <Container>
         <Switch>
-            <Route path={ROUTES.MOVIES.DETAIL} render={() => (
-                <MovieDetailContainer />
+            <Route path={ROUTES.MOVIES.DETAIL} render={({match}) => (
+                <MovieDetailContainer
+                    movieId={match.params.movieId}
+                    loadMovieDetail={props.loadMovieDetail}
+                />
             )} />
             <Route path={ROUTES.MOVIES.CATALOG} render={() => (
-                <MoviesCatalogContainer loadMovies={props.loadMovies}/>
+                <MoviesCatalogContainer loadMovies={props.loadMovies} />
             )} />
         </Switch>
     </Container>
@@ -23,7 +26,8 @@ const MoviesViewport = props => (
 const mapStateToProps = (state, props) => ({});
 
 const mapDispatchToProps = (dispatch, props) => ({
-    loadMovies: () => dispatch(actionCreators.loadMovies())
+    loadMovies: () => dispatch(actionCreators.loadMovies()),
+    loadMovieDetail: movieId => dispatch(actionCreators.loadMovieDetail(movieId))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MoviesViewport);

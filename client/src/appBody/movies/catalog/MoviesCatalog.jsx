@@ -9,7 +9,7 @@ class MoviesCatalog extends Component {
     render () {
         return (
             <Container>
-                This is the movies catalog
+                {this.props.movies.map(m => (<div>Movie {m._id}</div>))}
             </Container>
         );
     }

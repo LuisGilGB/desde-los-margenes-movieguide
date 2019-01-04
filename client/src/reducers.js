@@ -12,6 +12,6 @@ const authReducers = (state = initialState, action) => {
 }
 
 export default combineReducers({
-    authReducers,
-    moviesReducers
+    auth: authReducers,
+    movies: moviesReducers
 });

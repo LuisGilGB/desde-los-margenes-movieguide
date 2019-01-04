@@ -17,13 +17,21 @@ const MoviesViewport = props => (
                 />
             )} />
             <Route path={ROUTES.MOVIES.CATALOG} render={() => (
-                <MoviesCatalogContainer loadMovies={props.loadMovies} />
+                <MoviesCatalogContainer
+                    movies={props.movies}
+                    loadMovies={props.loadMovies}
+                />
             )} />
         </Switch>
     </Container>
 );
 
-const mapStateToProps = (state, props) => ({});
+const mapStateToProps = (state, props) => {
+    const {movies: {movies}} = state;
+    return {
+        movies
+    }
+}
 
 const mapDispatchToProps = (dispatch, props) => ({
     loadMovies: () => dispatch(actionCreators.loadMovies()),

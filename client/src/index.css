@@ -64,3 +64,18 @@ a:-webkit-any-link:active {
 .dlmmg-btn .dlmmg-btn-btn-el:hover {
     background-color: #5F5F5F;
 }
+
+.dlmmg-grid {
+    display: grid;
+    grid-auto-rows: 24px;
+}
+
+.dlmmg-grid-row {
+    display: grid;
+    grid-template-columns: 300px auto;
+    align-content: space-evenly;
+}
+
+.dlmmg-grid-row:hover {
+    background-color: #5F5F5F;
+}

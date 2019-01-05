@@ -10,6 +10,7 @@ class Container extends Component {
         return (
             <div
                 className={setClassNames(deafultContainerClassNames, this.props.className)}
+                onClick={this.props.onClick}
             >
                 {this.props.children}
             </div>

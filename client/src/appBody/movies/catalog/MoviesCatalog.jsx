@@ -7,7 +7,7 @@ class MoviesCatalog extends Component {
 
         this.onMovieClick = this.onMovieClick.bind(this);
     }
-    
+
     componentDidMount () {
         this.props.loadMovies();
     }
@@ -21,6 +21,14 @@ class MoviesCatalog extends Component {
             <Container>
                 <Grid
                     data={this.props.movies}
+                    columns={[
+                        {
+                            fieldName: '_id'
+                        },
+                        {
+                            fieldName: 'title'
+                        }
+                    ]}
                     onItemClick={this.onMovieClick}
                 />
             </Container>

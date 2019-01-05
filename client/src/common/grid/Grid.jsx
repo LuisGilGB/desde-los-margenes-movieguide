@@ -1,5 +1,6 @@
 import React from 'react';
 import {Container} from '..';
+import GridRow from './GridRow';
 import {setClassNames} from '../../utils';
 
 const defaultGridClassNames = [
@@ -17,7 +18,14 @@ const Grid = props => {
         <Container
             className={setClassNames(defaultGridClassNames, props.className)}
         >
-            {props.data.map((item, index) => (<div key={index} onClick={onRowClick(item)}>{item.title}</div>))}
+            {props.data.map((item, index) => (
+                <GridRow
+                    key={index}
+                    item={item}
+                    cells={props.columns}
+                    onClick={onRowClick(item)}
+                />
+            ))}
         </Container>
     );
 }

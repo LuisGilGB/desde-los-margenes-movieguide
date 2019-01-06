@@ -15,18 +15,20 @@ const Grid = props => {
     }
 
     return (
-        <Container
+        <table
             className={setClassNames(defaultGridClassNames, props.className)}
         >
-            {props.data.map((item, index) => (
-                <GridRow
-                    key={index}
-                    item={item}
-                    cells={props.columns}
-                    onClick={onRowClick(item)}
-                />
-            ))}
-        </Container>
+            <tbody>
+                {props.data.map((item, index) => (
+                    <GridRow
+                        key={index}
+                        item={item}
+                        cells={props.columns}
+                        onClick={onRowClick(item)}
+                    />
+                ))}
+            </tbody>
+        </table>
     );
 }
 

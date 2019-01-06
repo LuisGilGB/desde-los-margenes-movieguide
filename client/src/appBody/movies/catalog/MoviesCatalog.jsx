@@ -23,10 +23,12 @@ class MoviesCatalog extends Component {
                     data={this.props.movies}
                     columns={[
                         {
-                            fieldName: '_id'
+                            fieldName: '_id',
+                            title: 'Id'
                         },
                         {
-                            fieldName: 'title'
+                            fieldName: 'title',
+                            title: 'Title'
                         }
                     ]}
                     onItemClick={this.onMovieClick}

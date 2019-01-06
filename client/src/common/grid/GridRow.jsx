@@ -15,17 +15,20 @@ const GridRow = props => {
     }
 
     return (
-        <Container
+        <tr
             className={setClassNames(defaultGridRowClassNames, props.className)}
             onClick={onRowClick}
         >
             {cells.map(c => (
-                <GridCell
-                    key={c.fieldName}
-                    value={item[c.fieldName]}
-                />
+                <td
+                        key={c.fieldName}
+                >
+                    <GridCell
+                        value={item[c.fieldName]}
+                    />
+                </td>
             ))}
-        </Container>
+        </tr>
     );
 }
 

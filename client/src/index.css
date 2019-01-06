@@ -65,7 +65,7 @@ a:-webkit-any-link:active {
     background-color: #5F5F5F;
 }
 
-.dlmmg-grid {
+/*.dlmmg-grid {
     display: grid;
     grid-auto-rows: 24px;
 }
@@ -78,4 +78,4 @@ a:-webkit-any-link:active {
 
 .dlmmg-grid-row:hover {
     background-color: #5F5F5F;
-}
+}*/

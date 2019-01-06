@@ -1,5 +1,6 @@
 import React from 'react';
 import {Container} from '..';
+import GridHeader from './GridHeader';
 import GridRow from './GridRow';
 import {setClassNames} from '../../utils';
 
@@ -8,22 +9,24 @@ const defaultGridClassNames = [
 ];
 
 const Grid = props => {
+    const {data, columns, className, onItemClick} = props;
     const onRowClick = (item) => {
         return () => {
-            props.onItemClick && props.onItemClick(item);
+            onItemClick && onItemClick(item);
         }
     }
 
     return (
         <table
-            className={setClassNames(defaultGridClassNames, props.className)}
+            className={setClassNames(defaultGridClassNames, className)}
         >
+            <GridHeader columns={columns} />
             <tbody>
-                {props.data.map((item, index) => (
+                {data.map((item, index) => (
                     <GridRow
                         key={index}
                         item={item}
-                        cells={props.columns}
+                        cells={columns}
                         onClick={onRowClick(item)}
                     />
                 ))}

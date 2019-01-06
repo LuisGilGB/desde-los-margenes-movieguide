@@ -74,8 +74,8 @@ a:-webkit-any-link:active {
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-content: space-evenly;
-}
+}*/
 
 .dlmmg-grid-row:hover {
     background-color: #5F5F5F;
-}*/
+}

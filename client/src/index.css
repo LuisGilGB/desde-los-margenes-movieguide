@@ -72,7 +72,7 @@ a:-webkit-any-link:active {
 
 .dlmmg-grid-row {
     display: grid;
-    grid-template-columns: 300px auto;
+    grid-template-columns: 1fr 1fr;
     align-content: space-evenly;
 }
 

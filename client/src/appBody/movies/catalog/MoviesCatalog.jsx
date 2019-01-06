@@ -21,6 +21,7 @@ class MoviesCatalog extends Component {
             <Container>
                 <Grid
                     data={this.props.movies}
+                    className="movies-catalog-grid full-width"
                     columns={[
                         {
                             fieldName: '_id',

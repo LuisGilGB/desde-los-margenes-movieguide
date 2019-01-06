@@ -51,6 +51,10 @@ a:-webkit-any-link:active {
     background-color: #5F5F5F;
 }
 
+.full-width {
+    width: 100%;
+}
+
 .dlmmg-btn .dlmmg-btn-btn-el {
     background-color: #222;
     cursor: pointer;
@@ -78,4 +82,8 @@ a:-webkit-any-link:active {
 
 .dlmmg-grid-row:hover {
     background-color: #5F5F5F;
+}
+
+.movies-catalog-grid .dlmmg-grid-row {
+    cursor: pointer;
 }

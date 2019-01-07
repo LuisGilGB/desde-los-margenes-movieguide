@@ -48,22 +48,20 @@ const mapChild = (childCmp, propsMapper) => {
     }
 }
 
-class Container extends Component {
-    render () {
-        const { className, onClick, children, layout, ...otherProps } = this.props;
-        return (
-            <div
-                className={setContainerClassName(layout, className)}
-                onClick={onClick}
-                {...otherProps}
-            >
-                {Array.isArray(children) ?
-                    children.map(child => mapChild(child, mapClassName(layout))) :
-                    (typeof children === 'object' ? mapChild(children, mapClassName(layout)) : children)
-                }
-            </div>
-        );
-    }
+const Container = props => {
+    const { className, onClick, children, layout, ...otherProps } = props;
+    return (
+        <div
+            className={setContainerClassName(layout, className)}
+            onClick={onClick}
+            {...otherProps}
+        >
+            {Array.isArray(children) ?
+                children.map(child => mapChild(child, mapClassName(layout))) :
+                (typeof children === 'object' ? mapChild(children, mapClassName(layout)) : children)
+            }
+        </div>
+    );
 }
 
 export default Container;

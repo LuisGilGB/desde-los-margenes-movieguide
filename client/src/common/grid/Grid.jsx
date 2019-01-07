@@ -1,5 +1,4 @@
 import React from 'react';
-import {Container} from '..';
 import GridHeader from './GridHeader';
 import GridRow from './GridRow';
 import {setClassNames} from '../../utils';

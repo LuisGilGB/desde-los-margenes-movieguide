@@ -9,7 +9,7 @@ class MovieDetail extends Component {
     render () {
         return (
             <Container>
-                This is the movie {this.props.movieId} detail
+                <div>This is the movie {this.props.movieId} detail</div>
             </Container>
         );
     }

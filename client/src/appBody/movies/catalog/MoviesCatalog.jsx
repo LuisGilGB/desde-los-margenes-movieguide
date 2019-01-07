@@ -18,10 +18,12 @@ class MoviesCatalog extends Component {
 
     render () {
         return (
-            <Container>
+            <Container
+                layout="fit"
+            >
                 <Grid
                     data={this.props.movies}
-                    className="movies-catalog-grid full-width"
+                    className="movies-catalog-grid"
                     columns={[
                         {
                             fieldName: '_id',

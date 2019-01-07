@@ -1,5 +1,4 @@
 import React from 'react';
-import {Container} from '..';
 import GridCell from './GridCell';
 import {setClassNames} from '../../utils';
 

@@ -20,6 +20,12 @@ const layoutsCfg = {
     }
 }
 
+const setContainerClassName = (layout = '', className = '') => setClassNames(deafultContainerClassNames, getContainerCustomClassName(layout, className));
+
+const getContainerCustomClassName = (layout = '', className = '') => `${getLayoutContainerClassName(layout)} ${className}`.trim();
+
+const getLayoutContainerClassName = (layout = '') => (layoutsCfg[layout] ? layoutsCfg[layout].contClassName : '');
+
 const getLayoutChildClassName = (layout = '') => (layoutsCfg[layout] ? layoutsCfg[layout].childClassName : '');
 
 const addLayoutChildClassName = (layout = '', prevClassName = '') => `${prevClassName} ${getLayoutChildClassName(layout)}`.trim();
@@ -47,7 +53,7 @@ class Container extends Component {
         const { className, onClick, children, layout, ...otherProps } = this.props;
         return (
             <div
-                className={setClassNames(deafultContainerClassNames, className)}
+                className={setContainerClassName(layout, className)}
                 onClick={onClick}
                 {...otherProps}
             >

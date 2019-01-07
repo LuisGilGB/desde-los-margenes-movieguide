@@ -55,6 +55,12 @@ a:-webkit-any-link:active {
     width: 100%;
 }
 
+.dlmmg-container-fit {
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: auto;
+}
+
 .dlmmg-btn .dlmmg-btn-btn-el {
     background-color: #222;
     cursor: pointer;

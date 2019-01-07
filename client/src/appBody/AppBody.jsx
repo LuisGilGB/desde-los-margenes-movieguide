@@ -9,6 +9,7 @@ class AppBody extends Component {
     render () {
         return (
             <Container
+                layout="fit"
                 className="app-body"
             >
                 <Switch>

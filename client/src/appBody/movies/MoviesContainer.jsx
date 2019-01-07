@@ -10,7 +10,9 @@ import {actionCreators} from './moviesActions';
 import {ROUTES} from '../../routes';
 
 const MoviesViewport = props => (
-    <Container>
+    <Container
+        layout="fit"
+    >
         <Switch>
             <Route path={ROUTES.MOVIES.DETAIL} render={({match}) => (
                 <MovieDetailContainer

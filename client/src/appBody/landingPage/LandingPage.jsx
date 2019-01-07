@@ -16,6 +16,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 
 const LandingPage = props => (
     <Container
+        layout="fit"
         className="landing-page"
     >
         <Button

@@ -75,16 +75,8 @@ a:-webkit-any-link:active {
     background-color: #5F5F5F;
 }
 
-/*.dlmmg-grid {
-    display: grid;
-    grid-auto-rows: 24px;
+.dlmmg-grid {
 }
-
-.dlmmg-grid-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-content: space-evenly;
-}*/
 
 .dlmmg-grid-row:hover {
     background-color: #5F5F5F;

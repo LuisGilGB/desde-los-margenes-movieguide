@@ -19,13 +19,10 @@ const GridRow = props => {
             onClick={onRowClick}
         >
             {cells.map(c => (
-                <td
-                        key={c.fieldName}
-                >
-                    <GridCell
-                        value={item[c.fieldName]}
-                    />
-                </td>
+                <GridCell
+                    key={c.fieldName}
+                    value={item[c.fieldName]}
+                />
             ))}
         </tr>
     );

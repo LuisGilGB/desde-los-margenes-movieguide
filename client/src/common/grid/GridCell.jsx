@@ -1,5 +1,4 @@
 import React from 'react';
-import {Container} from '..';
 import {setClassNames} from '../../utils';
 
 const defaultGridCellClassNames = [
@@ -13,12 +12,12 @@ const GridCell = props => {
     }
 
     return (
-        <Container
+        <td
             className={setClassNames(defaultGridCellClassNames, props.className)}
             onClick={onCellClick}
         >
             {value}
-        </Container>
+        </td>
     );
 }
 

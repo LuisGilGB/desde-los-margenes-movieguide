@@ -15,13 +15,10 @@ const GridHeader = props => {
                 className={setClassNames(defaultGridHeaderClassNames, props.className)}
             >
                 {columns.map(c => (
-                    <td
-                            key={c.fieldName}
-                    >
-                        <GridCell
-                            value={c.title}
-                        />
-                    </td>
+                    <GridCell
+                        key={c.fieldName}
+                        value={c.title}
+                    />
                 ))}
             </tr>
         </thead>

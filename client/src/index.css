@@ -55,10 +55,28 @@ a:-webkit-any-link:active {
     width: 100%;
 }
 
+.dlmmg-container-item {
+    display: inline-flex;
+}
+
 .dlmmg-container-fit {
     display: grid;
     grid-template-rows: auto;
     grid-template-columns: auto;
+}
+
+.dlmmg-container-hflex {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+}
+
+.dlmmg-container-vflex {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
 }
 
 .dlmmg-btn .dlmmg-btn-btn-el {

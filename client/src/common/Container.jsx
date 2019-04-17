@@ -3,6 +3,8 @@ import {getClassName} from '../utils';
 
 const DEFAULT_CLASS_NAME = 'dlmmg-container';
 
+const DEFAULT_CHILD_CLASS_NAME = 'dlmmg-container-item';
+
 const layoutsCfg = {
     fit: {
         contClassName: 'dlmmg-container-fit',
@@ -18,21 +20,27 @@ const layoutsCfg = {
     }
 }
 
-const setContainerClassName = (layout = '', className = '') => getClassName(DEFAULT_CLASS_NAME, getContainerCustomClassName(layout, className));
+// ----------------------------------------------
+// Layout className functions
+const getLayoutClassName = (layout = '', classNamePointer = 'contClassName') => (layoutsCfg[layout] ? layoutsCfg[layout][classNamePointer] : '');
 
-const getContainerCustomClassName = (layout = '', className = '') => `${getLayoutContainerClassName(layout)} ${className}`.trim();
+const getLayoutContainerClassName = (layout) => getLayoutClassName(layout);
 
-const getLayoutContainerClassName = (layout = '') => (layoutsCfg[layout] ? layoutsCfg[layout].contClassName : '');
+const getLayoutChildClassName = (layout) => getLayoutClassName(layout, 'childClassName');
+// ----------------------------------------------
 
-const getLayoutChildClassName = (layout = '') => (layoutsCfg[layout] ? layoutsCfg[layout].childClassName : '');
+// ----------------------------------------------
+// Component className functions
+const getCmpClassName = (layout, customClassName, mainClassName = DEFAULT_CLASS_NAME, layoutGetter = getLayoutContainerClassName) => getClassName(mainClassName, layoutGetter(layout), customClassName);
 
-const addLayoutChildClassName = (layout = '', prevClassName = '') => `${prevClassName} ${getLayoutChildClassName(layout)}`.trim();
+const getContainerClassName = (layout, customClassName) => getCmpClassName(layout, customClassName);
 
-const mapClassName = layout => props => {
-    const className = addLayoutChildClassName(layout, props.className);
+const getChildClassName = (layout, customClassName) => getCmpClassName(layout, customClassName, DEFAULT_CHILD_CLASS_NAME, getLayoutChildClassName);
+// ----------------------------------------------
 
-    return className ? { className } : {}
-}
+// ----------------------------------------------
+// Mappers for container children
+const mapChildClassName = layout => className => ({ className: getChildClassName(layout, className) })
 
 const mapChild = (childCmp, propsMapper) => {
     const childProps = typeof childCmp.props === 'object' ? {
@@ -45,18 +53,26 @@ const mapChild = (childCmp, propsMapper) => {
         props: childProps
     }
 }
+// ----------------------------------------------
 
 const Container = props => {
-    const { className, onClick, children, layout, ...otherProps } = props;
+    const {
+        children,
+        className,
+        layout,
+        onClick,
+        ...otherProps
+    } = props;
+
     return (
         <div
-            className={setContainerClassName(layout, className)}
+            className={getContainerClassName(layout, className)}
             onClick={onClick}
             {...otherProps}
         >
             {Array.isArray(children) ?
-                children.map(child => mapChild(child, mapClassName(layout))) :
-                (typeof children === 'object' ? mapChild(children, mapClassName(layout)) : children)
+                children.map(child => mapChild(child, mapChildClassName(layout))) :
+                (typeof children === 'object' ? mapChild(children, mapChildClassName(layout)) : children)
             }
         </div>
     );

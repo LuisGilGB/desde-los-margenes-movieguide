@@ -1,13 +1,9 @@
 import React from 'react';
-import {setClassNames} from '../../utils';
+import {getClassName} from '../../utils';
 
-const DEFAULT_CLASS_NAMES = [
-    'dlmmg-btn'
-];
+const DEFAULT_CLASS_NAME = 'dlmmg-btn';
 
-const DEFAULT_BTN_CLASS_NAMES = [
-    'dlmmg-btn-btn-el'
-];
+const DEFAULT_BTN_CLASS_NAME = 'dlmmg-btn-btn-el';
 
 const Button = props => {
     const {
@@ -23,9 +19,9 @@ const Button = props => {
     }
 
     return (
-        <div className={setClassNames(DEFAULT_CLASS_NAMES, className)} {...rest}>
+        <div className={getClassName(DEFAULT_CLASS_NAME, className)} {...rest}>
             <button
-                className={setClassNames(DEFAULT_BTN_CLASS_NAMES, btnClassName)}
+                className={getClassName(DEFAULT_BTN_CLASS_NAME, btnClassName)}
                 onClick={buttonHandler}
             >
                 {children}

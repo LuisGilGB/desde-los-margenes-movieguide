@@ -1,9 +1,7 @@
 import React from 'react';
-import {setClassNames} from '../utils';
+import {getClassName} from '../utils';
 
-const deafultContainerClassNames = [
-    'dlmmg-container'
-];
+const DEFAULT_CLASS_NAME = 'dlmmg-container';
 
 const layoutsCfg = {
     fit: {
@@ -20,7 +18,7 @@ const layoutsCfg = {
     }
 }
 
-const setContainerClassName = (layout = '', className = '') => setClassNames(deafultContainerClassNames, getContainerCustomClassName(layout, className));
+const setContainerClassName = (layout = '', className = '') => getClassName(DEFAULT_CLASS_NAME, getContainerCustomClassName(layout, className));
 
 const getContainerCustomClassName = (layout = '', className = '') => `${getLayoutContainerClassName(layout)} ${className}`.trim();
 

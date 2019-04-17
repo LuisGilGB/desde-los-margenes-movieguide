@@ -1,10 +1,8 @@
 import React from 'react';
 import GridCell from './GridCell';
-import {setClassNames} from '../../utils';
+import {getClassName} from '../../utils';
 
-const defaultGridRowClassNames = [
-    'dlmmg-grid-row'
-];
+const DEFAULT_CLASS_NAME = 'dlmmg-grid-row';
 
 const GridRow = props => {
     const {item, cells = [], onClick} = props;
@@ -15,7 +13,7 @@ const GridRow = props => {
 
     return (
         <tr
-            className={setClassNames(defaultGridRowClassNames, props.className)}
+            className={getClassName(DEFAULT_CLASS_NAME, props.className)}
             onClick={onRowClick}
         >
             {cells.map(c => (

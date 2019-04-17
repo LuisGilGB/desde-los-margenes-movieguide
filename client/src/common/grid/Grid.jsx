@@ -1,11 +1,9 @@
 import React from 'react';
 import GridHeader from './GridHeader';
 import GridRow from './GridRow';
-import {setClassNames} from '../../utils';
+import {getClassName} from '../../utils';
 
-const defaultGridClassNames = [
-    'dlmmg-grid'
-];
+const DEFAULT_CLASS_NAME = 'dlmmg-grid';
 
 const Grid = props => {
     const {data, columns, className, onItemClick} = props;
@@ -17,7 +15,7 @@ const Grid = props => {
 
     return (
         <table
-            className={setClassNames(defaultGridClassNames, className)}
+            className={getClassName(DEFAULT_CLASS_NAME, className)}
         >
             <GridHeader columns={columns} />
             <tbody>

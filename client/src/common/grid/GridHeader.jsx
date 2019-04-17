@@ -1,10 +1,8 @@
 import React from 'react';
 import GridCell from './GridCell';
-import {setClassNames} from '../../utils';
+import {getClassName} from '../../utils';
 
-const defaultGridHeaderClassNames = [
-    'dlmmg-grid-header'
-];
+const DEFAULT_CLASS_NAME = 'dlmmg-grid-header';
 
 const GridHeader = props => {
     const {columns = []} = props;
@@ -12,7 +10,7 @@ const GridHeader = props => {
     return (
         <thead>
             <tr
-                className={setClassNames(defaultGridHeaderClassNames, props.className)}
+                className={getClassName(DEFAULT_CLASS_NAME, props.className)}
             >
                 {columns.map(c => (
                     <GridCell

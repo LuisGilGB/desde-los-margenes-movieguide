@@ -1,9 +1,7 @@
 import React from 'react';
-import {setClassNames} from '../../utils';
+import {getClassName} from '../../utils';
 
-const defaultGridCellClassNames = [
-    'dlmmg-grid-cell'
-];
+const DEFAULT_CLASS_NAME = 'dlmmg-grid-cell';
 
 const GridCell = props => {
     const {value, onClick} = props;
@@ -13,7 +11,7 @@ const GridCell = props => {
 
     return (
         <td
-            className={setClassNames(defaultGridCellClassNames, props.className)}
+            className={getClassName(DEFAULT_CLASS_NAME, props.className)}
             onClick={onCellClick}
         >
             {value}

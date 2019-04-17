@@ -1,5 +1,5 @@
-import {setClassNames} from './reactComponentsUtils';
+import {getClassName} from './reactComponentsUtils';
 
 export {
-    setClassNames
+    getClassName
 }

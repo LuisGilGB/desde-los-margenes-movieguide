@@ -114,6 +114,41 @@ a:-webkit-any-link:active {
     align-items: stretch;
 }
 
+.dlmng-container-flex-align-start {
+    align-items: start;
+}
+.dlmng-container-flex-align-end {
+    align-items: end;
+}
+.dlmng-container-flex-align-center {
+    align-items: center;
+}
+.dlmng-container-flex-align-stretch {
+    align-items: stretch;
+}
+.dlmng-container-flex-align-baseline {
+    align-items: baseline;
+}
+
+.dlmng-container-flex-justify-start {
+    justify-content: start;
+}
+.dlmng-container-flex-justify-end {
+    justify-content: end;
+}
+.dlmng-container-flex-justify-center {
+    justify-content: center;
+}
+.dlmng-container-flex-justify-spacebetween {
+    justify-content: space-between;
+}
+.dlmng-container-flex-justify-spacearound {
+    justify-content: space-around;
+}
+.dlmng-container-flex-justify-spaceevenly {
+    justify-content: space-evenly;
+}
+
 .dlmmg-btn .dlmmg-btn-btn-el {
     background-color: #222;
     cursor: pointer;

@@ -6,6 +6,10 @@ const DEFAULT_CLASS_NAME = 'dlmmg-container';
 const DEFAULT_CHILD_CLASS_NAME = 'dlmmg-container-item';
 
 const layoutsCfg = {
+    auto: {
+        contClassName: 'dlmmg-container-auto',
+        childClassName: 'dlmmg-container-auto-item'
+    },
     fit: {
         contClassName: 'dlmmg-container-fit',
         childClassName: 'dlmmg-container-fit-item'
@@ -24,9 +28,74 @@ const layoutsCfg = {
     }
 }
 
+const flexAlignClassNames = {
+    start: {
+        contClassName: 'dlmng-container-flex-align-start',
+        childClassName: 'dlmng-container-flex-align-start-item'
+    },
+    end: {
+        contClassName: 'dlmng-container-flex-align-end',
+        childClassName: 'dlmng-container-flex-align-end-item'
+    },
+    center: {
+        contClassName: 'dlmng-container-flex-align-center',
+        childClassName: 'dlmng-container-flex-align-center-item'
+    },
+    stretch: {
+        contClassName: 'dlmng-container-flex-align-stretch',
+        childClassName: 'dlmng-container-flex-align-stretch-item'
+    },
+    baseline: {
+        contClassName: 'dlmng-container-flex-align-baseline',
+        childClassName: 'dlmng-container-flex-align-baseline-item'
+    }
+}
+
+const getFlexAlignClassName = (align = 'stretch') => flexAlignClassNames[align] || flexAlignClassNames.stretch;
+
+const flexJustifyClassNames = {
+    start: {
+        contClassName: 'dlmng-container-flex-justify-start',
+        childClassName: 'dlmng-container-flex-justify-start-item'
+    },
+    end: {
+        contClassName: 'dlmng-container-flex-justify-end',
+        childClassName: 'dlmng-container-flex-justify-end-item'
+    },
+    center: {
+        contClassName: 'dlmng-container-flex-justify-center',
+        childClassName: 'dlmng-container-flex-justify-center-item'
+    },
+    spaceBetween: {
+        contClassName: 'dlmng-container-flex-justify-spacebetween',
+        childClassName: 'dlmng-container-flex-justify-spacebetween-item'
+    },
+    spaceAround: {
+        contClassName: 'dlmng-container-flex-justify-spacearound',
+        childClassName: 'dlmng-container-flex-justify-spacearound-item'
+    },
+    spaceEvenly: {
+        contClassName: 'dlmng-container-flex-justify-spaceevenly',
+        childClassName: 'dlmng-container-flex-justify-spaceevenly-item'
+    }
+}
+
+const getFlexJustifyClassName = (align = 'start') => flexJustifyClassNames[align] || flexJustifyClassNames.start;
+
 // ----------------------------------------------
 // Layout className functions
-const getLayoutClassName = (layout = '', classNamePointer = 'contClassName') => (layoutsCfg[layout] ? layoutsCfg[layout][classNamePointer] : '');
+const getLayoutClassName = (layout = 'auto', classNamePointer = 'contClassName') => {
+    if (layout && typeof layout === 'string') {
+        return layoutsCfg[layout][classNamePointer] || '';
+    } else if (layout && typeof layout === 'object') {
+        const {type = 'auto', align, justify} = layout;
+        const typeClassName = (layoutsCfg[type] || layoutsCfg.auto)[classNamePointer];
+        const alignClassName = getFlexAlignClassName(align)[classNamePointer];
+        const justifyClassName = getFlexJustifyClassName(justify)[classNamePointer];
+        return getClassName(typeClassName, alignClassName, justifyClassName);
+    }
+    return layoutsCfg.auto[classNamePointer];
+}
 
 const getLayoutContainerClassName = (layout) => getLayoutClassName(layout);
 

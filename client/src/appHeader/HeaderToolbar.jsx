@@ -6,7 +6,7 @@ const HeaderToolbar = props => (
     <Container
         layout={{
             type: 'hflex',
-            align: 'end'
+            justify: 'end'
         }}
         className="header-toolbar"
         {...props}

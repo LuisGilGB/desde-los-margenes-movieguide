@@ -10,6 +10,10 @@ const layoutsCfg = {
         contClassName: 'dlmmg-container-fit',
         childClassName: 'dlmmg-container-fit-item'
     },
+    center: {
+        contClassName: 'dlmmg-container-center',
+        childClassName: 'dlmmg-container-center-item'
+    },
     vflex: {
         contClassName: 'dlmmg-container-vflex',
         childClassName: 'dlmmg-container-vflex-item'
@@ -40,7 +44,7 @@ const getChildClassName = (layout, customClassName) => getCmpClassName(layout, c
 
 // ----------------------------------------------
 // Mappers for container children
-const mapChildClassName = layout => className => ({ className: getChildClassName(layout, className) })
+const mapChildClassName = layout => props => ({ className: getChildClassName(layout, props.className) })
 
 const mapChild = (childCmp, propsMapper) => {
     const childProps = typeof childCmp.props === 'object' ? {
@@ -60,15 +64,21 @@ const Container = props => {
         children,
         className,
         layout,
+        flex,
         onClick,
         ...otherProps
     } = props;
+
+    const style = {
+        flexGrow: flex
+    }
 
     return (
         <div
             className={getContainerClassName(layout, className)}
             onClick={onClick}
             {...otherProps}
+            style={style}
         >
             {Array.isArray(children) ?
                 children.map(child => mapChild(child, mapChildClassName(layout))) :

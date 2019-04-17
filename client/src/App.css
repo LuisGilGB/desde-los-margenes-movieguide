@@ -1,27 +1,139 @@
+html {
+    height: 100%;
+}
+
+body {
+    height: inherit;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-color: #303030;
+    color: #EFEFEF;
+}
+
+#root {
+    height: inherit;
+}
+
 .app {
-  text-align: center;
+    height: inherit;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
 }
 
-.app-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.app-header {
-  background-color: #222;
-  padding: 20px;
-  color: white;
-}
-
-.app-title {
-  font-size: 1.5em;
-}
-
-.app-intro {
-  font-size: large;
+.app-body {
+    flex: 1;
 }
 
 @keyframes app-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+a:-webkit-any-link {
+    color: #EFEFEF;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+a:-webkit-any-link:active {
+    color: #EFEFEF;
+}
+
+.app-header {
+    background-color: #222;
+    padding: 20px;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: stretch;
+    height: 30px;
+}
+
+.app-header .app-header-tools {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: stretch;
+}
+
+.app-header .header-navlink-btn {
+    height: 100%;
+    padding: 5px 30px 5px 30px;
+    width: 120px;
+    line-height: 30px;
+}
+
+.app-logo {
+    width: 200px;
+}
+
+.app-logo .header-navlink-btn {
+    width: auto;
+}
+
+.app-header .header-navlink-btn:hover {
+    background-color: #5F5F5F;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.dlmmg-container-item {
+    display: inline-flex;
+}
+
+.dlmmg-container-fit {
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: auto;
+}
+
+.dlmng-container-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dlmmg-container-hflex {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+}
+
+.dlmmg-container-vflex {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+}
+
+.dlmmg-btn .dlmmg-btn-btn-el {
+    background-color: #222;
+    cursor: pointer;
+    color: #F5F5F5;
+    border-width: 0px;
+    border-style: none;
+    border-color: none;
+    border-image: none;
+}
+
+.dlmmg-btn .dlmmg-btn-btn-el:hover {
+    background-color: #5F5F5F;
+}
+
+.dlmmg-grid {
+}
+
+.dlmmg-grid-row:hover {
+    background-color: #5F5F5F;
+}
+
+.movies-catalog-grid .dlmmg-grid-row {
+    cursor: pointer;
 }

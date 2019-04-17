@@ -43,14 +43,16 @@ a:-webkit-any-link:active {
 
 .app-header {
     background-color: #222;
-    padding: 20px;
     color: white;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: stretch;
-    height: 30px;
+}
+
+.app-header-body {
+    flex: 1;
 }
 
 .app-header .app-header-tools {
@@ -61,7 +63,6 @@ a:-webkit-any-link:active {
 }
 
 .app-header .header-navlink-btn {
-    height: 100%;
     padding: 5px 30px 5px 30px;
     width: 120px;
     line-height: 30px;

@@ -64,13 +64,25 @@ const Container = props => {
         children,
         className,
         layout,
-        flex,
+        width,
+        height,
+        flex: flexGrow,
+        minWidth,
+        maxWidth,
+        minHeight,
+        maxHeight,
         onClick,
         ...otherProps
     } = props;
 
     const style = {
-        flexGrow: flex
+        width,
+        height,
+        flexGrow,
+        minWidth,
+        maxWidth,
+        minHeight,
+        maxHeight
     }
 
     return (

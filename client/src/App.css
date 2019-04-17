@@ -11,21 +11,6 @@ body {
     color: #EFEFEF;
 }
 
-#root {
-    height: inherit;
-}
-
-.app {
-    height: inherit;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-}
-
-.app-body {
-    flex: 1;
-}
-
 @keyframes app-logo-spin {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
@@ -39,6 +24,21 @@ a:-webkit-any-link {
 
 a:-webkit-any-link:active {
     color: #EFEFEF;
+}
+
+#root {
+    height: inherit;
+}
+
+.app {
+    height: inherit;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.app-body {
+    flex: 1;
 }
 
 .app-header {
@@ -93,7 +93,7 @@ a:-webkit-any-link:active {
     grid-template-columns: auto;
 }
 
-.dlmng-container-center {
+.dlmmg-container-center {
     display: flex;
     align-items: center;
     justify-content: center;

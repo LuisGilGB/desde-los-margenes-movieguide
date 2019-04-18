@@ -1,52 +1,50 @@
-import React, {Component} from 'react';
+import React, {useEffect} from 'react';
 import {Container, Grid} from '../../../common';
 
-class MoviesCatalog extends Component {
-    constructor (props) {
-        super(props);
+const MoviesCatalog = props => {
+    const {
+        movies = [],
+        loadMovies,
+        goToMovieDetail,
+        ...containerProps
+    } = props;
+    
+    useEffect(() => {
+        loadMovies()
+    }, []);
 
-        this.onMovieClick = this.onMovieClick.bind(this);
-    }
+    const onMovieClick = (movie = {}) => goToMovieDetail && goToMovieDetail(movie._id);
 
-    componentDidMount () {
-        this.props.loadMovies();
-    }
-
-    onMovieClick (movie = {}) {
-        this.props.goToMovieDetail && this.props.goToMovieDetail(movie._id);
-    }
-
-    render () {
-        return (
-            <Container
-                layout="fit"
-            >
-                <Grid
-                    data={this.props.movies}
-                    className="movies-catalog-grid"
-                    columns={[
-                        {
-                            fieldName: 'title',
-                            title: 'Title'
-                        },
-                        {
-                            fieldName: 'directors',
-                            title: 'Director'
-                        },
-                        {
-                            fieldName: 'countries',
-                            title: 'Country'
-                        },
-                        {
-                            fieldName: 'year',
-                            title: 'Year'
-                        }
-                    ]}
-                    onItemClick={this.onMovieClick}
-                />
-            </Container>
-        );
-    }
+    return (
+        <Container
+            layout="fit"
+            {...containerProps}
+        >
+            <Grid
+                data={movies}
+                className="movies-catalog-grid"
+                columns={[
+                    {
+                        fieldName: 'title',
+                        title: 'Title'
+                    },
+                    {
+                        fieldName: 'directors',
+                        title: 'Director'
+                    },
+                    {
+                        fieldName: 'countries',
+                        title: 'Country'
+                    },
+                    {
+                        fieldName: 'year',
+                        title: 'Year'
+                    }
+                ]}
+                onItemClick={onMovieClick}
+            />
+        </Container>
+    );
 }
 
 export default MoviesCatalog;

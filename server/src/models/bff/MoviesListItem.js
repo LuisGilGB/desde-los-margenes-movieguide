@@ -4,6 +4,11 @@ const Schema = mongoose.Schema;
 
 let MoviesListItemSchema = new Schema(
     {
+        movieId: {
+            type: String,
+            required: true,
+            unique: true
+        },
         title: {
             type: String,
             required: true

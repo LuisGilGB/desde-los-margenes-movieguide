@@ -5,8 +5,12 @@ export const ROUTES = {
 
     REGISTER: '/register',
 
+    PEOPLE: '/people',
+
     MOVIES: {
         CATALOG: '/movies',
         DETAIL: '/movies/:movieId'
     }
 }
+
+export default ROUTES;

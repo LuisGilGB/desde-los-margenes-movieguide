@@ -151,6 +151,10 @@ a:-webkit-any-link:active {
 .dlmmg-btn {
 }
 
+.dlmmg-btn:focus {
+    outline: none;
+}
+
 .dlmmg-btn .dlmmg-btn-btn-el {
     background-color: #222;
     justify-content: center;
@@ -161,6 +165,10 @@ a:-webkit-any-link:active {
     border-color: none;
     border-image: none;
     font-size: inherit;
+}
+
+.dlmmg-btn .dlmmg-btn-btn-el:focus {
+    outline: none;
 }
 
 .dlmmg-btn .dlmmg-btn-btn-el:hover {

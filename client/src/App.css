@@ -170,6 +170,13 @@ a:-webkit-any-link:active {
 .dlmmg-grid {
 }
 
+table.dlmmg-grid {
+    display: table;
+    border-collapse: separate;
+    border-spacing: 2px;
+    border-color: grey;
+}
+
 .dlmmg-grid-row:hover {
     background-color: #5F5F5F;
 }

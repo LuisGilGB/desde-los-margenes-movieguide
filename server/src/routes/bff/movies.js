@@ -26,6 +26,8 @@ const createMovieListItem = (rawMovie = {}) => {
 // @acces   Public
 router.get('/test', (req, res) => res.json({msg: 'BFF Movies works'}));
 
+// TODO: This are not real BFF services yet.
+
 // @route   GET bff/movies
 // @desc    Get all movies into the database as MoviesListItems
 // @access  Public

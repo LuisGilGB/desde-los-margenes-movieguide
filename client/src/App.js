@@ -11,9 +11,9 @@ class App extends Component {
         return (
             <Provider store={this.props.store}>
                 <Router>
-                    <Container className="app">
+                    <Container layout="vflex" className="app">
                         <AppHeader />
-                        <AppBody />
+                        <AppBody flex={1}/>
                     </Container>
                 </Router>
             </Provider>

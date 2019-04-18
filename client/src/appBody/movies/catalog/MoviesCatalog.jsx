@@ -1,18 +1,50 @@
-import React, {Component} from 'react';
-import {Container} from '../../../common';
+import React, {useEffect} from 'react';
+import {Container, Grid} from '../../../common';
 
-class MoviesCatalog extends Component {
-    componentDidMount () {
-        this.props.loadMovies();
-    }
+const MoviesCatalog = props => {
+    const {
+        movies = [],
+        loadMovies,
+        goToMovieDetail,
+        ...containerProps
+    } = props;
+    
+    useEffect(() => {
+        loadMovies();
+    }, []);
 
-    render () {
-        return (
-            <Container>
-                This is the movies catalog
-            </Container>
-        );
-    }
+    const onMovieClick = (movie = {}) => goToMovieDetail && goToMovieDetail(movie._id);
+
+    return (
+        <Container
+            layout="fit"
+            {...containerProps}
+        >
+            <Grid
+                data={movies}
+                className="movies-catalog-grid"
+                columns={[
+                    {
+                        fieldName: 'title',
+                        title: 'Title'
+                    },
+                    {
+                        fieldName: 'directors',
+                        title: 'Director'
+                    },
+                    {
+                        fieldName: 'countries',
+                        title: 'Country'
+                    },
+                    {
+                        fieldName: 'year',
+                        title: 'Year'
+                    }
+                ]}
+                onItemClick={onMovieClick}
+            />
+        </Container>
+    );
 }
 
 export default MoviesCatalog;

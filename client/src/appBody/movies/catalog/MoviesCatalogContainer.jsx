@@ -4,7 +4,8 @@ import MoviesCatalog from './MoviesCatalog';
 const mapStateToProps = (state, props) => ({});
 
 const mapDispatchToProps = (dispatch, props) => ({
-    loadMovies: props.loadMovies
+    loadMovies: props.loadMovies,
+    goToMovieDetail: props.goToMovieDetail
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MoviesCatalog);

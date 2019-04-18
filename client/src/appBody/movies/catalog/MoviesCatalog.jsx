@@ -10,7 +10,7 @@ const MoviesCatalog = props => {
     } = props;
     
     useEffect(() => {
-        loadMovies()
+        loadMovies();
     }, []);
 
     const onMovieClick = (movie = {}) => goToMovieDetail && goToMovieDetail(movie._id);

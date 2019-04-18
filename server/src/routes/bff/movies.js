@@ -49,4 +49,31 @@ router.get('/', (req, res) => {
         .catch(err => console.log(err));
 });
 
+// @route   GET bff/movies/:movieid
+// @desc    Get a movie from a given movieId as MovieDetail
+// @access  Public
+router.get('/movie/:movieId', (req, res) => {
+    const errors = {}
+    Movie.findById(req.params.movieId)
+        .then(movie => {
+            if (!movie) {
+                errors.movie = 'There are no movies';
+                return res.status(404).json(errors);
+            }
+            const bffMovie = {
+                movieId: movie._id,
+                title: movie.title,
+                originalTitle: movie.originalTitle,
+                description: movie.description,
+                year: movie.year,
+                minutesLength: movie.minutesLength,
+                directors: movie.directors,
+                actors: movie.actors,
+                countries: movie.countries
+            }
+            res.json(bffMovie);
+        })
+        .catch(err => console.log(err));
+});
+
 module.exports = router;

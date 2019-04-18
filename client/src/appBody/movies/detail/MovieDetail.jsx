@@ -13,7 +13,9 @@ const MovieDetail = props => {
     }, []);
 
     return (
-        <Container>
+        <Container
+            {...containerProps}
+        >
             {`This is the movie ${movieId} detail`}
         </Container>
     );

@@ -5,7 +5,7 @@ import {actions, actionCreators} from './moviesActions';
 import {ROUTES} from '../../routes';
 
 const doLoadMovies = () => axios.get('/bff/movies');
-const doLoadMovieDetail = movieId => axios.get(`/api/movies/movie/${movieId}`);
+const doLoadMovieDetail = movieId => axios.get(`/bff/movies/movie/${movieId}`);
 const doRequestRandomMovie = () => axios.get('/api/movies/randommovie');
 
 function* loadMovies (opts) {

@@ -13,7 +13,7 @@ const MoviesCatalog = props => {
         loadMovies();
     }, []);
 
-    const onMovieClick = (movie = {}) => goToMovieDetail && goToMovieDetail(movie._id);
+    const onMovieClick = (movie = {}) => goToMovieDetail && goToMovieDetail(movie.movieId);
 
     return (
         <Container

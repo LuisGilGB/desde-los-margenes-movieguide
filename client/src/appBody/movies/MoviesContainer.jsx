@@ -7,7 +7,7 @@ import MoviesCatalogContainer from './catalog/MoviesCatalogContainer';
 import MovieDetailContainer from './detail/MovieDetailContainer';
 import {actionCreators as navLogicActionCreators} from '../../navigationLogic/navigationLogicActions';
 import {actionCreators} from './moviesActions';
-import {ROUTES} from '../../routes';
+import ROUTES from '../../routes';
 
 const MoviesViewport = props => (
     <Container

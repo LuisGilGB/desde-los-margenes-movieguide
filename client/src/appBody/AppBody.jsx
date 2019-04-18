@@ -2,6 +2,7 @@ import React from 'react';
 import {Switch, Route} from 'react-router-dom';
 import LandingPage from './landingPage/LandingPage';
 import MoviesContainer from './movies/MoviesContainer';
+import PeopleContainer from './people/PeopleContainer';
 import ROUTES from '../routes';
 import {Container} from '../common';
 
@@ -15,11 +16,7 @@ const AppBody = props => (
             <Route path={ROUTES.MOVIES.CATALOG} render={() => (
                 <MoviesContainer />
             )} />
-            <Route path={ROUTES.PEOPLE} exact render={() => (
-                <Container layout="center" className="app-people">
-                    People section.
-                </Container>
-            )} />
+            <Route path={ROUTES.PEOPLE} component={PeopleContainer} />
             <Route path={ROUTES.REGISTER} exact render={() => (
                 <Container layout="center" className="app-register">
                     This would be the place to register.

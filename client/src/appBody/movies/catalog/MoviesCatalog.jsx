@@ -32,6 +32,14 @@ class MoviesCatalog extends Component {
                         {
                             fieldName: 'title',
                             title: 'Title'
+                        },
+                        {
+                            fieldName: 'countries',
+                            title: 'Country'
+                        },
+                        {
+                            fieldName: 'year',
+                            title: 'Year'
                         }
                     ]}
                     onItemClick={this.onMovieClick}

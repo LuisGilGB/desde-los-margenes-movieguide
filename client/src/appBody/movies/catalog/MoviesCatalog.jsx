@@ -26,12 +26,12 @@ class MoviesCatalog extends Component {
                     className="movies-catalog-grid"
                     columns={[
                         {
-                            fieldName: '_id',
-                            title: 'Id'
-                        },
-                        {
                             fieldName: 'title',
                             title: 'Title'
+                        },
+                        {
+                            fieldName: 'directors',
+                            title: 'Director'
                         },
                         {
                             fieldName: 'countries',

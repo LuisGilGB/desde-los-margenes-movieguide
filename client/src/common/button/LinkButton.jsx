@@ -1,15 +1,11 @@
 import React from 'react';
 import {withRouter} from 'react-router-dom';
-import {setClassNames} from '../../utils';
+import {getClassName} from '../../utils';
 import Button from './Button';
 
-const DEFAULT_CLASS_NAMES = [
-    'dlmmg-linkbtn'
-];
+const DEFAULT_CLASS_NAME = 'dlmmg-linkbtn';
 
-const DEFAULT_BTN_CLASS_NAMES = [
-    'dlmmg-linkbtn-btn-el'
-];
+const DEFAULT_BTN_CLASS_NAME = 'dlmmg-linkbtn-btn-el';
 
 const LinkButton = props => {
     const {
@@ -32,8 +28,8 @@ const LinkButton = props => {
 
     return (
         <Button
-            className={setClassNames(DEFAULT_CLASS_NAMES, className)}
-            btnClassName={setClassNames(DEFAULT_BTN_CLASS_NAMES, btnClassName)}
+            className={getClassName(DEFAULT_CLASS_NAME, className)}
+            btnClassName={getClassName(DEFAULT_BTN_CLASS_NAME, btnClassName)}
             onClick={buttonHandler}
             {...rest}
         >

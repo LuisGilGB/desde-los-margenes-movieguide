@@ -76,4 +76,26 @@ router.get('/movie/:movieId', (req, res) => {
         .catch(err => console.log(err));
 });
 
+// @route   GET bff/movies/randommovie
+// @desc    Get a random movieId from the database
+// @access  Public
+router.get('/randommovie', (req, res) => {
+    const errors = {}
+    Movie.countDocuments()
+        .then(count => {
+            const random = Math.floor(Math.random() * count);
+            Movie.findOne()
+                .skip(random)
+                .then(movie => {
+                    if (!movie) {
+                        errors.movie = 'There are no movies';
+                        return res.status(404).json(errors);
+                    }
+                    res.json({movieId: movie._id});
+                })
+                .catch(err => console.log(err));
+        })
+        .catch(err => console.log(err));
+});
+
 module.exports = router;

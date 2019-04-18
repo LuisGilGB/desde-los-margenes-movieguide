@@ -4,9 +4,9 @@ import {actionCreators as navLogicActionCreators} from '../../navigationLogic/na
 import {actions, actionCreators} from './moviesActions';
 import {ROUTES} from '../../routes';
 
-const doLoadMovies = () => axios.get('/api/movies');
-const doLoadMovieDetail = movieId => axios.get(`/api/movies/movie/${movieId}`);
-const doRequestRandomMovie = () => axios.get('/api/movies/randommovie');
+const doLoadMovies = () => axios.get('/bff/movies');
+const doLoadMovieDetail = movieId => axios.get(`/bff/movies/movie/${movieId}`);
+const doRequestRandomMovie = () => axios.get('/bff/movies/randommovie');
 
 function* loadMovies (opts) {
     try {

@@ -8,6 +8,8 @@ const peopleRoutes = require('./routes/api/people');
 const moviesRoutes = require('./routes/api/movies');
 const usersRoutes = require('./routes/api/users');
 
+const bffMoviesRoutes = require('./routes/bff/movies');
+
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -33,6 +35,8 @@ app.use('/api/countries', countriesRoutes);
 app.use('/api/people', peopleRoutes);
 app.use('/api/movies', moviesRoutes);
 app.use('/api/users', usersRoutes);
+// Use BFF Routes
+app.use('/bff/movies', bffMoviesRoutes);
 
 // Port
 const port = process.env.PORT || 5000;

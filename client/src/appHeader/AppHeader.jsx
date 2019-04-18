@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
-import {Container} from '../common';
+import {Container, LinkButton} from '../common';
 import HeaderToolbar from './HeaderToolbar'
 
 class AppHeader extends Component {
@@ -9,13 +8,12 @@ class AppHeader extends Component {
             <header className="app-header">
                 <Container
                     className="app-header-body"
+                    height={50}
                     layout="hflex"
                 >
-                    <div className="app-logo left-item">
-                        <Link to='/'>
-                            <div className="header-navlink-btn">App</div>
-                        </Link>
-                    </div>
+                    <LinkButton to="/" className="app-logo left-item" width={100}>
+                        App
+                    </LinkButton>
                     <HeaderToolbar
                         flex={1}
                     />

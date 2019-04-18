@@ -1,6 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
-import {Container} from '../common';
+import {Container, LinkButton} from '../common';
 
 const HeaderToolbar = props => (
     <Container
@@ -11,16 +10,12 @@ const HeaderToolbar = props => (
         className="header-toolbar"
         {...props}
     >
-        <div className="register-btn">
-            <Link to='/register'>
-                <div className="header-navlink-btn">Register</div>
-            </Link>
-        </div>
-        <div className="login-btn">
-            <Link to='/login'>
-                <div className="header-navlink-btn">Login</div>
-            </Link>
-        </div>
+        <LinkButton to="/register" className="header-navlink-btn register-btn">
+            Register
+        </LinkButton>
+        <LinkButton to="/login" className="header-navlink-btn login-btn">
+            Login
+        </LinkButton>
     </Container>
 );
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import {Container} from '..';
 import {getClassName} from '../../utils';
 
 const DEFAULT_CLASS_NAME = 'dlmmg-btn';
@@ -19,14 +20,14 @@ const Button = props => {
     }
 
     return (
-        <div className={getClassName(DEFAULT_CLASS_NAME, className)} {...rest}>
+        <Container className={getClassName(DEFAULT_CLASS_NAME, className)} {...rest} layout="fit">
             <button
                 className={getClassName(DEFAULT_BTN_CLASS_NAME, btnClassName)}
                 onClick={buttonHandler}
             >
                 {children}
             </button>
-        </div>
+        </Container>
     );
 }
 

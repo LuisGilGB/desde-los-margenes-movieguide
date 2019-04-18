@@ -63,8 +63,8 @@ a:-webkit-any-link:active {
 }
 
 .app-header .header-navlink-btn {
-    padding: 5px 30px 5px 30px;
     width: 120px;
+    font-size: 18px;
     line-height: 30px;
 }
 
@@ -149,14 +149,19 @@ a:-webkit-any-link:active {
     justify-content: space-evenly;
 }
 
+.dlmmg-btn {
+}
+
 .dlmmg-btn .dlmmg-btn-btn-el {
     background-color: #222;
+    justify-content: center;
     cursor: pointer;
     color: #F5F5F5;
     border-width: 0px;
     border-style: none;
     border-color: none;
     border-image: none;
+    font-size: inherit;
 }
 
 .dlmmg-btn .dlmmg-btn-btn-el:hover {

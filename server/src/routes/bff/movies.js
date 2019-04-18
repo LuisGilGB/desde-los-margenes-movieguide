@@ -40,7 +40,9 @@ router.get('/', (req, res) => {
             const bffMovies = movies.map(m => ({
                 movieId: m._id,
                 title: m.title,
-                year: m.year
+                year: m.year,
+                directors: 'El dire',
+                countries: ['es']
             }));
             res.json(bffMovies);
         })

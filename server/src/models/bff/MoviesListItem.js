@@ -19,9 +19,11 @@ let MoviesListItemSchema = new Schema(
         directors: {
             type: String
         },
-        countries: {
-            type: String
-        }
+        countries: [
+            {
+                type: String
+            }
+        ]
     }
 );
 

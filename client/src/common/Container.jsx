@@ -86,7 +86,7 @@ const getFlexJustifyClassName = (align = 'start') => flexJustifyClassNames[align
 // Layout className functions
 const getLayoutClassName = (layout = 'auto', classNamePointer = 'contClassName') => {
     if (layout && typeof layout === 'string') {
-        return layoutsCfg[layout][classNamePointer] || '';
+        return (layoutsCfg[layout] || layoutsCfg.auto)[classNamePointer];
     } else if (layout && typeof layout === 'object') {
         const {type = 'auto', align, justify} = layout;
         const typeClassName = (layoutsCfg[type] || layoutsCfg.auto)[classNamePointer];

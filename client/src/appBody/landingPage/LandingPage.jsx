@@ -19,18 +19,24 @@ const LandingPage = props => (
         layout="center"
         className="landing-page"
     >
-        <Button
-            onClick={props.goToMoviesCatalog}
-            className="movies-btn"
+        <Container
+            layout="vflex"
         >
-            Consult movies catalog
-        </Button>
-        <Button
-            onClick={props.requestRandomMovie}
-            className="random-movie-btn"
-        >
-            Get a random movie
-        </Button>
+            <Button
+                className="landing-main-btn movies-btn"
+                height={60}
+                onClick={props.goToMoviesCatalog}
+            >
+                Consult movies catalog
+            </Button>
+            <Button
+                className="landing-main-btn random-movie-btn"
+                height={60}
+                onClick={props.requestRandomMovie}
+            >
+                Get a random movie
+            </Button>
+        </Container>
     </Container>
 );
 

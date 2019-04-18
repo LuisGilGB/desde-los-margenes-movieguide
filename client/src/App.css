@@ -69,7 +69,6 @@ a:-webkit-any-link:active {
 }
 
 .app-logo {
-    width: 200px;
 }
 
 .app-logo .header-navlink-btn {
@@ -177,4 +176,8 @@ a:-webkit-any-link:active {
 
 .movies-catalog-grid .dlmmg-grid-row {
     cursor: pointer;
+}
+
+.landing-main-btn {
+    margin: 5px;
 }

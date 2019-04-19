@@ -24,6 +24,7 @@ const PeopleViewport = props => (
         </Container>
         <Container
             flex={1}
+            layout="fit"
         >
             <Switch>
                 <Route path={ROUTES.PEOPLE.NEW_PERSON_FORM} exact render={() => (

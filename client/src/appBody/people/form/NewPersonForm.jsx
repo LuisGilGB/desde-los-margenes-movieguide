@@ -1,5 +1,5 @@
 import React from 'react';
-import {Container} from '../../../common';
+import {Container, Form} from '../../../common';
 
 const NewPersonForm = props => {
     const {
@@ -14,9 +14,13 @@ const NewPersonForm = props => {
 
     return (
         <Container
+            layout="fit"
             {...otherProps}
         >
-            <form onSubmit={onSubmit}>
+            <Form
+                layout="vflex"
+                onSubmit={onSubmit}
+            >
                 <label>
                     Name:
                     <input
@@ -29,7 +33,7 @@ const NewPersonForm = props => {
                     type="submit"
                     value="Add person"
                 />
-            </form>
+            </Form>
         </Container>
     );
 }

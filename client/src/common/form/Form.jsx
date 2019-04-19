@@ -29,6 +29,7 @@ const Form = props => {
             >
                 <Container
                     className={getClassName(DEFAULT_INNERCONT_CLASS_NAME, innerClassName)}
+                    width="100%"
                     layout={layout}
                 >
                     {children}

@@ -5,7 +5,9 @@ export const ROUTES = {
 
     REGISTER: '/register',
 
-    PEOPLE: '/people',
+    PEOPLE: {
+        LIST: '/people'
+    },
 
     MOVIES: {
         CATALOG: '/movies',

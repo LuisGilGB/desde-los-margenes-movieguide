@@ -14,7 +14,7 @@ const AppBody = props => (
     >
         <Switch>
             <Route path={ROUTES.MOVIES.CATALOG} component={MoviesContainer} />
-            <Route path={ROUTES.PEOPLE} component={PeopleContainer} />
+            <Route path={ROUTES.PEOPLE.LIST} component={PeopleContainer} />
             {/*<Route path={ROUTES.REGISTER} exact render={() => (
                 <Container layout="center" className="app-register">
                     This would be the place to register.

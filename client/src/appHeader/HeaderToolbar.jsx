@@ -14,7 +14,7 @@ const HeaderToolbar = props => (
         <LinkButton to={ROUTES.MOVIES.CATALOG} className="header-navlink-btn movies-btn">
             Películas
         </LinkButton>
-        <LinkButton to={ROUTES.PEOPLE} className="header-navlink-btn people-btn">
+        <LinkButton to={ROUTES.PEOPLE.LIST} className="header-navlink-btn people-btn">
             Gente del cine
         </LinkButton>
         {/*<LinkButton to={ROUTES.REGISTER} className="header-navlink-btn register-btn">

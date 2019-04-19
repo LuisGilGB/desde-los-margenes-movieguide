@@ -17,12 +17,12 @@ const HeaderToolbar = props => (
         <LinkButton to={ROUTES.PEOPLE} className="header-navlink-btn people-btn">
             Gente del cine
         </LinkButton>
-        <LinkButton to={ROUTES.REGISTER} className="header-navlink-btn register-btn">
+        {/*<LinkButton to={ROUTES.REGISTER} className="header-navlink-btn register-btn">
             Registro
         </LinkButton>
         <LinkButton to={ROUTES.LOGIN} className="header-navlink-btn login-btn">
             Login
-        </LinkButton>
+        </LinkButton>*/}
     </Container>
 );
 

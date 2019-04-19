@@ -11,11 +11,14 @@ const HeaderToolbar = props => (
         className="header-toolbar"
         {...props}
     >
+        <LinkButton to={ROUTES.MOVIES.CATALOG} className="header-navlink-btn movies-btn">
+            Películas
+        </LinkButton>
         <LinkButton to={ROUTES.PEOPLE} className="header-navlink-btn people-btn">
             Gente del cine
         </LinkButton>
         <LinkButton to={ROUTES.REGISTER} className="header-navlink-btn register-btn">
-            Register
+            Registro
         </LinkButton>
         <LinkButton to={ROUTES.LOGIN} className="header-navlink-btn login-btn">
             Login

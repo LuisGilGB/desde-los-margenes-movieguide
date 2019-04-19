@@ -13,9 +13,7 @@ const AppBody = props => (
         {...props}
     >
         <Switch>
-            <Route path={ROUTES.MOVIES.CATALOG} render={() => (
-                <MoviesContainer />
-            )} />
+            <Route path={ROUTES.MOVIES.CATALOG} component={MoviesContainer} />
             <Route path={ROUTES.PEOPLE} component={PeopleContainer} />
             <Route path={ROUTES.REGISTER} exact render={() => (
                 <Container layout="center" className="app-register">

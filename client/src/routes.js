@@ -6,7 +6,8 @@ export const ROUTES = {
     REGISTER: '/register',
 
     PEOPLE: {
-        LIST: '/people'
+        LIST: '/people',
+        NEW_PERSON_FORM: '/people/newperson'
     },
 
     MOVIES: {

@@ -15,6 +15,15 @@ const TextField = props => {
         className = '',
         labelClassName = '',
         inputClassName = '',
+        flex: flexGrow,
+        width,
+        minWidth,
+        maxWidth,
+        height,
+        minHeight,
+        maxHeight,
+        labelWidth,
+        inputWidth,
         onChange: onChangeProp,
         ...otherProps
     } = props;
@@ -25,12 +34,23 @@ const TextField = props => {
 
     return (
         <Container
-            {...otherProps}
             className={getClassName(DEFAULT_CLASS_NAME, className)}
             layout="hflex"
+            style={{
+                flexGrow,
+                width,
+                minWidth,
+                maxWidth,
+                height,
+                minHeight,
+                maxHeight
+            }}
         >
             <label
                 className={getClassName(DEFAULT_LABEL_CLASS_NAME, labelClassName)}
+                style={{
+                    width: labelWidth
+                }}
             >
                 {label}
             </label>
@@ -38,7 +58,6 @@ const TextField = props => {
                 {...otherProps}
                 type="text"
                 className={getClassName(DEFAULT_INPUT_CLASS_NAME, inputClassName)}
-                flex={1}
                 value={value}
                 onChange={onChange}
             />

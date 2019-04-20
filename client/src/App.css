@@ -175,6 +175,40 @@ a:-webkit-any-link:active {
     background-color: #5F5F5F;
 }
 
+.dlmmg-field {
+    margin: 3px;
+    padding: 3px;
+}
+
+.dlmmg-field .dlmmg-field-label {
+    width: 100px;
+    font-weight: 300;
+    margin-right: 5px;
+    padding-bottom: 3px;
+}
+
+.dlmmg-field .dlmmg-field-input {
+    flex-grow: 1;
+    -webkit-appearance: none;
+    color: #F5F5F5;
+    background-color: transparent;
+    border-width: 0;
+    border-style: none;
+    border-color: transparent;
+    border-image: none;
+    padding-bottom: 2px;
+    border-bottom: 1px solid #7F7F7F;
+}
+
+.dlmmg-field .dlmmg-field-input:focus {
+    outline: none;
+    border-bottom: 1px solid #CFCFFF;
+}
+
+.dlmmg-field .dlmmg-field-input:focus {
+    background-color: transparent !important;
+}
+
 .dlmmg-grid {
 }
 

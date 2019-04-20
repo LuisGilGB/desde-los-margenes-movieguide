@@ -1,5 +1,5 @@
 import React from 'react';
-import {Container, Form} from '../../../common';
+import {Container, Form, TextField} from '../../../common';
 
 const NewPersonForm = props => {
     const {
@@ -21,14 +21,11 @@ const NewPersonForm = props => {
                 layout="vflex"
                 onSubmit={onSubmit}
             >
-                <label>
-                    Name:
-                    <input
-                        type="text"
-                        name="name"
-                        value={data.name}
-                    />
-                </label>
+                <TextField
+                    value={data.name}
+                    name="name"
+                    label="Name"
+                />
                 <input
                     type="submit"
                     value="Add person"

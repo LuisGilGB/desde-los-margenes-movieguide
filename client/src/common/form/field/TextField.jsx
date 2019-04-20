@@ -28,8 +28,10 @@ const TextField = props => {
         ...otherProps
     } = props;
 
-    const onChange = (...args) => {
-        onChangeProp && onChangeProp(...args);
+    const onChange = (e) => {
+        const newValue = e.target.value;
+        const oldValue = value;
+        onChangeProp && onChangeProp(props, newValue, oldValue, e);
     }
 
     return (

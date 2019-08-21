@@ -9,6 +9,7 @@ const doLoadMovieDetail = movieId => axios.get(`/bff/movies/movie/${movieId}`);
 const doRequestRandomMovie = () => axios.get('/bff/movies/randommovie');
 
 function* loadMovies (opts) {
+    console.log('opts at load movies', opts);
     try {
         const { data } = yield call(doLoadMovies);
 

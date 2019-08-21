@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter as Router} from 'react-router-dom';
+import {Router} from 'react-router-dom';
 import {Provider} from 'react-redux';
 import {Container} from './common';
 import AppHeader from './appHeader/AppHeader';
@@ -8,12 +8,13 @@ import './App.css';
 
 const App = props => {
     const {
-        store
+        store,
+        history
     } = props;
 
     return (
         <Provider store={store}>
-            <Router>
+            <Router history={history}>
                 <Container layout="vflex" className="app">
                     <AppHeader />
                     <AppBody flex={1}/>

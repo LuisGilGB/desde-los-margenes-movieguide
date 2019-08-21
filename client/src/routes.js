@@ -7,6 +7,7 @@ export const ROUTES = {
 
     PEOPLE: {
         LIST: '/people',
+        DETAIL: '/people/:personId',
         NEW_PERSON_FORM: '/people/newperson'
     },
 

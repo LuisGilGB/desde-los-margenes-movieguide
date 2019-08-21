@@ -4,7 +4,7 @@ import {Container, Grid} from '../../../common';
 const PeopleList = props => {
     const {
         people = [],
-        goToPersonDetail = (...params) => console.log(params),
+        goToPersonDetail,
         ...otherProps
     } = props;
 

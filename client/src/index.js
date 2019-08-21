@@ -2,8 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import store from './store';
+import createStoreAndHistory from './store';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<App store={store} />, document.getElementById('root'));
+const {store, history} = createStoreAndHistory();
+
+ReactDOM.render(<App store={store} history={history} />, document.getElementById('root'));
 registerServiceWorker();

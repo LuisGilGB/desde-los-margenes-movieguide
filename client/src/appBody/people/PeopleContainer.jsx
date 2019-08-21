@@ -55,7 +55,7 @@ const PeopleViewport = props => {
 const mapStateToProps = () => ({});
 
 const mapDispatchToProps = (dispatch, props) => ({
-    goToPersonDetail: (personSelected) => navLogicActionCreators.navigateWithPush(props.history, ROUTES.PEOPLE.DETAIL, personSelected)
+    goToPersonDetail: (personSelected) => navLogicActionCreators.navigateWithPush(ROUTES.PEOPLE.DETAIL, personSelected)
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(PeopleViewport));

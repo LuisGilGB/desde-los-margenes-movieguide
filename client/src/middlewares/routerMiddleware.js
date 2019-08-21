@@ -1,4 +1,4 @@
-const routerMiddleware = store => next => action => {
+const createRouterMiddleware = history => store => next => action => {
     const {getState, dispatch} = store;
     console.log('store', store);
     console.log('action', action);
@@ -7,4 +7,4 @@ const routerMiddleware = store => next => action => {
     return result;
 }
 
-export default routerMiddleware;
+export default createRouterMiddleware;

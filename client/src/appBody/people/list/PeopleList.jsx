@@ -4,6 +4,7 @@ import {Container, Grid} from '../../../common';
 const PeopleList = props => {
     const {
         people = [],
+        goToPersonDetail = (...params) => console.log(params),
         ...otherProps
     } = props;
 
@@ -22,6 +23,7 @@ const PeopleList = props => {
                         title: 'Nombre'
                     }
                 ]}
+                onItemClick={goToPersonDetail}
             />
         </Container>
     );

@@ -1,6 +1,6 @@
 const routerMiddleware = store => next => action => {
+    const {getState, dispatch} = store;
     console.log('store', store);
-    console.log('next', next);
     console.log('action', action);
     const result = next(action);
     console.log('result', result);

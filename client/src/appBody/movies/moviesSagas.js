@@ -35,11 +35,11 @@ function* loadMovieDetail (opts) {
 }
 
 function* requestRandomMovie (opts) {
-    const { payload: { history } } = opts;
+    const { history } = opts;
     try {
         const { data } = yield call(doRequestRandomMovie);
 
-        yield put(navLogicActionCreators.navigateWithPush(history, ROUTES.MOVIES.DETAIL, data));
+        yield put(navLogicActionCreators.navigateWithPush(ROUTES.MOVIES.DETAIL, data));
     }
     catch (err) {
         console.log(err);

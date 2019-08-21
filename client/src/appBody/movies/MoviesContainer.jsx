@@ -39,7 +39,7 @@ const mapStateToProps = (state, props) => {
 }
 
 const mapDispatchToProps = (dispatch, props) => ({
-    goToMovieDetail: movieId => dispatch(navLogicActionCreators.navigateWithPush(props.history, ROUTES.MOVIES.DETAIL, { movieId })),
+    goToMovieDetail: movieId => dispatch(navLogicActionCreators.navigateWithPush(ROUTES.MOVIES.DETAIL, { movieId })),
     loadMovies: () => dispatch(actionCreators.loadMovies()),
     loadMovieDetail: movieId => dispatch(actionCreators.loadMovieDetail(movieId))
 });

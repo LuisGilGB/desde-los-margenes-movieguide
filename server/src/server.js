@@ -8,7 +8,7 @@ const peopleRoutes = require('./routes/api/people');
 const moviesRoutes = require('./routes/api/movies');
 const usersRoutes = require('./routes/api/users');
 
-const bffMoviesRoutes = require('./routes/bff/movies');
+const bffMoviesRoutes = require('./routes/bff-api/movies');
 
 const app = express();
 

@@ -70,7 +70,7 @@ router.post('/add', passport.authenticate('jwt', { session: false }), (req, res)
         return res.status(400).json(errors);
     }
 
-    const {name, description, pic, ...otherBodyParams} = body;
+    const {name, description, pic} = body;
 
     Person.find({ name: name })
         .then(people => {
@@ -85,8 +85,7 @@ router.post('/add', passport.authenticate('jwt', { session: false }), (req, res)
                             name: name,
                             uniqueAliasSlug,
                             description: description || '',
-                            pic: pic || '',
-                            ...otherBodyParams
+                            pic: pic || ''
                         });
 
                         // Save the new person into the database and return it as the service response.

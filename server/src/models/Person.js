@@ -1,5 +1,6 @@
 // server/models/Person.js
 const mongoose = require('mongoose');
+const slugify = require('../utils/slugify.js')
 const Schema = mongoose.Schema;
 
 const PersonSchema = new Schema(
@@ -7,6 +8,15 @@ const PersonSchema = new Schema(
         name: {
             type: String,
             required: true
+        },
+        uniqueAlias: {
+            type: String,
+            required: true,
+            lowercase: true,
+            trim: true,
+            match: /^[a-z0-9-]+$/,
+            unique: true,
+            default: () => slugify(this.name)
         },
         description: {
             type: String

@@ -91,17 +91,9 @@ router.post('/add', passport.authenticate('jwt', { session: false }), (req, res)
                         // Save the new person into the database and return it as the service response.
                         newPerson.save()
                             .then(person => res.json(person))
-                            .catch(err => {
-                                console.log(err);
-                                errors.msg = err;
-                                res.status(400).json(errors);
-                            });
+                            .catch(err => console.log(err));
                     })
-                    .catch(err => {
-                        console.log(err);
-                        errors.msg = err;
-                        res.status(400).json(errors);
-                    });
+                    .catch(err => console.log(err));
             }
         })
         .catch(err => console.log(err));

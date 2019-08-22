@@ -2,7 +2,7 @@ const a = 'àáäâãåăæąçćčđďèéěėëêęğǵḧìíïîįłḿǹń�
 const b = 'aaaaaaaaacccddeeeeeeegghiiiiilmnnnnooooooprrsssssttuuuuuuuuuwxyyzzz------';
 const p = new RegExp(a.split('').join('|'), 'g');
 
-const slugify = (string = '') => string.toString().toLowerCase()
+const slugify = (string = '') => string.toString().trim().toLowerCase()
     .replace(/\s+/g, '-') // Replace spaces with -
     .replace(p, c => b.charAt(a.indexOf(c))) // Replace special characters
     .replace(/&/g, '-and-') // Replace & with 'and'

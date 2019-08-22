@@ -9,7 +9,7 @@ const PersonSchema = new Schema(
             type: String,
             required: true
         },
-        uniqueAlias: {
+        uniqueAliasSlug: {
             type: String,
             required: true,
             lowercase: true,

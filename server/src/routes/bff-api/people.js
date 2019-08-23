@@ -18,9 +18,11 @@ const validatePersonToAdd = require('../../validation/person/addPerson.js');
 // @desc    Tests people route
 // @access  Public
 router.get('/test', (req, res) => {
-    axios.get('http://localhost:5000/api/people/test')
-        .then(({data}) => res.json(data))
-        .catch(err => console.log(err));
+    console.log('Testing People BFF...');
+    res.redirect('/api/people/test');
+    // axios.get('http://localhost:5000/api/people/test')
+    //     .then(({data}) => res.json(data))
+    //     .catch(err => console.log(err));
 });
 
 module.exports = router;

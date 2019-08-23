@@ -14,6 +14,15 @@ const Person = require(`${modelsDir}Person`);
 // Import validators
 const validatePersonToAdd = require('../../validation/person/addPerson.js');
 
+const peopleBFFMapper = p => ({
+    id: p.uniqueAliasSlug,
+    name: p.name,
+    description: p.description,
+    pic: p.pic,
+    countries: p.countries,
+    movies: p.movies
+});
+
 // @route   GET bff/people/test
 // @desc    Tests people route
 // @access  Public
@@ -25,17 +34,7 @@ router.get('/test', (req, res) => peopleBusinessLogic.test(req)
 // @desc    Get all people into the database
 // @access  Public
 router.get('/', (req, res) => peopleBusinessLogic.getPeople(req, res)
-    .then(people => {
-        const peopleForBFF = people.map(p => ({
-            id: p.uniqueAliasSlug,
-            name: p.name,
-            description: p.description,
-            pic: p.pic,
-            countries: p.countries,
-            movies: p.movies
-        }));
-        res.json(peopleForBFF);
-    })
+    .then(people => res.json(people.map(peopleBFFMapper)))
     .catch(err => console.log(err)));
 
 module.exports = router;

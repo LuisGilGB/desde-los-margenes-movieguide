@@ -26,9 +26,7 @@ router.get('/test', (req, res) => peopleBusinessLogic.test(req, res)
 // @desc    Get all people into the database
 // @access  Public
 router.get('/', (req, res) => peopleBusinessLogic.getPeople(req, res)
-    .then(people => {
-        res.json(people);
-    })
+    .then(people => res.json(people))
     .catch(err => console.log(err)));
 
 const checkAliasSlugExists = slug => new Promise((resolve, reject) => {

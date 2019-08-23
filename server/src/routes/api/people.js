@@ -26,9 +26,9 @@ router.get('/test', (req, res) => peopleBusinessLogic.test(req)
 // @desc    Get all people into the database
 // @access  Public
 router.get('/', (req, res) => {
-    const errors = {}
-    Person.find()
+    peopleBusinessLogic.getPeople(req)
         .then(people => {
+            const errors = {}
             if (!people) {
                 errors.people = 'There are no people';
                 return res.status(404).json(errors);

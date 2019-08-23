@@ -15,7 +15,7 @@ const Person = require(`${modelsDir}Person`);
 const validatePersonToAdd = require('../../validation/person/addPerson.js');
 
 const peopleBFFMapper = p => ({
-    id: p.uniqueAliasSlug,
+    personId: p.uniqueAliasSlug,
     name: p.name,
     description: p.description,
     pic: p.pic,
@@ -35,6 +35,14 @@ router.get('/test', (req, res) => peopleBusinessLogic.test(req)
 // @access  Public
 router.get('/', (req, res) => peopleBusinessLogic.getPeople(req, res)
     .then(people => res.json(people.map(peopleBFFMapper)))
+    .catch(err => console.log(err)));
+
+// @route   POST bff/people/add
+// @desc    Add a new person
+// @query   forceCreation Create a new record even if there already is a person with the same name.
+// @access  Private
+router.post('/add', passport.authenticate('jwt', { session: false }), (req, res) => peopleBusinessLogic.addPerson(req, res)
+    .then(newPerson => res.json(people.map(newPerson)))
     .catch(err => console.log(err)));
 
 module.exports = router;

@@ -37,8 +37,9 @@ const getAvailableAlias = (slug, tryNum = 0) => new Promise((resolve, reject) =>
         return reject("More than 16 unsuccessful attempts of getting a unique alias? Something may not be working right (we put this limit as a protection against infinite loops).")
     }
     const slugDraft = tryNum ? `${slug}-${tryNum}` : slug;
+
     checkAliasSlugExists(slugDraft)
-        .then(match => match ? getAvailableAlias(slug, tryNum + 1) : resolve(slugDraft))
+        .then(match => match ? resolve(getAvailableAlias(slug, tryNum + 1)) : resolve(slugDraft))
         .catch(err => reject(err));
 });
 
@@ -78,7 +79,6 @@ const addPerson = (req, res) => new Promise((resolve, reject) => {
                             description: description || '',
                             pic: pic || ''
                         });
-
                         // Save the new person into the database and return it as the service response.
                         newPerson.save()
                             .then(person => resolve(person))

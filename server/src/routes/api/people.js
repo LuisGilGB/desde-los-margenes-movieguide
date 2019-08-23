@@ -18,25 +18,18 @@ const validatePersonToAdd = require('../../validation/person/addPerson.js');
 // @route   GET api/people/test
 // @desc    Tests people route
 // @access  Public
-router.get('/test', (req, res) => peopleBusinessLogic.test(req)
+router.get('/test', (req, res) => peopleBusinessLogic.test(req, res)
     .then(answer => res.json(answer))
     .catch(err => console.log(err)));
 
 // @route   GET api/people
 // @desc    Get all people into the database
 // @access  Public
-router.get('/', (req, res) => {
-    peopleBusinessLogic.getPeople(req)
-        .then(people => {
-            const errors = {}
-            if (!people) {
-                errors.people = 'There are no people';
-                return res.status(404).json(errors);
-            }
-            res.json(people);
-        })
-        .catch(err => console.log(err));
-});
+router.get('/', (req, res) => peopleBusinessLogic.getPeople(req, res)
+    .then(people => {
+        res.json(people);
+    })
+    .catch(err => console.log(err)));
 
 const checkAliasSlugExists = slug => new Promise((resolve, reject) => {
     Person.find({ uniqueAliasSlug: slug })

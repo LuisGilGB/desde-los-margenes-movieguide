@@ -42,7 +42,7 @@ router.get('/', (req, res) => peopleBusinessLogic.getPeople(req, res)
 // @query   forceCreation Create a new record even if there already is a person with the same name.
 // @access  Private
 router.post('/add', passport.authenticate('jwt', { session: false }), (req, res) => peopleBusinessLogic.addPerson(req, res)
-    .then(newPerson => res.json(people.map(newPerson)))
+    .then(newPerson => res.json(peopleBFFMapper(newPerson)))
     .catch(err => console.log(err)));
 
 module.exports = router;

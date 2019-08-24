@@ -57,8 +57,7 @@ const addPerson = (req, res) => new Promise((resolve, reject) => {
     const { errors, isValid } = validatePersonToAdd(body);
 
     if (!isValid) {
-        res.status(400).json(errors);
-        reject(errors);
+        reject({status: 400, errors});
     }
 
     const {name, description, pic} = body;
@@ -68,8 +67,7 @@ const addPerson = (req, res) => new Promise((resolve, reject) => {
             if (!forceCreation && people && people.length) {
                 errors.name = "One or more people with this name already exists";
                 errors.matchedPeople = people;
-                res.status(400).json(errors);
-                reject(errors);
+                reject({status: 400, errors});
             } else {
                 getUniqueAliasSlug(name)
                     .then(uniqueAliasSlug => {

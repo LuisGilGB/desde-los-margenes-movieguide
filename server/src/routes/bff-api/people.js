@@ -23,6 +23,11 @@ const peopleBFFMapper = p => ({
     movies: p.movies
 });
 
+const peopleBFFErrorsMapper = e => e.matchedPeople && e.matchedPeople.length ? {
+    ...e,
+    matchedPeople: e.matchedPeople.map(peopleBFFMapper)
+} : e;
+
 // @route   GET bff/people/test
 // @desc    Tests people route
 // @access  Public
@@ -43,6 +48,10 @@ router.get('/', (req, res) => peopleBusinessLogic.getPeople(req, res)
 // @access  Private
 router.post('/add', passport.authenticate('jwt', { session: false }), (req, res) => peopleBusinessLogic.addPerson(req, res)
     .then(newPerson => res.json(peopleBFFMapper(newPerson)))
-    .catch(err => console.log(err)));
+    .catch(({errors, status}) => {
+        console.log(errors);
+        console.log('status', status);
+        status && res.status(status).json(peopleBFFErrorsMapper(errors));
+    }));
 
 module.exports = router;

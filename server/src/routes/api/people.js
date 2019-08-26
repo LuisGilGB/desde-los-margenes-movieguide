@@ -31,4 +31,15 @@ router.post('/add', passport.authenticate('jwt', { session: false }), (req, res)
         status && res.status(status).json(errors);
     }));
 
+// @route   GET api/people
+// @desc    Get a person from a given id
+// @access  Public
+router.get('/person/:personId', (req, res) => peopleBusinessLogic.getPerson(req, res)
+    .then(person => res.json(person))
+    .catch(({errors, status}) => {
+        console.log(errors);
+        console.log('status', status);
+        status && res.status(status).json(errors);
+    }));
+
 module.exports = router;

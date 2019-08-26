@@ -86,10 +86,15 @@ const addPerson = (req, res) => new Promise((resolve, reject) => {
             }
         })
         .catch(err => reject(err));
-})
+});
+
+const getPerson = (req, res) => new Promise((resolve, reject) => {
+    resolve();
+});
 
 module.exports = {
     test,
     getPeople,
-    addPerson
+    addPerson,
+    getPerson
 }

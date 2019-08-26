@@ -89,7 +89,20 @@ const addPerson = (req, res) => new Promise((resolve, reject) => {
 });
 
 const getPerson = (req, res) => new Promise((resolve, reject) => {
-    resolve();
+    const {params} = req;
+    const {personId: uniqueAliasSlug} = params;
+
+    Person.find({ uniqueAliasSlug })
+        .then(people => {
+            if (!(people && people.length)) {
+                const errors = {}
+                errors.msg = "The requested person doesn't exist"
+                reject({status: 400, errors});
+            } else {
+                resolve(people[0]);
+            }
+        })
+        .catch(err => reject(err));
 });
 
 module.exports = {

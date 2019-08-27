@@ -26,8 +26,8 @@ router.get('/', (req, res) => peopleBusinessLogic.getPeople(req, res)
 router.post('/add', passport.authenticate('jwt', { session: false }), (req, res) => peopleBusinessLogic.addPerson(req, res)
     .then(newPerson => res.json(newPerson))
     .catch(({errors, status}) => {
+        console.log(`[ERROR] Status: ${status}`);
         console.log(errors);
-        console.log('status', status);
         status && res.status(status).json(errors);
     }));
 
@@ -37,7 +37,7 @@ router.post('/add', passport.authenticate('jwt', { session: false }), (req, res)
 router.get('/person/:personId', (req, res) => peopleBusinessLogic.getPerson(req, res)
     .then(person => res.json(person))
     .catch(({errors, status}) => {
-        console.log('status', status);
+        console.log(`[ERROR] Status: ${status}`);
         console.log(errors);
         status && res.status(status).json(errors);
     }));

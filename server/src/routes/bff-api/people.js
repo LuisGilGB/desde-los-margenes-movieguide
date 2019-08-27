@@ -68,7 +68,7 @@ router.get('/person/:personId', (req, res) => peopleBusinessLogic.getPerson(req,
 // @route   PATCH bff/people/person/:personId
 // @desc    Get a person from a given id and update its data
 // @access  Public
-router.patch('/person/:personId', (req, res) => peopleBusinessLogic.updatePerson(req, res)
+router.patch('/person/:personId', passport.authenticate('jwt', { session: false }), (req, res) => peopleBusinessLogic.updatePerson(req, res)
     .then(person => res.json(peopleBFFMapper(person)))
     .catch(({errors, status}) => {
         console.log(`[ERROR] Status: ${status}`);

@@ -124,5 +124,6 @@ module.exports = {
     test,
     getPeople,
     addPerson,
-    getPerson
+    getPerson,
+    updatePerson
 }

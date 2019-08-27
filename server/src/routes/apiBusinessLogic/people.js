@@ -116,7 +116,9 @@ const updatePerson = (req, res) => new Promise((resolve, reject) => {
             ...getPersonSchemaAttributes(body)
         },
         { new: true }
-    ).then(updatedPerson => resolve(updatedPerson)
+    ).then(updatedPerson => {
+        console.log(updatedPerson);
+        resolve(updatedPerson)}
     ).catch(err => reject(err));
 });
 

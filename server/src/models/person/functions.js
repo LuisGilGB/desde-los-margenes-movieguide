@@ -1,8 +1,8 @@
-const {KEYS} = './consts.js';
+const {KEYS} = require ('./consts.js');
 
-const getPersonSchemaAttributes = (obj = {}) => KEYS.reduce((obj0, key) => object[key] !== undefined ? {
+const getPersonSchemaAttributes = (obj = {}) => KEYS.reduce((obj0, key) => obj[key] !== undefined ? {
     ...obj0,
-    [key]: object[key]
+    [key]: obj[key]
 } : obj0, {});
 
 module.exports = {

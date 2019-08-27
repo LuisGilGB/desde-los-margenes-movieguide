@@ -42,4 +42,11 @@ router.get('/person/:personId', (req, res) => peopleBusinessLogic.getPerson(req,
         status && res.status(status).json(errors);
     }));
 
+// @route   PATCH api/people/person/:personId
+// @desc    Get a person from a given id and update its data
+// @access  Public
+router.patch('/person/:personId', (req, res) => peopleBusinessLogic.updatePerson(req, res)
+    .then(person => res.json(person))
+    .catch(err => console.log(err)));
+
 module.exports = router;

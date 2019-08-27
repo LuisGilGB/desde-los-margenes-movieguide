@@ -65,4 +65,15 @@ router.get('/person/:personId', (req, res) => peopleBusinessLogic.getPerson(req,
         status && res.status(status).json(errors);
     }));
 
+// @route   PATCH bff/people/person/:personId
+// @desc    Get a person from a given id and update its data
+// @access  Public
+router.patch('/person/:personId', (req, res) => peopleBusinessLogic.updatePerson(req, res)
+    .then(person => res.json(peopleBFFMapper(person)))
+    .catch(({errors, status}) => {
+        console.log(`[ERROR] Status: ${status}`);
+        console.log(errors);
+        status && res.status(status).json(errors);
+    }));
+
 module.exports = router;

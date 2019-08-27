@@ -37,8 +37,8 @@ router.post('/add', passport.authenticate('jwt', { session: false }), (req, res)
 router.get('/person/:personId', (req, res) => peopleBusinessLogic.getPerson(req, res)
     .then(person => res.json(person))
     .catch(({errors, status}) => {
-        console.log(errors);
         console.log('status', status);
+        console.log(errors);
         status && res.status(status).json(errors);
     }));
 
@@ -47,6 +47,10 @@ router.get('/person/:personId', (req, res) => peopleBusinessLogic.getPerson(req,
 // @access  Public
 router.patch('/person/:personId', (req, res) => peopleBusinessLogic.updatePerson(req, res)
     .then(person => res.json(person))
-    .catch(err => console.log(err)));
+    .catch(({errors, status}) => {
+        console.log(`[ERROR] Status: ${status}`);
+        console.log(errors);
+        status && res.status(status).json(errors);
+    }));
 
 module.exports = router;

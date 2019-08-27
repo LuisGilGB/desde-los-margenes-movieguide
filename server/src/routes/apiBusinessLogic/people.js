@@ -117,9 +117,16 @@ const updatePerson = (req, res) => new Promise((resolve, reject) => {
         },
         { new: true }
     ).then(updatedPerson => {
-        console.log(updatedPerson);
-        resolve(updatedPerson)}
-    ).catch(err => reject(err));
+        if (!updatedPerson) {
+            const errors = {}
+            errors.msg = "The requested person doesn't exist"
+            reject({status: 400, errors});
+        } else {
+            resolve(updatedPerson);
+        }
+    }).catch(err => {
+        reject({status: 500, errors: {msg: "There was an error in the database, please contact the web administrator"}})
+    });
 });
 
 module.exports = {

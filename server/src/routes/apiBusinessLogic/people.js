@@ -4,6 +4,7 @@ const isEmpty = require('../../validation/is-empty.js');
 // Import models
 const modelsDir = '../../models/';
 const Person = require(`${modelsDir}Person`);
+const {getPersonSchemaAttributes} = require(`${modelsDir}person/functions`);
 
 // Import validators
 const validatePersonToAdd = require('../../validation/person/addPerson.js');
@@ -103,6 +104,20 @@ const getPerson = (req, res) => new Promise((resolve, reject) => {
             }
         })
         .catch(err => reject(err));
+});
+
+const updatePerson = (req, res) => new Promise((resolve, reject) => {
+    const {body = {}, params} = req;
+    const {personId: uniqueAliasSlug} = params;
+
+    Person.findOneAndUpdate(
+        { uniqueAliasSlug },
+        {
+            ...getPersonSchemaAttributes(body)
+        },
+        { new: true }
+    ).then(updatedPerson => resolve(updatedPerson)
+    ).catch(err => reject(err));
 });
 
 module.exports = {

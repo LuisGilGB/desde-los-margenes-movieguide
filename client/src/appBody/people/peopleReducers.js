@@ -1,14 +1,25 @@
 import {actions} from './peopleActions';
 
 export const initialState = {
-    listData: []
+    listData: [],
+    listIsFetching: false
 }
 
 const peopleReducers = (state = initialState, action) => {
     const reducers = {
         [actions.LOAD_PEOPLE]: () => ({
             ...state,
-            listData: [{ name: 'Mariano Rajoy Brey' }]
+            listData: initialState.listData,
+            listIsFetching: true
+        }),
+        [actions.LOAD_PEOPLE_DONE]: () => ({
+            ...state,
+            listData: action.payload.data,
+            listIsFetching: false
+        }),
+        [actions.LOAD_PEOPLE_FAILED]: () => ({
+            ...state,
+            listIsFetching: false
         })
     }
 

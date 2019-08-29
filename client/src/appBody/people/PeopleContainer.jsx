@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {withRouter} from "react-router";
 import {Switch, Route} from 'react-router-dom';
 import {Container, LinkButton} from '../../common';
-import PeopleList from './list/PeopleList';
+import PeopleListView from './list/PeopleListView';
 import NewPersonForm from './form/NewPersonForm.jsx';
 import {actionCreators as navLogicActionCreators} from '../../navigationLogic/navigationLogicActions';
 import ROUTES from '../../routes';
@@ -39,7 +39,7 @@ const PeopleViewport = props => {
                         />
                     )} />
                     <Route path={ROUTES.PEOPLE.LIST} render={() => (
-                        <PeopleList
+                        <PeopleListView
                             people={[{
                                 name: 'Mariano Rajoy Brey'
                             }]}

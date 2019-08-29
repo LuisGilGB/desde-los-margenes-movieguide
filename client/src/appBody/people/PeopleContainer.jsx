@@ -4,7 +4,8 @@ import {withRouter} from "react-router";
 import {Switch, Route} from 'react-router-dom';
 import {Container, LinkButton} from '../../common';
 import PeopleListView from './list/PeopleListView';
-import NewPersonForm from './form/NewPersonForm.jsx';
+import NewPersonForm from './form/NewPersonForm';
+import {actionCreators} from './peopleActions';
 import {actionCreators as navLogicActionCreators} from '../../navigationLogic/navigationLogicActions';
 import ROUTES from '../../routes';
 
@@ -55,6 +56,7 @@ const PeopleViewport = props => {
 const mapStateToProps = () => ({});
 
 const mapDispatchToProps = (dispatch, props) => ({
+    loadPeople: () => actionCreators.loadPeople(),
     goToPersonDetail: (personSelected) => navLogicActionCreators.navigateWithPush(ROUTES.PEOPLE.DETAIL, personSelected)
 });
 

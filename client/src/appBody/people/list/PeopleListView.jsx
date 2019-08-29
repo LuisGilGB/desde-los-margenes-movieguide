@@ -3,11 +3,16 @@ import {Container} from '../../../common';
 import PeopleList from './PeopleList';
 
 class PeopleListView extends Component {
-    componentDidMount () {}
+    componentDidMount () {
+        const {loadPeople} = this.props;
+
+        loadPeople && loadPeople();
+    }
 
     render () {
         const {
             people = [],
+            loadPeople,
             goToPersonDetail,
             ...otherProps
         } = this.props;

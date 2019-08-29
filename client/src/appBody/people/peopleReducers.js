@@ -1,15 +1,18 @@
 import {actions} from './peopleActions';
 
 export const initialState = {
-    data: []
+    listData: []
 }
 
 const peopleReducers = (state = initialState, action) => {
     const reducers = {
         [actions.LOAD_PEOPLE]() {
+            debugger
             return {
                 ...state,
-                data: initialState.data
+                listData: [{
+                                name: 'Mariano Rajoy Brey'
+                            }]
             }
         }
     }

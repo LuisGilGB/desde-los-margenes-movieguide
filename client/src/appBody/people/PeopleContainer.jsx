@@ -11,6 +11,8 @@ import ROUTES from '../../routes';
 
 const PeopleViewport = props => {
     const {
+        listData = [],
+        loadPeople,
         goToPersonDetail = (...params) => console.log(params)
     } = props;
 
@@ -41,9 +43,8 @@ const PeopleViewport = props => {
                     )} />
                     <Route path={ROUTES.PEOPLE.LIST} render={() => (
                         <PeopleListView
-                            people={[{
-                                name: 'Mariano Rajoy Brey'
-                            }]}
+                            people={listData}
+                            loadPeople={loadPeople}
                             goToPersonDetail={goToPersonDetail}
                         />
                     )} />
@@ -53,11 +54,13 @@ const PeopleViewport = props => {
     );
 }
 
-const mapStateToProps = () => ({});
+const mapStateToProps = (state, props) => ({
+    ...state.people
+});
 
 const mapDispatchToProps = (dispatch, props) => ({
-    loadPeople: () => actionCreators.loadPeople(),
-    goToPersonDetail: (personSelected) => navLogicActionCreators.navigateWithPush(ROUTES.PEOPLE.DETAIL, personSelected)
+    loadPeople: () => dispatch(actionCreators.loadPeople()),
+    goToPersonDetail: (personSelected) => dispatch(navLogicActionCreators.navigateWithPush(ROUTES.PEOPLE.DETAIL, personSelected))
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(PeopleViewport));

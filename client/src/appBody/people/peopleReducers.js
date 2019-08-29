@@ -7,7 +7,6 @@ export const initialState = {
 const peopleReducers = (state = initialState, action) => {
     const reducers = {
         [actions.LOAD_PEOPLE]() {
-            debugger
             return {
                 ...state,
                 listData: [{
@@ -17,7 +16,7 @@ const peopleReducers = (state = initialState, action) => {
         }
     }
 
-    return action && action.type && reducers[action.type] ? reducers[action.type] : state;
+    return action && action.type && reducers[action.type] ? reducers[action.type]() : state;
 }
 
 export default peopleReducers;

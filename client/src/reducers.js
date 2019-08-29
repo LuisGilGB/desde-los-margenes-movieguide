@@ -11,7 +11,7 @@ const authReducers = (state = initialState, action) => {
 
     return actionReducers[action.type] ? actionReducers[action.type](state, action) : state;
 }
-
+console.log(peopleReducers)
 export default combineReducers({
     auth: authReducers,
     movies: moviesReducers,

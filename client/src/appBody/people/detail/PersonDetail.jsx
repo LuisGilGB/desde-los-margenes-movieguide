@@ -9,10 +9,11 @@ const PersonDetail = props => {
         ...otherProps
     } = props;
 
+    const loadDataEffect = id => loadData && loadData(id)
+
     useEffect(() => {
-        console.log(personId)
-        loadData && loadData(personId)
-    }, [personId, loadData]);
+        loadDataEffect(personId);
+    }, [loadData]);
 
     return (
         <Container

@@ -17,7 +17,9 @@ const PeopleViewport = props => {
         goToPersonDetail = (...params) => console.log(params)
     } = props;
 
-    const loadPeopleEffect = () => loadPeople && loadPeople();
+    const loadPeopleEffect = () => {
+        loadPeople && loadPeople();
+    }
 
     useEffect(loadPeopleEffect, []);
 

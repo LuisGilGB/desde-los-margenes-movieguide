@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Container} from '../../../../common';
 
 const PersonDetail = props => {
@@ -8,6 +8,8 @@ const PersonDetail = props => {
         loadData,
         ...otherProps
     } = props;
+
+    useEffect(() => loadData && loadData(personId), [personId, loadData]);
 
     return (
         <Container

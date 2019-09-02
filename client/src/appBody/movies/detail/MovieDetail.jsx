@@ -8,11 +8,11 @@ const MovieDetail = props => {
         ...containerProps
     } = props;
 
-    const loadMovieDetailEffect = () => {
-        loadMovieDetail && loadMovieDetail(movieId);
-    }
+    const loadMovieDetailEffect = () => loadMovieDetail && loadMovieDetail(movieId);
 
-    useEffect(loadMovieDetailEffect, [movieId]);
+    useEffect(() => {
+        loadMovieDetailEffect(movieId);
+    }, [movieId]);
 
     return (
         <Container

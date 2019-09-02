@@ -1,18 +1,13 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {Container} from '../../../common';
 import PeopleList from './PeopleList';
 
 const PeopleListView = props => {
     const {
         people = [],
-        loadPeople,
         goToPersonDetail,
         ...otherProps
     } = props;
-
-    useEffect(() => {
-        loadPeople && loadPeople();
-    }, [])
 
     return (
         <Container

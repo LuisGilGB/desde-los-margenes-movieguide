@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
 import {withRouter} from "react-router";
 import {Switch, Route} from 'react-router-dom';
@@ -16,6 +16,10 @@ const PeopleViewport = props => {
         loadPeople,
         goToPersonDetail = (...params) => console.log(params)
     } = props;
+
+    const loadPeopleEffect = () => loadPeople && loadPeople();
+
+    useEffect(loadPeopleEffect, []);
 
     return (
         <Container layout="vflex">
@@ -50,7 +54,6 @@ const PeopleViewport = props => {
                     <Route path={ROUTES.PEOPLE.LIST} render={() => (
                         <PeopleListView
                             people={listData}
-                            loadPeople={loadPeople}
                             goToPersonDetail={goToPersonDetail}
                         />
                     )} />

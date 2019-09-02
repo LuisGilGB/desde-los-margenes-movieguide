@@ -4,6 +4,7 @@ import {withRouter} from "react-router";
 import {Switch, Route} from 'react-router-dom';
 import {Container, LinkButton} from '../../common';
 import PeopleListView from './list/PeopleListView';
+import PersonDetail from './detail/PersonDetail';
 import NewPersonForm from './form/NewPersonForm';
 import {actionCreators} from './peopleActions';
 import {actionCreators as navLogicActionCreators} from '../../navigationLogic/navigationLogicActions';
@@ -39,6 +40,11 @@ const PeopleViewport = props => {
                     <Route path={ROUTES.PEOPLE.NEW_PERSON_FORM} exact render={() => (
                         <NewPersonForm
                             data={{}}
+                        />
+                    )} />
+                    <Route path={ROUTES.PEOPLE.DETAIL} exact render={({match, location, history}) => (
+                        <PersonDetail
+                            personId={match.params.personId}
                         />
                     )} />
                     <Route path={ROUTES.PEOPLE.LIST} render={() => (

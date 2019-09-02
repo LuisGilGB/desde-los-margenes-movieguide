@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {Container} from '../../../../common';
+import {Container} from '../../../common';
 
 const PersonDetail = props => {
     const {
@@ -9,7 +9,10 @@ const PersonDetail = props => {
         ...otherProps
     } = props;
 
-    useEffect(() => loadData && loadData(personId), [personId, loadData]);
+    useEffect(() => {
+        console.log(personId)
+        loadData && loadData(personId)
+    }, [personId, loadData]);
 
     return (
         <Container

@@ -8,7 +8,8 @@ const peopleRoutes = require('./routes/api/people');
 const moviesRoutes = require('./routes/api/movies');
 const usersRoutes = require('./routes/api/users');
 
-const bffMoviesRoutes = require('./routes/bff/movies');
+const bffPeopleRoutes = require('./routes/bff-api/people');
+const bffMoviesRoutes = require('./routes/bff-api/movies');
 
 const app = express();
 
@@ -36,6 +37,7 @@ app.use('/api/people', peopleRoutes);
 app.use('/api/movies', moviesRoutes);
 app.use('/api/users', usersRoutes);
 // Use BFF Routes
+app.use('/bff/people', bffPeopleRoutes);
 app.use('/bff/movies', bffMoviesRoutes);
 
 // Port

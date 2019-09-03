@@ -8,10 +8,12 @@ const MoviesCatalog = props => {
         goToMovieDetail,
         ...containerProps
     } = props;
-    
-    useEffect(() => {
-        loadMovies();
-    }, []);
+
+    const loadMoviesEffect = () => {
+        loadMovies && loadMovies();
+    }
+
+    useEffect(loadMoviesEffect, []);
 
     const onMovieClick = (movie = {}) => goToMovieDetail && goToMovieDetail(movie.movieId);
 

@@ -9,9 +9,9 @@ import {Container, Button} from '../../common';
 const mapStateToProps = () => ({});
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-    goToMoviesCatalog: () => dispatch(navLogicActionCreators.navigateWithPush(ownProps.history, ROUTES.MOVIES.CATALOG)),
-    goToMovieDetail: () => dispatch(navLogicActionCreators.navigateWithPush(ownProps.history, ROUTES.MOVIES.DETAIL, { movieId: 'random-movie'})),
-    requestRandomMovie: () => dispatch(moviesActionCreators.requestRandomMovie(ownProps.history))
+    goToMoviesCatalog: () => dispatch(navLogicActionCreators.navigateWithPush(ROUTES.MOVIES.CATALOG)),
+    goToMovieDetail: () => dispatch(navLogicActionCreators.navigateWithPush(ROUTES.MOVIES.DETAIL, { movieId: 'random-movie'})),
+    requestRandomMovie: () => dispatch(moviesActionCreators.requestRandomMovie())
 });
 
 const LandingPage = props => (

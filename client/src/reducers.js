@@ -1,5 +1,6 @@
 import {combineReducers} from 'redux'
 import moviesReducers from './appBody/movies/moviesReducers';
+import peopleReducers from './appBody/people/peopleReducers';
 
 const initialState = {
     isAuthenticated: false
@@ -13,5 +14,6 @@ const authReducers = (state = initialState, action) => {
 
 export default combineReducers({
     auth: authReducers,
-    movies: moviesReducers
+    movies: moviesReducers,
+    people: peopleReducers
 });

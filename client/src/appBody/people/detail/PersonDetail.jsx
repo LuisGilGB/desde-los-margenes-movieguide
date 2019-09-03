@@ -13,7 +13,7 @@ const PersonDetail = props => {
 
     useEffect(() => {
         loadDataEffect(personId);
-    }, [loadData]);
+    }, [personId]);
 
     return (
         <Container

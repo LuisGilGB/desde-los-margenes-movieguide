@@ -2,7 +2,9 @@ import {actions} from './peopleActions';
 
 export const initialState = {
     listData: [],
-    listIsFetching: false
+    listIsFetching: false,
+    personData: {},
+    personDataIsFetching: false
 }
 
 const peopleReducers = (state = initialState, action) => {
@@ -20,6 +22,20 @@ const peopleReducers = (state = initialState, action) => {
         [actions.LOAD_PEOPLE_FAILED]: () => ({
             ...state,
             listIsFetching: false
+        }),
+        [actions.LOAD_PERSON_DATA]: () => ({
+            ...state,
+            personData: initialState.personData,
+            personDataIsFetching: true
+        }),
+        [actions.LOAD_PERSON_DATA_DONE]: () => ({
+            ...state,
+            personData: action.payload.data,
+            personDataIsFetching: false
+        }),
+        [actions.LOAD_PERSON_DATA_FAILED]: () => ({
+            ...state,
+            personDataIsFetching: false
         })
     }
 

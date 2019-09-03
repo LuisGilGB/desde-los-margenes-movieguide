@@ -7,7 +7,7 @@ import MoviesCatalogContainer from './catalog/MoviesCatalogContainer';
 import MovieDetailContainer from './detail/MovieDetailContainer';
 import {actionCreators as navLogicActionCreators} from '../../navigationLogic/navigationLogicActions';
 import {actionCreators} from './moviesActions';
-import {ROUTES} from '../../routes';
+import ROUTES from '../../routes';
 
 const MoviesViewport = props => (
     <Container
@@ -39,7 +39,7 @@ const mapStateToProps = (state, props) => {
 }
 
 const mapDispatchToProps = (dispatch, props) => ({
-    goToMovieDetail: movieId => dispatch(navLogicActionCreators.navigateWithPush(props.history, ROUTES.MOVIES.DETAIL, { movieId })),
+    goToMovieDetail: movieId => dispatch(navLogicActionCreators.navigateWithPush(ROUTES.MOVIES.DETAIL, { movieId })),
     loadMovies: () => dispatch(actionCreators.loadMovies()),
     loadMovieDetail: movieId => dispatch(actionCreators.loadMovieDetail(movieId))
 });

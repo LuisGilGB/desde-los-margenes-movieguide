@@ -3,10 +3,10 @@ export const actions = {
 }
 
 export const actionCreators = {
-    navigateWithPush: (history, path, params) => ({
+    navigateWithPush: (path, params) => ({
         type: actions.NAVIGATE_WITH_PUSH,
         payload: {
-            history, path, params
+            path, params
         }
     })
 }

@@ -2,7 +2,8 @@ import React from 'react';
 import {Switch, Route} from 'react-router-dom';
 import LandingPage from './landingPage/LandingPage';
 import MoviesContainer from './movies/MoviesContainer';
-import {ROUTES} from '../routes';
+import PeopleContainer from './people/PeopleContainer';
+import ROUTES from '../routes';
 import {Container} from '../common';
 
 const AppBody = props => (
@@ -12,10 +13,9 @@ const AppBody = props => (
         {...props}
     >
         <Switch>
-            <Route path={ROUTES.MOVIES.CATALOG} render={() => (
-                <MoviesContainer />
-            )} />
-            <Route path={ROUTES.REGISTER} exact render={() => (
+            <Route path={ROUTES.MOVIES.CATALOG} component={MoviesContainer} />
+            <Route path={ROUTES.PEOPLE.LIST} component={PeopleContainer} />
+            {/*<Route path={ROUTES.REGISTER} exact render={() => (
                 <Container layout="center" className="app-register">
                     This would be the place to register.
                 </Container>
@@ -24,7 +24,7 @@ const AppBody = props => (
                 <Container layout="center" className="app-login">
                     This would be the place to log in.
                 </Container>
-            )} />
+            )} />*/}
             <Route path={ROUTES.ROOT} component={LandingPage} />
         </Switch>
     </Container>

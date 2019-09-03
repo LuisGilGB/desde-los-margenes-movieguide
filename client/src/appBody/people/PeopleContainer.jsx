@@ -14,6 +14,7 @@ const PeopleViewport = props => {
     const {
         listData = [],
         loadPeople,
+        loadPersonData,
         goToPersonDetail = (...params) => console.log(params)
     } = props;
 
@@ -51,6 +52,7 @@ const PeopleViewport = props => {
                     <Route path={ROUTES.PEOPLE.DETAIL} exact render={({match, location, history}) => (
                         <PersonDetail
                             personId={match.params.personId}
+                            loadData={loadPersonData}
                         />
                     )} />
                     <Route path={ROUTES.PEOPLE.LIST} render={() => (
@@ -71,6 +73,7 @@ const mapStateToProps = (state, props) => ({
 
 const mapDispatchToProps = (dispatch, props) => ({
     loadPeople: () => dispatch(actionCreators.loadPeople()),
+    loadPersonData: (personId) => dispatch(actionCreators.loadPersonData(personId)),
     goToPersonDetail: (personSelected) => dispatch(navLogicActionCreators.navigateWithPush(ROUTES.PEOPLE.DETAIL, personSelected))
 });
 

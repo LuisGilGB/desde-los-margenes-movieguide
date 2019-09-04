@@ -4,7 +4,7 @@ import './App.css';
 const initialState = {
     isLoggedIn: false,
     logInIsFetching: false,
-    userName: '',
+    userMail: 'test@mail.com',
     userPass: '',
     token: ''
 }
@@ -14,7 +14,7 @@ const actions = {
     FETCH_LOG_IN_DONE   : 'FETCH_LOG_IN_DONE',
     FETCH_LOG_IN_FAILED : 'FETCH_LOG_IN_FAILED',
     LOG_OUT             : 'LOG_OUT',
-    CHANGE_USER_NAME    : 'CHANGE_USER_NAME',
+    CHANGE_USER_MAIL    : 'CHANGE_USER_MAIL',
     CHANGE_USER_PASS    : 'CHANGE_USER_PASS'
 }
 
@@ -43,9 +43,9 @@ const loginReducer = (state = initialState, action) => {
             ...state,
             ...initialState
         }),
-        [actions.CHANGE_USER_NAME]: () => ({
+        [actions.CHANGE_USER_MAIL]: () => ({
             ...state,
-            userName: payload.value
+            userMail: payload.value
         }),
         [actions.CHANGE_USER_PASS]: () => ({
             ...state,
@@ -64,8 +64,26 @@ const App = () => {
             <header className="App-header">
             </header>
             <div>
-                <input type="text" onChange={() => console.log('User name change')} />
-                <input type="password" onChange={() => console.log('User password change')} />
+                <input
+                    type="email"
+                    value={state.userMail}
+                    onChange={({target}) => dispatch({
+                        type: actions.CHANGE_USER_MAIL,
+                        payload: {
+                            value: target.value
+                        }
+                    })}
+                />
+                <input
+                    type="password"
+                    value={state.userPass}
+                    onChange={({target}) => dispatch({
+                        type: actions.CHANGE_USER_PASS,
+                        payload: {
+                            value: target.value
+                        }
+                    })}
+                />
             </div>
         </div>
     );

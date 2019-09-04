@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useReducer} from 'react';
 import './App.css';
 
 const initialState = {
@@ -13,7 +13,9 @@ const actions = {
     FETCH_LOG_IN        : 'FETCH_LOG_IN',
     FETCH_LOG_IN_DONE   : 'FETCH_LOG_IN_DONE',
     FETCH_LOG_IN_FAILED : 'FETCH_LOG_IN_FAILED',
-    LOG_OUT             : 'LOG_OUT'
+    LOG_OUT             : 'LOG_OUT',
+    CHANGE_USER_NAME    : 'CHANGE_USER_NAME',
+    CHANGE_USER_PASS    : 'CHANGE_USER_PASS'
 }
 
 const loginReducer = (state = initialState, action) => {
@@ -40,6 +42,14 @@ const loginReducer = (state = initialState, action) => {
         [actions.LOG_OUT]: () => ({
             ...state,
             ...initialState
+        }),
+        [actions.CHANGE_USER_NAME]: () => ({
+            ...state,
+            userName: payload.value
+        }),
+        [actions.CHANGE_USER_PASS]: () => ({
+            ...state,
+            userPass: payload.value
         })
     }
 
@@ -47,10 +57,16 @@ const loginReducer = (state = initialState, action) => {
 }
 
 const App = () => {
+    const [state, dispatch] = useReducer(loginReducer, initialState);
+
     return (
         <div className="App">
             <header className="App-header">
             </header>
+            <div>
+                <input type="text" onChange={() => console.log('User name change')} />
+                <input type="password" onChange={() => console.log('User password change')} />
+            </div>
         </div>
     );
 }

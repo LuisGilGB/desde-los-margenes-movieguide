@@ -5,8 +5,9 @@ import './App.css';
 const initialState = {
     isLoggedIn: false,
     logInIsFetching: false,
-    userMail: 'test@mail.com',
+    userMail: 'test@mail.co',
     userPass: '',
+    currentUser: '',
     token: ''
 }
 
@@ -26,13 +27,16 @@ const loginReducer = (state = initialState, action) => {
             ...state,
             isLoggedIn: false,
             logInIsFetching: true,
+            currentUser: initialState.currentUser,
             token: initialState.token
         }),
         [actions.FETCH_LOG_IN_DONE]: () => ({
             ...state,
             isLoggedIn: true,
             logInIsFetching: false,
+            userMail: initialState.userMail,
             userPass: initialState.userPass,
+            currentUser: payload.user,
             token: payload.token
         }),
         [actions.FETCH_LOG_IN_FAILED]: () => ({
@@ -60,12 +64,12 @@ const loginReducer = (state = initialState, action) => {
 const App = () => {
     const [state, dispatch] = useReducer(loginReducer, initialState);
 
-    const onLogInDone = (res = {}) => {
+    const onLogInDone = email => (res = {}) => {
         const {data} = res;
         data && data.success ?
             dispatch({
                 type: actions.FETCH_LOG_IN_DONE,
-                payload: { token: data.token.split('Bearer ')[1]}
+                payload: { user: email, token: data.token.split('Bearer ')[1]}
             }) :
             dispatch({
                 type: actions.FETCH_LOG_IN_FAILED,
@@ -89,7 +93,7 @@ const App = () => {
         axios.post('/api/users/login', {
             email: userMail,
             password: userPass
-        }).then(onLogInDone).catch(onLogInFailed);
+        }).then(onLogInDone(userMail)).catch(onLogInFailed);
     }
 
     return (
@@ -98,7 +102,7 @@ const App = () => {
             </header>
             {state.isLoggedIn ? (
                 <div>
-                    User {state.userMail} is logged in with token {state.token}
+                    User {state.currentUser} is logged in with token {state.token}
                 </div>
             ) : (
                 <div>

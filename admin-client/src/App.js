@@ -1,4 +1,5 @@
 import React, {useReducer} from 'react';
+import axios from 'axios';
 import './App.css';
 
 const initialState = {
@@ -59,6 +60,24 @@ const loginReducer = (state = initialState, action) => {
 const App = () => {
     const [state, dispatch] = useReducer(loginReducer, initialState);
 
+    const onLogInDone = (res, ...otherParams) => {
+        console.log(res)
+        console.log(otherParams)
+    }
+
+    const doLogIn = () => {
+        const {userMail, userPass} = state;
+        dispatch({
+            type: actions.FETCH_LOG_IN,
+            payload: {}
+        });
+        axios.post('/api/users/login', {
+            email: userMail,
+            password: userPass
+        }).then(onLogInDone)
+        .catch(() => console.log('Axios bad'));
+    }
+
     return (
         <div className="App">
             <header className="App-header">
@@ -67,7 +86,7 @@ const App = () => {
                 <form
                     onSubmit={(e) => {
                         e.preventDefault();
-                        console.log('Log in');
+                        doLogIn();
                     }}
                 >
                     <input

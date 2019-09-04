@@ -64,26 +64,37 @@ const App = () => {
             <header className="App-header">
             </header>
             <div>
-                <input
-                    type="email"
-                    value={state.userMail}
-                    onChange={({target}) => dispatch({
-                        type: actions.CHANGE_USER_MAIL,
-                        payload: {
-                            value: target.value
-                        }
-                    })}
-                />
-                <input
-                    type="password"
-                    value={state.userPass}
-                    onChange={({target}) => dispatch({
-                        type: actions.CHANGE_USER_PASS,
-                        payload: {
-                            value: target.value
-                        }
-                    })}
-                />
+                <form
+                    onSubmit={(e) => {
+                        e.preventDefault();
+                        console.log('Log in');
+                    }}
+                >
+                    <input
+                        type="email"
+                        value={state.userMail}
+                        onChange={({target}) => dispatch({
+                            type: actions.CHANGE_USER_MAIL,
+                            payload: {
+                                value: target.value
+                            }
+                        })}
+                    />
+                    <input
+                        type="password"
+                        value={state.userPass}
+                        onChange={({target}) => dispatch({
+                            type: actions.CHANGE_USER_PASS,
+                            payload: {
+                                value: target.value
+                            }
+                        })}
+                    />
+                    <input
+                        type="submit"
+                        value="Log in"
+                    />
+                </form>
             </div>
         </div>
     );

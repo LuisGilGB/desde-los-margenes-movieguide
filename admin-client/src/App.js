@@ -60,9 +60,24 @@ const loginReducer = (state = initialState, action) => {
 const App = () => {
     const [state, dispatch] = useReducer(loginReducer, initialState);
 
-    const onLogInDone = (res, ...otherParams) => {
-        console.log(res)
-        console.log(otherParams)
+    const onLogInDone = (res = {}) => {
+        const {data} = res;
+        data && data.success ?
+            dispatch({
+                type: actions.FETCH_LOG_IN_DONE,
+                payload: { token: data.token.split('Bearer ')[1]}
+            }) :
+            dispatch({
+                type: actions.FETCH_LOG_IN_FAILED,
+                payload: {}
+            });
+    }
+
+    const onLogInFailed = () => {
+        dispatch({
+            type: actions.FETCH_LOG_IN_FAILED,
+            payload: {}
+        });
     }
 
     const doLogIn = () => {
@@ -74,8 +89,7 @@ const App = () => {
         axios.post('/api/users/login', {
             email: userMail,
             password: userPass
-        }).then(onLogInDone)
-        .catch(() => console.log('Axios bad'));
+        }).then(onLogInDone).catch(onLogInFailed);
     }
 
     return (

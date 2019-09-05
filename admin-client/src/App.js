@@ -1,5 +1,6 @@
 import React from 'react';
 import LogInManager from './LogInManager';
+import {UserConsumer} from './UserContext';
 import './App.css';
 
 const App = props => {
@@ -24,9 +25,11 @@ const App = props => {
                         <header className="App-header">
                         </header>
                         {isLoggedIn ? (
-                            <div>
-                                User {currentUser} is logged in with token {token}
-                            </div>
+                            <UserConsumer>
+                                {userProps => (<div>
+                                    User {userProps.currentUser} is logged in with token {userProps.token}
+                                </div>)}
+                            </UserConsumer>
                         ) : (
                             <div>
                                 <form

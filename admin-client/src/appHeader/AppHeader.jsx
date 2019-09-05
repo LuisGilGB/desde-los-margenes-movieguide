@@ -1,5 +1,6 @@
 import React from 'react';
 import {UserConsumer} from '../UserContext';
+import './AppHeader.css';
 
 const AppHeader = props => {
     const {
@@ -9,11 +10,13 @@ const AppHeader = props => {
     } = props;
 
     return (
-        <header>
+        <header
+            className="app-header"
+        >
             <UserConsumer
                 {...otherProps}
             >
-                {() => 'This is a header'}
+                {({user}) => 'This is a header'}
             </UserConsumer>
         </header>
     );

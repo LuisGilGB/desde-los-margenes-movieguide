@@ -1,9 +1,11 @@
 import React from 'react';
 import LogInManager from './LogInManager';
+import AppHeader from './appHeader/AppHeader';
 import {UserConsumer} from './UserContext';
 import './App.css';
 
 const App = props => {
+    const goToHome = () => console.log('Go to home');
     return (
         <LogInManager>
             {(logInManagerProps) => {
@@ -12,8 +14,6 @@ const App = props => {
                     logInIsFetching,
                     userMail,
                     userPass,
-                    currentUser,
-                    token,
                     logIn,
                     logOut,
                     onUserMailChange,
@@ -22,8 +22,16 @@ const App = props => {
 
                 return (
                     <div className="App">
-                        <header className="App-header">
-                        </header>
+                        <AppHeader
+                            goToHome={goToHome}
+                            logInIsFetching={logInIsFetching}
+                            userMail={userMail}
+                            userPass={userPass}
+                            logIn={logIn}
+                            logOut={logOut}
+                            onUserMailChange={onUserMailChange}
+                            onUserPassChange={onUserPassChange}
+                        />
                         {isLoggedIn ? (
                             <UserConsumer>
                                 {userProps => (<div>
@@ -32,27 +40,7 @@ const App = props => {
                             </UserConsumer>
                         ) : (
                             <div>
-                                <form
-                                    onSubmit={(e) => {
-                                        e.preventDefault();
-                                        logIn();
-                                    }}
-                                >
-                                    <input
-                                        type="email"
-                                        value={userMail}
-                                        onChange={({target}) => onUserMailChange(target.value)}
-                                    />
-                                    <input
-                                        type="password"
-                                        value={userPass}
-                                        onChange={({target}) => onUserPassChange(target.value)}
-                                    />
-                                    <input
-                                        type="submit"
-                                        value="Log in"
-                                    />
-                                </form>
+                                Hola
                             </div>
                         )}
                     </div>

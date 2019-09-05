@@ -1,5 +1,6 @@
-import {useReducer} from 'react';
+import React, {useReducer} from 'react';
 import axios from 'axios';
+import {UserProvider} from './UserContext';
 
 const initialState = {
     isLoggedIn: false,
@@ -114,14 +115,23 @@ const LogInManager = props => {
         }
     });
 
-    return children({
-        ...otherProps,
-        ...state,
-        logIn,
-        logOut,
-        onUserMailChange,
-        onUserPassChange
-    });
+    const userInfoForProvider = {
+        user: state.currentUser,
+        token: state.token
+    }
+
+    return (
+        <UserProvider value={userInfoForProvider}>
+            {children({
+                ...otherProps,
+                ...state,
+                logIn,
+                logOut,
+                onUserMailChange,
+                onUserPassChange
+            })}
+        </UserProvider>
+    );
 }
 
 export default LogInManager;

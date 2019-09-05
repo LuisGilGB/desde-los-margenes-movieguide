@@ -4,6 +4,7 @@ import './AppHeader.css';
 
 const AppHeader = props => {
     const {
+        goToHome,
         logInIsFetching,
         userMail,
         userPass,
@@ -20,6 +21,7 @@ const AppHeader = props => {
         >
             <div
                 className="home-btn"
+                onClick={goToHome}
             >
                 ADMIN
             </div>

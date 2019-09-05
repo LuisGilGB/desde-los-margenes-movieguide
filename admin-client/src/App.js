@@ -5,6 +5,7 @@ import {UserConsumer} from './UserContext';
 import './App.css';
 
 const App = props => {
+    const goToHome = () => console.log('Go to home');
     return (
         <LogInManager>
             {(logInManagerProps) => {
@@ -22,6 +23,7 @@ const App = props => {
                 return (
                     <div className="App">
                         <AppHeader
+                            goToHome={goToHome}
                             logInIsFetching={logInIsFetching}
                             userMail={userMail}
                             userPass={userPass}

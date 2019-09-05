@@ -30,9 +30,16 @@ const AppHeader = props => {
                     {...otherProps}
                 >
                     {({user}) => user ? (
-                        <div>
-                            {user}
+                        <div
+                            className="user-info"
+                        >
+                            <div
+                                className="user-name"
+                            >
+                                {user}
+                            </div>
                             <button
+                                className="logout-btn"
                                 onClick={logOut}
                             >
                                 Log out
@@ -46,18 +53,21 @@ const AppHeader = props => {
                             }}
                         >
                             <input
+                                className="login-input"
                                 type="email"
                                 placeholder="e-mail"
                                 value={userMail}
                                 onChange={({target}) => onUserMailChange(target.value)}
                             />
                             <input
+                                className="login-input"
                                 type="password"
                                 placeholder="password"
                                 value={userPass}
                                 onChange={({target}) => onUserPassChange(target.value)}
                             />
                             <input
+                                className="login-submit"
                                 type="submit"
                                 value="Log in"
                             />

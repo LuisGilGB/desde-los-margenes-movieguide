@@ -13,8 +13,6 @@ const App = props => {
                     logInIsFetching,
                     userMail,
                     userPass,
-                    currentUser,
-                    token,
                     logIn,
                     logOut,
                     onUserMailChange,
@@ -23,7 +21,10 @@ const App = props => {
 
                 return (
                     <div className="App">
-                        <AppHeader />
+                        <AppHeader
+                            logIn={logIn}
+                            logOut={logOut}
+                        />
                         {isLoggedIn ? (
                             <UserConsumer>
                                 {userProps => (<div>

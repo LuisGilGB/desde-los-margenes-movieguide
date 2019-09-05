@@ -13,11 +13,20 @@ const AppHeader = props => {
         <header
             className="app-header"
         >
-            <UserConsumer
-                {...otherProps}
+            <div
+                className="home-btn"
             >
-                {({user}) => 'This is a header'}
-            </UserConsumer>
+                ADMIN
+            </div>
+            <div
+                className="header-toolbar"
+            >
+                <UserConsumer
+                    {...otherProps}
+                >
+                    {({user}) => 'This is a header'}
+                </UserConsumer>
+            </div>
         </header>
     );
 }

@@ -1,3 +1,21 @@
 .app-header {
-    height: 50px;
+    min-height: 50px;
+    background-color: #282c34;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
+
+.app-header .home-btn {
+    width: 72px;
+}
+
+.app-header .header-toolbar {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
 }

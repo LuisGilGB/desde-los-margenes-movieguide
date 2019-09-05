@@ -1,26 +1,65 @@
 import React from 'react';
-import logo from './logo.svg';
+import LogInManager from './LogInManager';
+import {UserConsumer} from './UserContext';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = props => {
+    return (
+        <LogInManager>
+            {(logInManagerProps) => {
+                const {
+                    isLoggedIn,
+                    logInIsFetching,
+                    userMail,
+                    userPass,
+                    currentUser,
+                    token,
+                    logIn,
+                    logOut,
+                    onUserMailChange,
+                    onUserPassChange
+                } = logInManagerProps;
+
+                return (
+                    <div className="App">
+                        <header className="App-header">
+                        </header>
+                        {isLoggedIn ? (
+                            <UserConsumer>
+                                {userProps => (<div>
+                                    User {userProps.currentUser} is logged in with token {userProps.token}
+                                </div>)}
+                            </UserConsumer>
+                        ) : (
+                            <div>
+                                <form
+                                    onSubmit={(e) => {
+                                        e.preventDefault();
+                                        logIn();
+                                    }}
+                                >
+                                    <input
+                                        type="email"
+                                        value={userMail}
+                                        onChange={({target}) => onUserMailChange(target.value)}
+                                    />
+                                    <input
+                                        type="password"
+                                        value={userPass}
+                                        onChange={({target}) => onUserPassChange(target.value)}
+                                    />
+                                    <input
+                                        type="submit"
+                                        value="Log in"
+                                    />
+                                </form>
+                            </div>
+                        )}
+                    </div>
+                )}
+            }
+        </LogInManager>
+    );
 }
 
 export default App;

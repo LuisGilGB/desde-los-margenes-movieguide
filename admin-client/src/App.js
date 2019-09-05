@@ -10,7 +10,7 @@ import './App.css';
 const history = createBrowserHistory();
 
 const App = props => {
-    const goToHome = () => console.log('Go to home');
+    const goToHome = () => history.push(ROUTES.HOME);
     return (
         <Router history={history}>
             <Route path={ROUTES.HOME} render={() => (

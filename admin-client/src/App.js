@@ -22,8 +22,13 @@ const App = props => {
                 return (
                     <div className="App">
                         <AppHeader
+                            logInIsFetching={logInIsFetching}
+                            userMail={userMail}
+                            userPass={userPass}
                             logIn={logIn}
                             logOut={logOut}
+                            onUserMailChange={onUserMailChange}
+                            onUserPassChange={onUserPassChange}
                         />
                         {isLoggedIn ? (
                             <UserConsumer>
@@ -33,27 +38,7 @@ const App = props => {
                             </UserConsumer>
                         ) : (
                             <div>
-                                <form
-                                    onSubmit={(e) => {
-                                        e.preventDefault();
-                                        logIn();
-                                    }}
-                                >
-                                    <input
-                                        type="email"
-                                        value={userMail}
-                                        onChange={({target}) => onUserMailChange(target.value)}
-                                    />
-                                    <input
-                                        type="password"
-                                        value={userPass}
-                                        onChange={({target}) => onUserPassChange(target.value)}
-                                    />
-                                    <input
-                                        type="submit"
-                                        value="Log in"
-                                    />
-                                </form>
+                                Hola
                             </div>
                         )}
                     </div>

@@ -4,8 +4,13 @@ import './AppHeader.css';
 
 const AppHeader = props => {
     const {
+        logInIsFetching,
+        userMail,
+        userPass,
         logIn,
         logOut,
+        onUserMailChange,
+        onUserPassChange,
         ...otherProps
     } = props;
 
@@ -24,7 +29,30 @@ const AppHeader = props => {
                 <UserConsumer
                     {...otherProps}
                 >
-                    {({user}) => 'This is a header'}
+                    {({user}) => user ? <div>{user}</div> : (
+                        <form
+                            className="login-form"
+                            onSubmit={(e) => {
+                                e.preventDefault();
+                                logIn();
+                            }}
+                        >
+                            <input
+                                type="email"
+                                value={userMail}
+                                onChange={({target}) => onUserMailChange(target.value)}
+                            />
+                            <input
+                                type="password"
+                                value={userPass}
+                                onChange={({target}) => onUserPassChange(target.value)}
+                            />
+                            <input
+                                type="submit"
+                                value="Log in"
+                            />
+                        </form>
+                    )}
                 </UserConsumer>
             </div>
         </header>

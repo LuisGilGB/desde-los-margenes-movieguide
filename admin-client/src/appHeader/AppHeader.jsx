@@ -13,7 +13,7 @@ const AppHeader = props => {
             <UserConsumer
                 {...otherProps}
             >
-                This is a header
+                {() => 'This is a header'}
             </UserConsumer>
         </header>
     );

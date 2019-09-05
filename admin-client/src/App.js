@@ -1,5 +1,6 @@
 import React from 'react';
 import LogInManager from './LogInManager';
+import AppHeader from './appHeader/AppHeader';
 import {UserConsumer} from './UserContext';
 import './App.css';
 
@@ -22,8 +23,7 @@ const App = props => {
 
                 return (
                     <div className="App">
-                        <header className="App-header">
-                        </header>
+                        <AppHeader />
                         {isLoggedIn ? (
                             <UserConsumer>
                                 {userProps => (<div>

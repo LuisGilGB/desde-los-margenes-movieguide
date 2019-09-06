@@ -2,6 +2,7 @@ const ROUTES = {
     HOME: '/',
 
     MOVIES: {
+        MAIN: '/movies',
         LIST: '/movies',
         DETAIL:'/movies/:movieId',
         MOVIE_EDITOR: '/movies/:movieId/edit',
@@ -9,6 +10,7 @@ const ROUTES = {
     },
 
     PEOPLE: {
+        MAIN: '/people',
         LIST: '/people',
         DETAIL:'/people/:personId',
         MOVIE_EDITOR: '/people/:personId/edit',
@@ -16,6 +18,7 @@ const ROUTES = {
     },
 
     COUNTRIES: {
+        MAIN: '/countries',
         LIST: '/countries',
         DETAIL:'/countries/:countryId',
         MOVIE_EDITOR: '/countries/:countryId/edit',

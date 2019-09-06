@@ -3,7 +3,7 @@ import {Router, Route} from 'react-router';
 import {createBrowserHistory} from "history";
 import LogInManager from './LogInManager';
 import AppHeader from './appHeader/AppHeader';
-import {UserConsumer} from './UserContext';
+import AppBody from './AppBody';
 import ROUTES from './routes';
 import './App.css';
 
@@ -40,14 +40,10 @@ const App = props => {
                                     onUserPassChange={onUserPassChange}
                                 />
                                 {isLoggedIn ? (
-                                    <UserConsumer>
-                                        {userProps => (<div>
-                                            User {userProps.currentUser} is logged in with token {userProps.token}
-                                        </div>)}
-                                    </UserConsumer>
+                                    <AppBody />
                                 ) : (
                                     <div>
-                                        Hola
+                                        Log in, please.
                                     </div>
                                 )}
                             </div>

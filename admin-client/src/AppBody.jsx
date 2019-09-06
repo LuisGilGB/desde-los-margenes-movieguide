@@ -1,10 +1,12 @@
 import React from 'react';
 import {Switch, Route} from 'react-router';
+import MoviesContainer from './movies/MoviesContainer';
 import ROUTES from './routes';
 
 const AppBody = props => {
     const {
         className,
+        history,
         ...otherProps
     } = props;
 
@@ -13,7 +15,7 @@ const AppBody = props => {
             {...otherProps}
         >
             <Route path={ROUTES.MOVIES.MAIN} render={() => (
-                <div>Movies</div>
+                <MoviesContainer />
             )} />
             <Route path={ROUTES.PEOPLE.MAIN} render={() => (
                 <div>People</div>
@@ -22,7 +24,9 @@ const AppBody = props => {
                 <div>Countries</div>
             )} />
             <Route path={ROUTES.HOME} render={() => (
-                <div>Go to</div>
+                <div>Go to
+                    <div onClick={() => history.push(ROUTES.MOVIES.MAIN)}>Movies</div>
+                </div>
             )} />
         </Switch>
     );

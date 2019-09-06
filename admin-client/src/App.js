@@ -40,7 +40,9 @@ const App = props => {
                                     onUserPassChange={onUserPassChange}
                                 />
                                 {isLoggedIn ? (
-                                    <AppBody />
+                                    <AppBody
+                                        history={history}
+                                    />
                                 ) : (
                                     <div>
                                         Log in, please.

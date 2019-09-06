@@ -5,17 +5,13 @@ import ROUTES from './routes';
 
 const AppBody = props => {
     const {
-        className,
         goToMovies,
         goToPeople,
-        goToCountries,
-        ...otherProps
+        goToCountries
     } = props;
 
     return (
-        <Switch
-            {...otherProps}
-        >
+        <Switch>
             <Route path={ROUTES.MOVIES.MAIN} render={() => (
                 <MoviesContainer />
             )} />

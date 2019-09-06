@@ -3,7 +3,6 @@ import ROUTES from '../routes';
 
 const MoviesContainer = props => {
     const {
-        className,
         ...otherProps
     } = props;
 

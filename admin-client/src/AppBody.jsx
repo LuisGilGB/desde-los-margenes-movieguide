@@ -1,6 +1,7 @@
 import React from 'react';
 import {Switch, Route} from 'react-router';
 import MoviesContainer from './movies/MoviesContainer';
+import PeopleContainer from './people/PeopleContainer';
 import ROUTES from './routes';
 
 const AppBody = props => {
@@ -16,7 +17,7 @@ const AppBody = props => {
                 <MoviesContainer />
             )} />
             <Route path={ROUTES.PEOPLE.MAIN} render={() => (
-                <div>People</div>
+                <PeopleContainer />
             )} />
             <Route path={ROUTES.COUNTRIES.MAIN} render={() => (
                 <div>Countries</div>

@@ -10,7 +10,11 @@ import './App.css';
 const history = createBrowserHistory();
 
 const App = props => {
-    const goToHome = () => history.push(ROUTES.HOME);
+    const navigate = (to = ROUTES.HOME) => history.push(to || ROUTES.HOME);
+    const goToHome = () => navigate();
+    const goToMovies = () => navigate(ROUTES.MOVIES.MAIN);
+    const goToPeople = () => navigate(ROUTES.PEOPLE.MAIN);
+    const goToCountries = () => navigate(ROUTES.COUNTRIES.MAIN);
     return (
         <Router history={history}>
             <Route path={ROUTES.HOME} render={() => (
@@ -42,6 +46,9 @@ const App = props => {
                                 {isLoggedIn ? (
                                     <AppBody
                                         history={history}
+                                        goToMovies={goToMovies}
+                                        goToPeople={goToPeople}
+                                        goToCountries={goToCountries}
                                     />
                                 ) : (
                                     <div>

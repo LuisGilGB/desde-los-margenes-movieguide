@@ -6,7 +6,9 @@ import ROUTES from './routes';
 const AppBody = props => {
     const {
         className,
-        history,
+        goToMovies,
+        goToPeople,
+        goToCountries,
         ...otherProps
     } = props;
 
@@ -25,7 +27,9 @@ const AppBody = props => {
             )} />
             <Route path={ROUTES.HOME} render={() => (
                 <div>Go to
-                    <div onClick={() => history.push(ROUTES.MOVIES.MAIN)}>Movies</div>
+                    <div onClick={goToMovies}>Movies</div>
+                    <div onClick={goToPeople}>People</div>
+                    <div onClick={goToCountries}>Countries</div>
                 </div>
             )} />
         </Switch>

@@ -29,7 +29,7 @@ const NewPersonForm = props => {
             {...otherProps}
         >
             <Form
-                layout="vflex"
+                layout="colflex"
                 onSubmit={onSubmit}
             >
                 <TextField

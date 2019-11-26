@@ -6,7 +6,7 @@ import ROUTES from '../routes';
 const HeaderToolbar = props => (
     <Container
         layout={{
-            type: 'hflex',
+            type: 'rowflex',
             justify: 'end'
         }}
         className="header-toolbar"

@@ -26,11 +26,11 @@ const PeopleViewport = props => {
     useEffect(loadPeopleEffect, []);
 
     return (
-        <Container layout="vflex">
+        <Container layout="colflex">
             <Container
                 height={40}
                 layout={{
-                    type: 'hflex',
+                    type: 'rowflex',
                     justify: 'end'
                 }}
             >

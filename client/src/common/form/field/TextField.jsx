@@ -37,7 +37,7 @@ const TextField = props => {
     return (
         <Container
             className={getClassName(DEFAULT_CLASS_NAME, className)}
-            layout="hflex"
+            layout="rowflex"
             style={{
                 flexGrow,
                 width,

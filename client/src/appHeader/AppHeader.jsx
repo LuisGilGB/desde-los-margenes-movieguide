@@ -10,7 +10,7 @@ class AppHeader extends Component {
                 <Container
                     className="app-header-body"
                     height={50}
-                    layout="hflex"
+                    layout="rowflex"
                 >
                     <LinkButton to="/" className="app-logo left-item" width={100}>
                         App

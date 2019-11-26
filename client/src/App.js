@@ -15,7 +15,7 @@ const App = props => {
     return (
         <Provider store={store}>
             <Router history={history}>
-                <Container layout="vflex" className="app">
+                <Container layout="colflex" className="app">
                     <AppHeader />
                     <AppBody flex={1}/>
                 </Container>

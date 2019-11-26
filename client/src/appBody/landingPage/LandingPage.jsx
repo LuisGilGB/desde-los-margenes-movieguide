@@ -21,7 +21,7 @@ const LandingPage = props => (
         className="landing-page"
     >
         <Container
-            layout="vflex"
+            layout="colflex"
         >
             <Button
                 className="landing-main-btn movies-btn"

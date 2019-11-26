@@ -4,7 +4,7 @@ import LandingPage from './landingPage/LandingPage';
 import MoviesContainer from './movies/MoviesContainer';
 import PeopleContainer from './people/PeopleContainer';
 import ROUTES from '../routes';
-import {Container} from '../common';
+import Container from '@luisgilgb/react-container';
 
 const AppBody = props => (
     <Container

@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react';
-import {Container, Grid} from '../../../common';
+import Container from '@luisgilgb/react-container';
+import {Grid} from '../../../common';
 
 const MoviesCatalog = props => {
     const {

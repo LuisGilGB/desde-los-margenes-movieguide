@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {withRouter} from "react-router";
 import {Switch, Route} from 'react-router-dom';
-import {Container} from '../../common';
+import Container from '@luisgilgb/react-container';
 import MoviesCatalogContainer from './catalog/MoviesCatalogContainer';
 import MovieDetailContainer from './detail/MovieDetailContainer';
 import {actionCreators as navLogicActionCreators} from '../../navigationLogic/navigationLogicActions';

@@ -1,7 +1,7 @@
 import React from 'react';
 import {Router} from 'react-router-dom';
 import {Provider} from 'react-redux';
-import {Container} from './common';
+import Container from '@luisgilgb/react-container';
 import AppHeader from './appHeader/AppHeader';
 import AppBody from './appBody/AppBody';
 import './App.css';

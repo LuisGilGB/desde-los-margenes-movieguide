@@ -1,5 +1,6 @@
 import React from 'react';
 import {Switch, Route} from 'react-router';
+import Container from '@luisgilgb/react-container';
 import MoviesContainer from './movies/MoviesContainer';
 import PeopleContainer from './people/PeopleContainer';
 import CountriesContainer from './countries/CountriesContainer';

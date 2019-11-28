@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import Container from '@luisgilgb/react-container';
+import {Container} from '@luisgilgb/react-container';
 import {Form, TextField} from '../../../common';
 
 const NewPersonForm = props => {

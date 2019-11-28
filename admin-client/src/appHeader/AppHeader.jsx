@@ -1,4 +1,5 @@
 import React from 'react';
+import Container from '@luisgilgb/react-container';
 import {UserConsumer} from '../UserContext';
 import './AppHeader.css';
 
@@ -25,14 +26,14 @@ const AppHeader = props => {
             >
                 ADMIN
             </div>
-            <div
+            <Container
                 className="header-toolbar"
             >
                 <UserConsumer
                     {...otherProps}
                 >
                     {({user}) => user ? (
-                        <div
+                        <Container
                             className="user-info"
                         >
                             <div
@@ -46,7 +47,7 @@ const AppHeader = props => {
                             >
                                 Log out
                             </button>
-                        </div>) : (
+                        </Container>) : (
                         <form
                             className="login-form"
                             onSubmit={(e) => {
@@ -76,7 +77,7 @@ const AppHeader = props => {
                         </form>
                     )}
                 </UserConsumer>
-            </div>
+            </Container>
         </header>
     );
 }

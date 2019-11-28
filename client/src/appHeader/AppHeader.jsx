@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Container from '@luisgilgb/react-container';
+import {Container} from '@luisgilgb/react-container';
 import {LinkButton} from '../common';
 import HeaderToolbar from './HeaderToolbar'
 

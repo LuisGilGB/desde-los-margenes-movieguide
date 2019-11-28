@@ -1,6 +1,7 @@
 import React from 'react';
 import {Router, Route} from 'react-router';
 import {createBrowserHistory} from "history";
+import Container from '@luisgilgb/react-container';
 import LogInManager from './LogInManager';
 import AppHeader from './appHeader/AppHeader';
 import AppBody from './AppBody';
@@ -9,12 +10,13 @@ import './App.css';
 
 const history = createBrowserHistory();
 
+const navigate = (to = ROUTES.HOME) => history.push(to || ROUTES.HOME);
+const goToHome = () => navigate();
+const goToMovies = () => navigate(ROUTES.MOVIES.MAIN);
+const goToPeople = () => navigate(ROUTES.PEOPLE.MAIN);
+const goToCountries = () => navigate(ROUTES.COUNTRIES.MAIN);
+
 const App = props => {
-    const navigate = (to = ROUTES.HOME) => history.push(to || ROUTES.HOME);
-    const goToHome = () => navigate();
-    const goToMovies = () => navigate(ROUTES.MOVIES.MAIN);
-    const goToPeople = () => navigate(ROUTES.PEOPLE.MAIN);
-    const goToCountries = () => navigate(ROUTES.COUNTRIES.MAIN);
     return (
         <Router history={history}>
             <Route path={ROUTES.HOME} render={() => (
@@ -32,7 +34,7 @@ const App = props => {
                         } = logInManagerProps;
 
                         return (
-                            <div className="App">
+                            <Container className="App">
                                 <AppHeader
                                     goToHome={goToHome}
                                     logInIsFetching={logInIsFetching}
@@ -51,11 +53,11 @@ const App = props => {
                                         goToCountries={goToCountries}
                                     />
                                 ) : (
-                                    <div>
+                                    <Container>
                                         Log in, please.
-                                    </div>
+                                    </Container>
                                 )}
-                            </div>
+                            </Container>
                         )}
                     }
                 </LogInManager>

@@ -34,7 +34,7 @@ const App = props => {
                         } = logInManagerProps;
 
                         return (
-                            <Container className="App">
+                            <Container className="App" layout="colflex">
                                 <AppHeader
                                     goToHome={goToHome}
                                     logInIsFetching={logInIsFetching}
@@ -53,7 +53,10 @@ const App = props => {
                                         goToCountries={goToCountries}
                                     />
                                 ) : (
-                                    <Container>
+                                    <Container
+                                        flex={1}
+                                        layout="center"
+                                    >
                                         Log in, please.
                                     </Container>
                                 )}

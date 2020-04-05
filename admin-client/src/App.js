@@ -6,6 +6,7 @@ import './App.css';
 
 const App = props => {
     const goToHome = () => console.log('Go to home');
+
     return (
         <LogInManager>
             {(logInManagerProps) => {
@@ -14,6 +15,8 @@ const App = props => {
                     logInIsFetching,
                     userMail,
                     userPass,
+                    currentUser,
+                    token,
                     logIn,
                     logOut,
                     onUserMailChange,
@@ -40,7 +43,27 @@ const App = props => {
                             </UserConsumer>
                         ) : (
                             <div>
-                                Hola
+                                <form
+                                    onSubmit={(e) => {
+                                        e.preventDefault();
+                                        logIn();
+                                    }}
+                                >
+                                    <input
+                                        type="email"
+                                        value={userMail}
+                                        onChange={({target}) => onUserMailChange(target.value)}
+                                    />
+                                    <input
+                                        type="password"
+                                        value={userPass}
+                                        onChange={({target}) => onUserPassChange(target.value)}
+                                    />
+                                    <input
+                                        type="submit"
+                                        value="Log in"
+                                    />
+                                </form>
                             </div>
                         )}
                     </div>

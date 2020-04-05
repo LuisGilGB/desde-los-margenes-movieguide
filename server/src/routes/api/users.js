@@ -2,8 +2,9 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const keys = require('../../config/keys');
 const passport = require('passport');
+
+const SECRET_KEY = process.env.SECRET_OR_KEY;
 
 // Import models
 const modelsDir = '../../models/';
@@ -91,7 +92,7 @@ router.post('/login', (req, res) => {
 
                         jwt.sign(
                             payload,
-                            keys.secretOrKey,
+                            SECRET_KEY,
                             { expiresIn: 3600 },
                             (err, token) => {
                                 res.json({

@@ -10,8 +10,5 @@
     "client": "npm run watch",
     "client-install": "npm install --prefix client/",
     "install-all": "npm run server-install && npm run client-install"
-  },
-  "dependencies": {
-    "dotenv": "^8.2.0"
   }
 }

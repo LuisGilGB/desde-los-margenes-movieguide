@@ -5,7 +5,7 @@ import {UserProvider} from './UserContext';
 const initialState = {
     isLoggedIn: false,
     logInIsFetching: false,
-    userMail: 'test@mail.co',
+    userMail: 'test@mail.com',
     userPass: '',
     currentUser: '',
     token: ''

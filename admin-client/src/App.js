@@ -1,9 +1,12 @@
 import React from 'react';
 import LogInManager from './LogInManager';
+import AppHeader from './appHeader/AppHeader';
 import {UserConsumer} from './UserContext';
 import './App.css';
 
 const App = props => {
+    const goToHome = () => console.log('Go to home');
+
     return (
         <LogInManager>
             {(logInManagerProps) => {
@@ -22,8 +25,16 @@ const App = props => {
 
                 return (
                     <div className="App">
-                        <header className="App-header">
-                        </header>
+                        <AppHeader
+                            goToHome={goToHome}
+                            logInIsFetching={logInIsFetching}
+                            userMail={userMail}
+                            userPass={userPass}
+                            logIn={logIn}
+                            logOut={logOut}
+                            onUserMailChange={onUserMailChange}
+                            onUserPassChange={onUserPassChange}
+                        />
                         {isLoggedIn ? (
                             <UserConsumer>
                                 {userProps => (<div>

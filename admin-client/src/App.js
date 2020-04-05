@@ -1,75 +1,71 @@
 import React from 'react';
+import {Router, Route} from 'react-router';
+import {createBrowserHistory} from "history";
+import Container from '@luisgilgb/react-container';
 import LogInManager from './LogInManager';
 import AppHeader from './appHeader/AppHeader';
-import {UserConsumer} from './UserContext';
+import AppBody from './AppBody';
+import ROUTES from './routes';
 import './App.css';
 
+const history = createBrowserHistory();
+
+const navigate = (to = ROUTES.HOME) => history.push(to || ROUTES.HOME);
+const goToHome = () => navigate();
+const goToMovies = () => navigate(ROUTES.MOVIES.MAIN);
+const goToPeople = () => navigate(ROUTES.PEOPLE.MAIN);
+const goToCountries = () => navigate(ROUTES.COUNTRIES.MAIN);
+
 const App = props => {
-    const goToHome = () => console.log('Go to home');
-
     return (
-        <LogInManager>
-            {(logInManagerProps) => {
-                const {
-                    isLoggedIn,
-                    logInIsFetching,
-                    userMail,
-                    userPass,
-                    currentUser,
-                    token,
-                    logIn,
-                    logOut,
-                    onUserMailChange,
-                    onUserPassChange
-                } = logInManagerProps;
+        <Router history={history}>
+            <Route path={ROUTES.HOME} render={() => (
+                <LogInManager>
+                    {(logInManagerProps) => {
+                        const {
+                            isLoggedIn,
+                            logInIsFetching,
+                            userMail,
+                            userPass,
+                            logIn,
+                            logOut,
+                            onUserMailChange,
+                            onUserPassChange
+                        } = logInManagerProps;
 
-                return (
-                    <div className="App">
-                        <AppHeader
-                            goToHome={goToHome}
-                            logInIsFetching={logInIsFetching}
-                            userMail={userMail}
-                            userPass={userPass}
-                            logIn={logIn}
-                            logOut={logOut}
-                            onUserMailChange={onUserMailChange}
-                            onUserPassChange={onUserPassChange}
-                        />
-                        {isLoggedIn ? (
-                            <UserConsumer>
-                                {userProps => (<div>
-                                    User {userProps.currentUser} is logged in with token {userProps.token}
-                                </div>)}
-                            </UserConsumer>
-                        ) : (
-                            <div>
-                                <form
-                                    onSubmit={(e) => {
-                                        e.preventDefault();
-                                        logIn();
-                                    }}
-                                >
-                                    <input
-                                        type="email"
-                                        value={userMail}
-                                        onChange={({target}) => onUserMailChange(target.value)}
+                        return (
+                            <Container className="App" layout="colflex">
+                                <AppHeader
+                                    goToHome={goToHome}
+                                    logInIsFetching={logInIsFetching}
+                                    userMail={userMail}
+                                    userPass={userPass}
+                                    logIn={logIn}
+                                    logOut={logOut}
+                                    onUserMailChange={onUserMailChange}
+                                    onUserPassChange={onUserPassChange}
+                                />
+                                {isLoggedIn ? (
+                                    <AppBody
+                                        history={history}
+                                        goToMovies={goToMovies}
+                                        goToPeople={goToPeople}
+                                        goToCountries={goToCountries}
                                     />
-                                    <input
-                                        type="password"
-                                        value={userPass}
-                                        onChange={({target}) => onUserPassChange(target.value)}
-                                    />
-                                    <input
-                                        type="submit"
-                                        value="Log in"
-                                    />
-                                </form>
-                            </div>
+                                ) : (
+                                    <Container
+                                        flex={1}
+                                        layout="center"
+                                    >
+                                        Log in, please.
+                                    </Container>
+                                )}
+                            </Container>
                         )}
-                    </div>
-                )}
-            }
-        </LogInManager>
+                    }
+                </LogInManager>
+            )} />
+        </Router>
     );
 }
 

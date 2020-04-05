@@ -1,5 +1,5 @@
 import React from 'react';
-import {Container} from '..';
+import {Container} from '@luisgilgb/react-container';
 import {getClassName} from '../../utils';
 
 const DEFAULT_CLASS_NAME = 'dlmmg-btn';

@@ -1,10 +1,11 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
+import {Container} from '@luisgilgb/react-container';
 import {ROUTES} from '../../routes';
 import {actionCreators as navLogicActionCreators} from '../../navigationLogic/navigationLogicActions';
 import {actionCreators as moviesActionCreators} from '../movies/moviesActions';
-import {Container, Button} from '../../common';
+import {Button} from '../../common';
 
 const mapStateToProps = () => ({});
 
@@ -20,7 +21,7 @@ const LandingPage = props => (
         className="landing-page"
     >
         <Container
-            layout="vflex"
+            layout="colflex"
         >
             <Button
                 className="landing-main-btn movies-btn"

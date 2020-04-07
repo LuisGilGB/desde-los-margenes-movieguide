@@ -13,5 +13,10 @@
     "client-install": "npm install --prefix client/",
     "admin-client-install": "npm install --prefix admin-client/",
     "install-all": "npm run server-install && npm run client-install && npm run admin-client-install"
+  },
+  "devDependencies": {
+    "axios": "^0.19.2",
+    "chalk": "^4.0.0",
+    "fs-extra": "^9.0.0"
   }
 }

@@ -10,7 +10,8 @@ const AppBody = props => {
     const {
         goToMovies,
         goToPeople,
-        goToCountries
+        goToCountries,
+        ...otherProps
     } = props;
 
     return (
@@ -25,11 +26,14 @@ const AppBody = props => {
                 <CountriesContainer />
             )} />
             <Route path={ROUTES.HOME} render={() => (
-                <div>Go to
-                    <div onClick={goToMovies}>Movies</div>
-                    <div onClick={goToPeople}>People</div>
-                    <div onClick={goToCountries}>Countries</div>
-                </div>
+                <Container
+                    {...otherProps}
+                >
+                    <Container>Go to</Container>
+                    <Container onClick={goToMovies}>Movies</Container>
+                    <Container onClick={goToPeople}>People</Container>
+                    <Container onClick={goToCountries}>Countries</Container>
+                </Container>
             )} />
         </Switch>
     );

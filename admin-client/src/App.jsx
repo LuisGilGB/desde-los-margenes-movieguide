@@ -48,6 +48,7 @@ const App = props => {
                                 {isLoggedIn ? (
                                     <AppBody
                                         history={history}
+                                        flex={1}
                                         goToMovies={goToMovies}
                                         goToPeople={goToPeople}
                                         goToCountries={goToCountries}

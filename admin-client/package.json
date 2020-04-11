@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@luisgilgb/react-container": "^1.0.2",
-    "@luisgilgb/react-grid": "^0.1.0",
+    "@luisgilgb/react-grid": "^0.1.1",
     "axios": "^0.19.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",

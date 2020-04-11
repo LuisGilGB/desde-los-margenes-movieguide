@@ -68,9 +68,6 @@ a:-webkit-any-link:active {
     line-height: 30px;
 }
 
-.app-logo {
-}
-
 .app-logo .header-navlink-btn {
     width: auto;
 }
@@ -81,9 +78,6 @@ a:-webkit-any-link:active {
 
 .full-width {
     width: 100%;
-}
-
-.dlmmg-btn {
 }
 
 .dlmmg-btn:focus {
@@ -142,9 +136,6 @@ a:-webkit-any-link:active {
 
 .dlmmg-field .dlmmg-field-input:focus {
     background-color: transparent !important;
-}
-
-.dlmmg-grid {
 }
 
 table.dlmmg-grid {

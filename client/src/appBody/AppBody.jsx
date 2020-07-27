@@ -1,6 +1,6 @@
 import React from 'react';
 import {Switch, Route} from 'react-router-dom';
-import {Container} from '@luisgilgb/react-container';
+import Container from '@luisgilgb/react-container';
 import LandingPage from './landingPage/LandingPage';
 import MoviesContainer from './movies/MoviesContainer';
 import PeopleContainer from './people/PeopleContainer';

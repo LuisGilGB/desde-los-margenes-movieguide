@@ -1,5 +1,5 @@
 import React from 'react';
-import {Container} from '@luisgilgb/react-container';
+import Container from '@luisgilgb/react-container';
 import {LinkButton} from '../common';
 import ROUTES from '../routes';
 

@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {Container} from '@luisgilgb/react-container';
+import Container from '@luisgilgb/react-container';
 
 const MovieDetail = props => {
     const {

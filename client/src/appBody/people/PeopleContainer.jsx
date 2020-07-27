@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
 import {withRouter} from "react-router";
 import {Switch, Route} from 'react-router-dom';
-import {Container} from '@luisgilgb/react-container';
+import Container from '@luisgilgb/react-container';
 import {LinkButton} from '../../common';
 import PeopleListView from './list/PeopleListView';
 import PersonDetail from './detail/PersonDetail';

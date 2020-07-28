@@ -1,14 +1,22 @@
 {
   "name": "desde-los-margenes-movieguide",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "author": "Luis Gil Gutiérrez de la Barreda",
   "private": true,
   "scripts": {
     "serve": "npm start --prefix server/",
     "server-install": "npm install --prefix server/",
     "watch": "npm start --prefix client/",
+    "admin-watch": "npm start --prefix admin-client/",
     "client": "npm run watch",
+    "admin-client": "npm run admin-watch",
     "client-install": "npm install --prefix client/",
-    "install-all": "npm run server-install && npm run client-install"
+    "admin-client-install": "npm install --prefix admin-client/",
+    "install-all": "npm run server-install && npm run client-install && npm run admin-client-install"
+  },
+  "devDependencies": {
+    "axios": "^0.19.2",
+    "chalk": "^4.1.0",
+    "fs-extra": "^9.0.1"
   }
 }

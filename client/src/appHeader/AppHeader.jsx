@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import {Container, LinkButton} from '../common';
+import Container from '@luisgilgb/react-container';
+import {LinkButton} from '../common';
 import HeaderToolbar from './HeaderToolbar'
 
 class AppHeader extends Component {
@@ -9,7 +10,7 @@ class AppHeader extends Component {
                 <Container
                     className="app-header-body"
                     height={50}
-                    layout="hflex"
+                    layout="rowflex"
                 >
                     <LinkButton to="/" className="app-logo left-item" width={100}>
                         App

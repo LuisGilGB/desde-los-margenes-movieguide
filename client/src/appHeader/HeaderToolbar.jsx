@@ -1,11 +1,12 @@
 import React from 'react';
-import {Container, LinkButton} from '../common';
+import Container from '@luisgilgb/react-container';
+import {LinkButton} from '../common';
 import ROUTES from '../routes';
 
 const HeaderToolbar = props => (
     <Container
         layout={{
-            type: 'hflex',
+            type: 'rowflex',
             justify: 'end'
         }}
         className="header-toolbar"

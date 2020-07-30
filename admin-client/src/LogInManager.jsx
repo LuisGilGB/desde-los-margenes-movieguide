@@ -95,15 +95,18 @@ const LogInManager = (props) => {
     const token = data.token.split('Bearer ')[1];
     saveLSUser(user);
     saveLSUserToken(token);
-    data && data.success
-      ? dispatch({
-          type: actions.FETCH_LOG_IN_DONE,
-          payload: { user, token }
-        })
-      : dispatch({
-          type: actions.FETCH_LOG_IN_FAILED,
-          payload: {}
-        });
+    if (data && data.success) {
+      axios.defaults.headers.common = { Authorization: `Bearer ${token}` };
+      dispatch({
+        type: actions.FETCH_LOG_IN_DONE,
+        payload: { user, token }
+      });
+    } else {
+      dispatch({
+        type: actions.FETCH_LOG_IN_FAILED,
+        payload: {}
+      });
+    }
   };
 
   const onLogInFailed = () => {
@@ -147,15 +150,18 @@ const LogInManager = (props) => {
 
   const onLoginFromStorageDone = (user, token) => (res = {}) => {
     const { data } = res;
-    data && data.success
-      ? dispatch({
-          type: actions.FETCH_LOG_IN_DONE,
-          payload: { user, token }
-        })
-      : dispatch({
-          type: actions.FETCH_LOG_IN_FAILED,
-          payload: {}
-        });
+    if (data && data.success) {
+      axios.defaults.headers.common = { Authorization: `Bearer ${token}` };
+      dispatch({
+        type: actions.FETCH_LOG_IN_DONE,
+        payload: { user, token }
+      });
+    } else {
+      dispatch({
+        type: actions.FETCH_LOG_IN_FAILED,
+        payload: {}
+      });
+    }
   };
 
   const logIn = doLogIn;

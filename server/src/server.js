@@ -21,7 +21,11 @@ const DB = process.env.MONGO_URI;
 
 // Connect to MongoDB
 mongoose
-	.connect(DB)
+	.connect(DB, {
+		useCreateIndex: true,
+		useNewUrlParser: true,
+		useUnifiedTopology: true
+	})
 	.then(() => console.log('MongoDB connected'))
 	.catch(err => console.log(err));
 

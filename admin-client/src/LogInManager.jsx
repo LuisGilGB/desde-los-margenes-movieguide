@@ -26,15 +26,13 @@ const saveLSUser = (value) => saveInLocalStorageAs(USER_KEY, value);
 const loadLSUserToken = () => loadFromLocalStorage(USER_TOKEN_KEY);
 const saveLSUserToken = (value) => saveInLocalStorageAs(USER_TOKEN_KEY, value);
 
-const initialToken = loadLSUserToken() || '';
-
 const initialState = {
   isLoggedIn: false,
   logInIsFetching: false,
   userMail: 'test@mail.com',
   userPass: '',
   currentUser: '',
-  token: initialToken
+  token: ''
 };
 
 const actions = {
@@ -133,16 +131,18 @@ const LogInManager = (props) => {
   const logInFromStorage = () => {
     const user = loadLSUser();
     const token = loadLSUserToken();
-    dispatch({
-      type: actions.FETCH_LOG_IN,
-      payload: {}
-    });
-    axios
-      .get(`/api/users/current?user=${user}`, {
-        headers: { Authorization: `Bearer ${token}` }
-      })
-      .then(onLoginFromStorageDone(user, token))
-      .catch(onLogInFailed);
+    if (user && token) {
+      dispatch({
+        type: actions.FETCH_LOG_IN,
+        payload: {}
+      });
+      axios
+        .get(`/api/users/current?user=${user}`, {
+          headers: { Authorization: `Bearer ${token}` }
+        })
+        .then(onLoginFromStorageDone(user, token))
+        .catch(onLogInFailed);
+    }
   };
 
   const onLoginFromStorageDone = (user, token) => (res = {}) => {
@@ -160,7 +160,11 @@ const LogInManager = (props) => {
 
   const logIn = doLogIn;
 
-  const logOut = () => dispatch({ type: actions.LOG_OUT, payload: {} });
+  const logOut = () => {
+    saveLSUser(initialState.user);
+    saveLSUserToken(initialState.token);
+    dispatch({ type: actions.LOG_OUT, payload: {} });
+  };
 
   const onUserMailChange = (newValue) =>
     dispatch({

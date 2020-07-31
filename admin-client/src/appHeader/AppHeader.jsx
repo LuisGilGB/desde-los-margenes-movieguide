@@ -1,6 +1,6 @@
 import React from 'react';
 import Container from '@luisgilgb/react-container';
-import { UserConsumer } from '../UserContext';
+import { UserConsumer } from '../userContext';
 import './AppHeader.css';
 
 const AppHeader = (props) => {

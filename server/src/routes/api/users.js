@@ -108,21 +108,32 @@ router.post('/login', (req, res) => {
     .catch((err) => console.log(err));
 });
 
+const currentRequestHandler = (req, res) => {
+  const { user } = req;
+  res.json({
+    id: user.id,
+    name: user.name,
+    email: user.email,
+    success: true
+  });
+};
+
 // @route   GET api/users/current
 // @desc    Returns the current user
 // @access  Private
 router.get(
   '/current',
   passport.authenticate('jwt', { session: false }),
-  (req, res) => {
-    const { user } = req;
-    res.json({
-      id: user.id,
-      name: user.name,
-      email: user.email,
-      success: true
-    });
-  }
+  currentRequestHandler
+);
+
+// @route   POST api/users/current
+// @desc    Returns the current user
+// @access  Private
+router.post(
+  '/current',
+  passport.authenticate('jwt', { session: false }),
+  currentRequestHandler
 );
 
 module.exports = router;

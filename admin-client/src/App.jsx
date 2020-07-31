@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Router, Route } from 'react-router';
 import { createBrowserHistory } from 'history';
 import Container from '@luisgilgb/react-container';
-import LogInManager from './LogInManager';
+import { LogInManager } from './userContext';
 import AppHeader from './appHeader/AppHeader';
 import AppBody from './AppBody';
 import ROUTES from './routes';

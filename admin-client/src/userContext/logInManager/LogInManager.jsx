@@ -1,93 +1,18 @@
 import React, { useReducer } from 'react';
 import axios from 'axios';
-import { UserProvider } from './UserContext';
-
-const LOCAL_STORAGE_KEY = 'desdeLosMargenesApp';
-const USER_KEY = 'user';
-const USER_TOKEN_KEY = 'userToken';
-
-const parseLocalStorage = () =>
-  JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY) || '{}');
-
-const loadFromLocalStorage = (key) => {
-  const { [key]: res } = parseLocalStorage();
-  return res;
-};
-
-const saveInLocalStorageAs = (key, value) => {
-  const config = parseLocalStorage();
-  config[key] = value;
-  localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(config));
-};
-
-const loadLSUser = () => loadFromLocalStorage(USER_KEY);
-const saveLSUser = (value) => saveInLocalStorageAs(USER_KEY, value);
-
-const loadLSUserToken = () => loadFromLocalStorage(USER_TOKEN_KEY);
-const saveLSUserToken = (value) => saveInLocalStorageAs(USER_TOKEN_KEY, value);
-
-const initialState = {
-  isLoggedIn: false,
-  logInIsFetching: false,
-  userMail: 'test@mail.com',
-  userPass: '',
-  currentUser: '',
-  token: ''
-};
-
-const actions = {
-  FETCH_LOG_IN: 'FETCH_LOG_IN',
-  FETCH_LOG_IN_DONE: 'FETCH_LOG_IN_DONE',
-  FETCH_LOG_IN_FAILED: 'FETCH_LOG_IN_FAILED',
-  LOG_OUT: 'LOG_OUT',
-  CHANGE_USER_MAIL: 'CHANGE_USER_MAIL',
-  CHANGE_USER_PASS: 'CHANGE_USER_PASS'
-};
-
-const loginReducer = (state = initialState, action) => {
-  const { type, payload = {} } = action;
-  const reducers = {
-    [actions.FETCH_LOG_IN]: () => ({
-      ...state,
-      isLoggedIn: false,
-      logInIsFetching: true,
-      currentUser: initialState.currentUser,
-      token: initialState.token
-    }),
-    [actions.FETCH_LOG_IN_DONE]: () => ({
-      ...state,
-      isLoggedIn: true,
-      logInIsFetching: false,
-      userMail: initialState.userMail,
-      userPass: initialState.userPass,
-      currentUser: payload.user,
-      token: payload.token
-    }),
-    [actions.FETCH_LOG_IN_FAILED]: () => ({
-      ...state,
-      isLoggedIn: false,
-      logInIsFetching: false
-    }),
-    [actions.LOG_OUT]: () => ({
-      ...state,
-      ...initialState
-    }),
-    [actions.CHANGE_USER_MAIL]: () => ({
-      ...state,
-      userMail: payload.value
-    }),
-    [actions.CHANGE_USER_PASS]: () => ({
-      ...state,
-      userPass: payload.value
-    })
-  };
-
-  return reducers[type] ? reducers[type]() : state;
-};
+import { actions } from './actions';
+import { initialState, logInReducer } from './reducers';
+import {
+  loadLSUser,
+  saveLSUser,
+  loadLSUserToken,
+  saveLSUserToken
+} from './persistance';
+import { UserProvider } from '../UserContext';
 
 const LogInManager = (props) => {
   const { children, ...otherProps } = props;
-  const [state, dispatch] = useReducer(loginReducer, initialState);
+  const [state, dispatch] = useReducer(logInReducer, initialState);
 
   const onLogInDone = (email) => (res = {}) => {
     const { data } = res;
@@ -140,9 +65,13 @@ const LogInManager = (props) => {
         payload: {}
       });
       axios
-        .get(`/api/users/current?user=${user}`, {
-          headers: { Authorization: `Bearer ${token}` }
-        })
+        .post(
+          `/api/users/current`,
+          { user },
+          {
+            headers: { Authorization: `Bearer ${token}` }
+          }
+        )
         .then(onLoginFromStorageDone(user, token))
         .catch(onLogInFailed);
     }

@@ -4,7 +4,7 @@ import { createBrowserHistory } from 'history';
 import Container from '@luisgilgb/react-container';
 import { LogInManager } from './userContext';
 import AppHeader from './appHeader/AppHeader';
-import AppBody from './AppBody';
+import AppBody from './appBody/AppBody';
 import ROUTES from './routes';
 import './App.css';
 

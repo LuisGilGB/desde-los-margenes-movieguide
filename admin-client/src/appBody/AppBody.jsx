@@ -4,6 +4,7 @@ import Container from '@luisgilgb/react-container';
 import MoviesContainer from './movies/MoviesContainer';
 import PeopleContainer from './people/PeopleContainer';
 import CountriesContainer from './countries/CountriesContainer';
+import { LandingButton } from '../common';
 import ROUTES from '../routes';
 
 const AppBody = (props) => {
@@ -22,9 +23,9 @@ const AppBody = (props) => {
         render={() => (
           <Container {...otherProps}>
             <Container>Go to</Container>
-            <Container onClick={goToMovies}>Movies</Container>
-            <Container onClick={goToPeople}>People</Container>
-            <Container onClick={goToCountries}>Countries</Container>
+            <LandingButton onClick={goToMovies}>Movies</LandingButton>
+            <LandingButton onClick={goToPeople}>People</LandingButton>
+            <LandingButton onClick={goToCountries}>Countries</LandingButton>
           </Container>
         )}
       />

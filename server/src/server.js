@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
+const { MONGOOSE_CONNECT_CONFIGURATION } = require("./config/database");
 
 const countriesRoutes = require("./routes/api/countries");
 const peopleRoutes = require("./routes/api/people");
@@ -21,12 +22,7 @@ const DB = process.env.MONGO_URI;
 
 // Connect to MongoDB
 mongoose
-  .connect(DB, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false,
-    useCreateIndex: true,
-  })
+  .connect(DB, MONGOOSE_CONNECT_CONFIGURATION)
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.log(err));
 

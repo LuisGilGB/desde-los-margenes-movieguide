@@ -30,7 +30,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon -r dotenv/config src/server.js"
+    "start": "nodemon -r dotenv/config src/server.js",
+    "lint-fix-src": "eslint --fix src/**"
   },
   "author": "Luis Gil Gutiérrez de la Barreda"
 }

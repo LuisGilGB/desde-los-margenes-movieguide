@@ -1,6 +1,8 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import { Switch, Route } from 'react-router';
 import Container from '@luisgilgb/react-container';
+import PropTypes from 'prop-types';
 import MoviesContainer from './movies/MoviesContainer';
 import PeopleContainer from './people/PeopleContainer';
 import CountriesContainer from './countries/CountriesContainer';
@@ -30,6 +32,12 @@ const AppBody = (props) => {
       />
     </Switch>
   );
+};
+
+AppBody.propTypes = {
+  goToMovies: PropTypes.func.isRequired,
+  goToPeople: PropTypes.func.isRequired,
+  goToCountries: PropTypes.func.isRequired,
 };
 
 export default AppBody;

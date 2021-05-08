@@ -1,5 +1,6 @@
 import React, { useReducer } from 'react';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 import { UserProvider } from './UserContext';
 
 const initialState = {
@@ -67,15 +68,17 @@ const LogInManager = (props) => {
 
   const onLogInDone = (email) => (res = {}) => {
     const { data } = res;
-    data && data.success
-      ? dispatch({
-          type: actions.FETCH_LOG_IN_DONE,
-          payload: { user: email, token: data.token.split('Bearer ')[1] },
-        })
-      : dispatch({
-          type: actions.FETCH_LOG_IN_FAILED,
-          payload: {},
-        });
+    if (data && data.success) {
+      dispatch({
+        type: actions.FETCH_LOG_IN_DONE,
+        payload: { user: email, token: data.token.split('Bearer ')[1] },
+      });
+    } else {
+      dispatch({
+        type: actions.FETCH_LOG_IN_FAILED,
+        payload: {},
+      });
+    }
   };
 
   const onLogInFailed = () => {
@@ -137,6 +140,10 @@ const LogInManager = (props) => {
       })}
     </UserProvider>
   );
+};
+
+LogInManager.propTypes = {
+  children: PropTypes.func.isRequired,
 };
 
 export default LogInManager;

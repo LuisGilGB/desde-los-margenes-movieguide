@@ -4,11 +4,13 @@
   "private": true,
   "scripts": {
     "start": "react-scripts start",
+    "start:instrumented": "react-scripts -r @cypress/instrument-cra start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "cypress:open": "cypress open",
     "instrument": "nyc instrument --compact=false src instrumented",
+    "lint-fix-src": "eslint --fix src/**",
     "prettier:check": "prettier --check .",
     "prettier:write": "prettier --write ."
   },
@@ -16,6 +18,8 @@
     "@luisgilgb/react-container": "^1.0.8",
     "@luisgilgb/react-grid": "^0.1.1",
     "axios": "^0.21.1",
+    "history": "^4.10.1",
+    "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-router": "^5.2.0",

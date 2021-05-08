@@ -1,8 +1,8 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React, { useState, useEffect } from 'react';
 import Container from '@luisgilgb/react-container';
 import Grid from '@luisgilgb/react-grid';
 import axios from 'axios';
-import ROUTES from '../routes';
 
 const CountriesContainer = (props) => {
   const { ...otherProps } = props;

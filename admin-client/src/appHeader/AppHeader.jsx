@@ -1,14 +1,15 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import Container from '@luisgilgb/react-container';
+import PropTypes from 'prop-types';
 import { UserConsumer } from '../UserContext';
 import './AppHeader.css';
 
 const AppHeader = (props) => {
   const {
-    goToHome,
-    logInIsFetching,
     userMail,
     userPass,
+    goToHome,
     logIn,
     logOut,
     onUserMailChange,
@@ -18,7 +19,13 @@ const AppHeader = (props) => {
 
   return (
     <header className="app-header">
-      <div className="home-btn" onClick={goToHome}>
+      <div
+        className="home-btn"
+        role="button"
+        tabIndex={0}
+        onClick={goToHome}
+        onKeyPress={goToHome}
+      >
         ADMIN
       </div>
       <Container className="header-toolbar">
@@ -27,7 +34,7 @@ const AppHeader = (props) => {
             user ? (
               <Container className="user-info">
                 <div className="user-name">{user}</div>
-                <button className="logout-btn" onClick={logOut}>
+                <button type="button" className="logout-btn" onClick={logOut}>
                   Log out
                 </button>
               </Container>
@@ -61,6 +68,21 @@ const AppHeader = (props) => {
       </Container>
     </header>
   );
+};
+
+AppHeader.propTypes = {
+  userMail: PropTypes.string,
+  userPass: PropTypes.string,
+  goToHome: PropTypes.func.isRequired,
+  logIn: PropTypes.func.isRequired,
+  logOut: PropTypes.func.isRequired,
+  onUserMailChange: PropTypes.func.isRequired,
+  onUserPassChange: PropTypes.func.isRequired,
+};
+
+AppHeader.defaultProps = {
+  userMail: '',
+  userPass: '',
 };
 
 export default AppHeader;

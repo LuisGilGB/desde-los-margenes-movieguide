@@ -23,6 +23,7 @@ const AppHeader = (props) => {
         className="home-btn"
         role="button"
         tabIndex={0}
+        data-testid="app-header-logo"
         onClick={goToHome}
         onKeyPress={goToHome}
       >
@@ -34,7 +35,12 @@ const AppHeader = (props) => {
             user ? (
               <Container className="user-info">
                 <div className="user-name">{user}</div>
-                <button type="button" className="logout-btn" onClick={logOut}>
+                <button
+                  type="button"
+                  className="logout-btn"
+                  data-testid="logout-button"
+                  onClick={logOut}
+                >
                   Log out
                 </button>
               </Container>
@@ -51,6 +57,7 @@ const AppHeader = (props) => {
                   type="email"
                   placeholder="e-mail"
                   value={userMail}
+                  data-testid="login-input"
                   onChange={({ target }) => onUserMailChange(target.value)}
                 />
                 <input
@@ -58,9 +65,16 @@ const AppHeader = (props) => {
                   type="password"
                   placeholder="password"
                   value={userPass}
+                  data-testid="login-password"
                   onChange={({ target }) => onUserPassChange(target.value)}
                 />
-                <input className="login-submit" type="submit" value="Log in" />
+                <button
+                  className="login-submit"
+                  type="submit"
+                  data-testid="login-submit"
+                >
+                  Log in
+                </button>
               </form>
             )
           }

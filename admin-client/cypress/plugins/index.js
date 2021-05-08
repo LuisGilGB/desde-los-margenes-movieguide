@@ -1,3 +1,5 @@
+/* eslint-disable global-require */
+/* eslint-disable no-param-reassign */
 /// <reference types="cypress" />
 // ***********************************************************
 // This example plugins/index.js can be used to load plugins
@@ -19,4 +21,9 @@
 module.exports = (on, config) => {
   // `on` is used to hook into various events Cypress emits
   // `config` is the resolved Cypress config
+  require('dotenv').config();
+  require('@cypress/code-coverage/task')(on, config);
+
+  config.env.adminPassword = process.env.DEV_ADMIN_USER_PASSWORD;
+  return config;
 };

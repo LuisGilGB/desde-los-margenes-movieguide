@@ -35,7 +35,7 @@ const App = () => (
             } = logInManagerProps;
 
             return (
-              <Container className="App" layout="colflex">
+              <Container className="App" layout="colflex" data-testid="app">
                 <AppHeader
                   goToHome={goToHome}
                   logInIsFetching={logInIsFetching}

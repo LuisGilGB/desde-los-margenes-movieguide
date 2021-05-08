@@ -22,7 +22,7 @@
   "rules": {
     "import/no-extraneous-dependencies": [
       "error",
-      { "devDependencies": ["cypress/**"] }
+      { "devDependencies": ["**/cypress/**"] }
     ],
     "react/react-in-jsx-scope": "off",
     "cypress/no-assigning-return-values": "error",

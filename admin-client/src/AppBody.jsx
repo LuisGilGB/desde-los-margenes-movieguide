@@ -22,11 +22,20 @@ const AppBody = (props) => {
       <Route
         path={ROUTES.HOME}
         render={() => (
-          <Container {...otherProps}>
+          <Container {...otherProps} data-testid="app-body">
             <Container>Go to</Container>
-            <Container onClick={goToMovies}>Movies</Container>
-            <Container onClick={goToPeople}>People</Container>
-            <Container onClick={goToCountries}>Countries</Container>
+            <Container data-testid="app-body-movies-link" onClick={goToMovies}>
+              Movies
+            </Container>
+            <Container data-testid="app-body-people-link" onClick={goToPeople}>
+              People
+            </Container>
+            <Container
+              data-testid="app-body-countries-link"
+              onClick={goToCountries}
+            >
+              Countries
+            </Container>
           </Container>
         )}
       />

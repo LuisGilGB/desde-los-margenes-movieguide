@@ -1,41 +1,41 @@
 import React from 'react';
 import Container from '@luisgilgb/react-container';
-import {getClassName} from '../../utils';
+import { getClassName } from '../../utils';
 
 const DEFAULT_CLASS_NAME = 'dlmmg-form';
 
 const DEFAULT_INNERCONT_CLASS_NAME = 'dlmmg-form-innercont';
 
-const Form = props => {
-    const {
-        children,
-        layout,
-        className,
-        innerClassName,
-        onSubmit: onSubmitProp,
-        ...otherProps
-    } = props;
+const Form = (props) => {
+  const {
+    children,
+    layout,
+    className,
+    innerClassName,
+    onSubmit: onSubmitProp,
+    ...otherProps
+  } = props;
 
-    const onSubmit = (e, ...args) => {
-        e.preventDefault();
-        onSubmitProp && onSubmitProp(e, ...args);
-    }
+  const onSubmit = (e, ...args) => {
+    e.preventDefault();
+    onSubmitProp && onSubmitProp(e, ...args);
+  };
 
-    return (
-            <form
-                {...otherProps}
-                className={getClassName(DEFAULT_CLASS_NAME, className)}
-                onSubmit={onSubmit}
-            >
-                <Container
-                    className={getClassName(DEFAULT_INNERCONT_CLASS_NAME, innerClassName)}
-                    width="100%"
-                    layout={layout}
-                >
-                    {children}
-                </Container>
-            </form>
-    );
-}
+  return (
+    <form
+      {...otherProps}
+      className={getClassName(DEFAULT_CLASS_NAME, className)}
+      onSubmit={onSubmit}
+    >
+      <Container
+        className={getClassName(DEFAULT_INNERCONT_CLASS_NAME, innerClassName)}
+        width="100%"
+        layout={layout}
+      >
+        {children}
+      </Container>
+    </form>
+  );
+};
 
 export default Form;

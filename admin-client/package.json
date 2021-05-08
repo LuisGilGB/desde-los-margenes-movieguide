@@ -4,9 +4,13 @@
   "private": true,
   "scripts": {
     "start": "react-scripts start",
+    "start:instrumented": "react-scripts -r @cypress/instrument-cra start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "cypress:open": "cypress open",
+    "instrument": "nyc instrument --compact=false src instrumented",
+    "lint-fix-src": "eslint --fix src/**",
     "prettier:check": "prettier --check .",
     "prettier:write": "prettier --write ."
   },
@@ -14,20 +18,28 @@
     "@luisgilgb/react-container": "^1.0.8",
     "@luisgilgb/react-grid": "^0.1.1",
     "axios": "^0.21.1",
+    "history": "^4.10.1",
+    "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-router": "^5.2.0",
     "react-scripts": "^4.0.3"
   },
   "devDependencies": {
+    "@cypress/code-coverage": "^3.9.5",
+    "@cypress/instrument-cra": "^1.4.0",
+    "cypress": "^7.2.0",
+    "dotenv": "^8.2.0",
     "eslint": "^7.26.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-cypress": "^2.11.3",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.23.2",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "nyc": "^15.1.0",
     "prettier": "^2.2.1"
   },
   "eslintConfig": {

@@ -1,5 +1,5 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
-import ROUTES from '../routes';
 
 const PeopleContainer = (props) => {
   const { ...otherProps } = props;

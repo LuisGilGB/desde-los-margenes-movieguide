@@ -22,7 +22,13 @@
   "rules": {
     "import/no-extraneous-dependencies": [
       "error",
-      { "devDependencies": ["**/cypress/**"] }
+      {
+        "devDependencies": [
+          "**/cypress/**",
+          "**/craco.config.js",
+          "**/tailwind.config.js"
+        ]
+      }
     ],
     "react/react-in-jsx-scope": "off",
     "cypress/no-assigning-return-values": "error",

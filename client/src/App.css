@@ -1,158 +1,162 @@
 html {
-    height: 100%;
+  height: 100%;
 }
 
 body {
-    height: inherit;
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-    background-color: #303030;
-    color: #EFEFEF;
+  height: inherit;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-color: #303030;
+  color: #efefef;
 }
 
 @keyframes app-logo-spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 a:-webkit-any-link {
-    color: #EFEFEF;
-    cursor: pointer;
-    text-decoration: none;
+  color: #efefef;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 a:-webkit-any-link:active {
-    color: #EFEFEF;
+  color: #efefef;
 }
 
 #root {
-    height: inherit;
+  height: inherit;
 }
 
 .app {
-    height: inherit;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
+  height: inherit;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .app-body {
-    flex: 1;
+  flex: 1;
 }
 
 .app-header {
-    background-color: #222;
-    color: white;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    align-items: stretch;
+  background-color: #222;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: stretch;
 }
 
 .app-header-body {
-    flex: 1;
+  flex: 1;
 }
 
 .app-header .app-header-tools {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: stretch;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: stretch;
 }
 
 .app-header .header-navlink-btn {
-    width: 120px;
-    font-size: 18px;
-    line-height: 30px;
+  width: 120px;
+  font-size: 18px;
+  line-height: 30px;
 }
 
 .app-logo .header-navlink-btn {
-    width: auto;
+  width: auto;
 }
 
 .app-header .header-navlink-btn:hover {
-    background-color: #5F5F5F;
+  background-color: #5f5f5f;
 }
 
 .full-width {
-    width: 100%;
+  width: 100%;
 }
 
 .dlmmg-btn:focus {
-    outline: none;
+  outline: none;
 }
 
 .dlmmg-btn .dlmmg-btn-btn-el {
-    background-color: #222;
-    justify-content: center;
-    cursor: pointer;
-    color: #F5F5F5;
-    border-width: 0px;
-    border-style: none;
-    border-color: none;
-    border-image: none;
-    font-size: inherit;
+  background-color: #222;
+  justify-content: center;
+  cursor: pointer;
+  color: #f5f5f5;
+  border-width: 0px;
+  border-style: none;
+  border-color: none;
+  border-image: none;
+  font-size: inherit;
 }
 
 .dlmmg-btn .dlmmg-btn-btn-el:focus {
-    outline: none;
+  outline: none;
 }
 
 .dlmmg-btn .dlmmg-btn-btn-el:hover {
-    background-color: #5F5F5F;
+  background-color: #5f5f5f;
 }
 
 .dlmmg-field {
-    margin: 3px;
-    padding: 3px;
+  margin: 3px;
+  padding: 3px;
 }
 
 .dlmmg-field .dlmmg-field-label {
-    width: 100px;
-    font-weight: 300;
-    margin-right: 5px;
-    padding-bottom: 3px;
+  width: 100px;
+  font-weight: 300;
+  margin-right: 5px;
+  padding-bottom: 3px;
 }
 
 .dlmmg-field .dlmmg-field-input {
-    flex-grow: 1;
-    -webkit-appearance: none;
-    color: #F5F5F5;
-    background-color: transparent;
-    border-width: 0;
-    border-style: none;
-    border-color: transparent;
-    border-image: none;
-    padding-bottom: 2px;
-    border-bottom: 1px solid #7F7F7F;
+  flex-grow: 1;
+  -webkit-appearance: none;
+  color: #f5f5f5;
+  background-color: transparent;
+  border-width: 0;
+  border-style: none;
+  border-color: transparent;
+  border-image: none;
+  padding-bottom: 2px;
+  border-bottom: 1px solid #7f7f7f;
 }
 
 .dlmmg-field .dlmmg-field-input:focus {
-    outline: none;
-    border-bottom: 1px solid #CFCFFF;
+  outline: none;
+  border-bottom: 1px solid #cfcfff;
 }
 
 .dlmmg-field .dlmmg-field-input:focus {
-    background-color: transparent !important;
+  background-color: transparent !important;
 }
 
 table.dlmmg-grid {
-    display: table;
-    border-collapse: separate;
-    border-spacing: 2px;
-    border-color: grey;
+  display: table;
+  border-collapse: separate;
+  border-spacing: 2px;
+  border-color: grey;
 }
 
 .dlmmg-grid-row:hover {
-    background-color: #5F5F5F;
+  background-color: #5f5f5f;
 }
 
 .movies-catalog-grid .dlmmg-grid-row {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .landing-main-btn {
-    margin: 5px;
+  margin: 5px;
 }

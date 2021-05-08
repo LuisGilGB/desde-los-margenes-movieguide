@@ -1,6 +1,7 @@
-const createRouterMiddleware = history => store => next => action => next({
+const createRouterMiddleware = (history) => (store) => (next) => (action) =>
+  next({
     ...action,
-    history
-});
+    history,
+  });
 
 export default createRouterMiddleware;

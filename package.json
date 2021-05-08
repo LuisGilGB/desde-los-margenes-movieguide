@@ -12,11 +12,20 @@
     "admin-client": "npm run admin-watch",
     "client-install": "npm install --prefix client/",
     "admin-client-install": "npm install --prefix admin-client/",
-    "install-all": "npm run server-install && npm run client-install && npm run admin-client-install"
+    "install-all": "npm run server-install && npm run client-install && npm run admin-client-install",
+    "prettier:check": "prettier --check .",
+    "prettier:write": "prettier --write .",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "axios": "^0.21.1",
     "chalk": "^4.1.1",
-    "fs-extra": "^9.1.0"
+    "fs-extra": "^9.1.0",
+    "husky": "^6.0.0",
+    "lint-staged": "^11.0.0",
+    "prettier": "^2.2.1"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
   }
 }

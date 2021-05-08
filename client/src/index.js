@@ -5,7 +5,10 @@ import App from './App';
 import createStoreAndHistory from './store';
 import registerServiceWorker from './registerServiceWorker';
 
-const {store, history} = createStoreAndHistory();
+const { store, history } = createStoreAndHistory();
 
-ReactDOM.render(<App store={store} history={history} />, document.getElementById('root'));
+ReactDOM.render(
+  <App store={store} history={history} />,
+  document.getElementById('root'),
+);
 registerServiceWorker();

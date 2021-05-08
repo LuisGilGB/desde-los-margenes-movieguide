@@ -1,5 +1,3 @@
-import {getClassName} from './reactComponentsUtils';
+import { getClassName } from './reactComponentsUtils';
 
-export {
-    getClassName
-}
+export { getClassName };

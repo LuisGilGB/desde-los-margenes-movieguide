@@ -1,20 +1,20 @@
 export const ROUTES = {
-    ROOT: '/',
+  ROOT: '/',
 
-    LOGIN: '/login',
+  LOGIN: '/login',
 
-    REGISTER: '/register',
+  REGISTER: '/register',
 
-    PEOPLE: {
-        LIST: '/people',
-        DETAIL: '/people/:personId',
-        NEW_PERSON_FORM: '/people/newperson'
-    },
+  PEOPLE: {
+    LIST: '/people',
+    DETAIL: '/people/:personId',
+    NEW_PERSON_FORM: '/people/newperson',
+  },
 
-    MOVIES: {
-        CATALOG: '/movies',
-        DETAIL: '/movies/:movieId'
-    }
-}
+  MOVIES: {
+    CATALOG: '/movies',
+    DETAIL: '/movies/:movieId',
+  },
+};
 
 export default ROUTES;

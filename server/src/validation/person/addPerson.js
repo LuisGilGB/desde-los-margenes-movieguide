@@ -1,28 +1,30 @@
 const Validator = require('validator');
 const isEmpty = require('../is-empty');
 
-module.exports = function validatePersonToAdd (personData) {
-    const errors = {}
+module.exports = function validatePersonToAdd(rawData) {
+  const errors = {};
 
-    personData = !isEmpty(personData) ? personData : {};
-    personData.name = !isEmpty(personData.name) ? personData.name : '';
-    personData.description = !isEmpty(personData.description) ? personData.description : '';
-    personData.pic = !isEmpty(personData.pic) ? personData.pic : '';
+  const data = {
+    ...(!isEmpty(rawData) ? rawData : {}),
+    name: !isEmpty(rawData.name) ? rawData.name : '',
+    description: !isEmpty(rawData.description) ? rawData.description : '',
+    pic: !isEmpty(rawData.pic) ? rawData.pic : '',
+  };
 
-    if (Validator.isEmpty(personData.name)) {
-        errors.name = 'A name is required';
-    }
+  if (Validator.isEmpty(data.name)) {
+    errors.name = 'A name is required';
+  }
 
-    if (personData.description && typeof personData.description !== 'string') {
-        errors.description = 'Description must be a string';
-    }
+  if (data.description && typeof data.description !== 'string') {
+    errors.description = 'Description must be a string';
+  }
 
-    if (personData.pic && !Validator.isURL(personData.pic)) {
-        errors.pic = 'Pic must be a valid URL';
-    }
+  if (data.pic && !Validator.isURL(data.pic)) {
+    errors.pic = 'Pic must be a valid URL';
+  }
 
-    return {
-        errors,
-        isValid: isEmpty(errors)
-    }
-}
+  return {
+    errors,
+    isValid: isEmpty(errors),
+  };
+};

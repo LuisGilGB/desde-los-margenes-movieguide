@@ -8,8 +8,7 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "prettier:check": "prettier --check .",
-    "prettier:write": "prettier --write .",
-    "prepare": "husky install"
+    "prettier:write": "prettier --write ."
   },
   "dependencies": {
     "@luisgilgb/react-container": "^1.0.8",
@@ -40,11 +39,17 @@
       "react-app/jest"
     ]
   },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ],
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
   "proxy": "http://localhost:5000"
 }

@@ -8,6 +8,7 @@ describe('Performs basic navigation', () => {
     cy.get('[data-testid=login-page]');
   });
   it('Successfully logs in', () => {
+    cy.get('[data-testid=login-email]').type(Cypress.env('adminEmail'));
     cy.get('[data-testid=login-password]').type(Cypress.env('adminPassword'));
     cy.get('[data-testid=login-submit]').click();
     cy.get('[data-testid=app-body');

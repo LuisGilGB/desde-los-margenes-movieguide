@@ -24,6 +24,7 @@ module.exports = (on, config) => {
   require('dotenv').config();
   require('@cypress/code-coverage/task')(on, config);
 
+  config.env.adminEmail = process.env.DEV_ADMIN_USER_NAME;
   config.env.adminPassword = process.env.DEV_ADMIN_USER_PASSWORD;
   return config;
 };

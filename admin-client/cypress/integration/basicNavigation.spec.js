@@ -1,9 +1,11 @@
 import ROUTES from '../../src/routes';
 
 describe('Performs basic navigation', () => {
-  it('Renders app', () => {
+  it('Renders app and redirects to login page because the user is not logged in', () => {
     cy.visit(ROUTES.HOME);
     cy.get('[data-testid=app]');
+    cy.location('pathname').should('eq', ROUTES.LOGIN);
+    cy.get('[data-testid=login-page]');
   });
   it('Successfully logs in', () => {
     cy.get('[data-testid=login-password]').type(Cypress.env('adminPassword'));

@@ -1,6 +1,8 @@
 const ROUTES = {
   HOME: '/',
 
+  LOGIN: '/login',
+
   MOVIES: {
     MAIN: '/movies',
     LIST: '/movies',
